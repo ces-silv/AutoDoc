@@ -20,6 +20,9 @@ struct F_Seguimiento{
 struct registroP{
     string cedula;
     string nombre;
+    float altura;
+    float peso;
+    string num_celular;
     F_Especiales fechas;
 };
 
