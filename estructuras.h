@@ -24,6 +24,7 @@ struct registroP{
 };
 
 struct UltTrans{
+    registroP registro;
     int paredesVejiga;
     string anomaliasVejiga;
     
@@ -56,6 +57,7 @@ struct UltTrans{
 };
 
 struct UltMamas{
+    registroP registro;
     string tejidoPredominIzq;
     int cuadrante1Izq;
     int cuadrante2Izq;
@@ -87,6 +89,7 @@ struct UltMamas{
 };
 
 struct UltPelv{
+    registroP registro;
     int paredesVejiga;
     string anomaliasVejiga;
     
@@ -119,6 +122,7 @@ struct UltPelv{
 };
 
 struct seguimEmb{
+    registroP registro;
     float pesoMadre;
     int presArtSisto;
     int presArtDias;
