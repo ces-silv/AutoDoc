@@ -53,7 +53,6 @@ struct UltTrans{
     bool sacoDouglas;
     
     string conclusionesGen;
-
 };
 
 struct UltMamas{
@@ -85,7 +84,6 @@ struct UltMamas{
     string conclusionesGen;
 
     int BIRADS;
-
 };
 
 struct UltPelv{
@@ -118,7 +116,6 @@ struct UltPelv{
     bool sacoDouglas;
     
     string conclusionesGen;
-
 };
 
 struct seguimEmb{
@@ -135,5 +132,18 @@ struct seguimEmb{
     float edadBebe;
 
     string conclusionesGen;
+};
 
+struct diagnostico{
+    registroP Paciente;
+    string diagnostico;
+    string recomenMedicas;
+    float costoConsulta;
+    F_Especiales realizacion;
+};
+
+struct prescripcion{
+    registroP Paciente;
+    string dosis;
+    string cantidad;
 };
