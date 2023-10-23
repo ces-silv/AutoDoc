@@ -13,9 +13,6 @@ struct F_Especiales{
     fechaMain realizacion;
 };
 
-struct F_Seguimiento{
-    fechaMain seguimiento;
-};
 
 struct registroP{
     string cedula;
@@ -26,8 +23,15 @@ struct registroP{
     F_Especiales fechas;
 };
 
+struct citasProgramadas{
+    registroP Paciente;
+    fechaMain F_Seguimiento;
+    int ID_Prod;
+};
+
 struct UltTrans{
-    registroP registro;
+    registroP Paciente;
+
     int paredesVejiga;
     string anomaliasVejiga;
     
@@ -60,7 +64,7 @@ struct UltTrans{
 };
 
 struct UltMamas{
-    registroP registro;
+    registroP Paciente;
     string tejidoPredominIzq;
     int cuadrante1Izq;
     int cuadrante2Izq;
@@ -92,7 +96,7 @@ struct UltMamas{
 };
 
 struct UltPelv{
-    registroP registro;
+    registroP Paciente;
     int paredesVejiga;
     string anomaliasVejiga;
     
@@ -125,7 +129,7 @@ struct UltPelv{
 };
 
 struct seguimEmb{
-    registroP registro;
+    registroP Paciente;
     float pesoMadre;
     int presArtSisto;
     int presArtDias;
