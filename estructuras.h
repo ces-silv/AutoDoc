@@ -98,6 +98,13 @@ struct UltMamas{
 struct UltPelv{
     registroP Paciente;
     int paredesVejiga;
+    
+    int quisteX;
+    int quisteY;
+    int quisteZ;
+    int polipoX;
+    int polipoY;
+
     string anomaliasVejiga;
     
     int posicionUtero;
