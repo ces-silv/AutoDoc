@@ -11,22 +11,49 @@ int main(){
 
     cout << "~ Ultrasonido Pelvico ~" << endl;
 
-    /* Inicio - Vejiga*/
+    /* Inicio - Vejiga */
     
     cout << "Estado de las paredes de la Vejiga" << endl;
     cout << "1. Paredes Regulares." << endl;
     cout << "2. Paredes Engrosadas." << endl; // x
-    cout << "3. Paredes Irregulares." << endl; // borrar
-    cout << "4. Paredes con lesiones." << endl;
+    cout << "3. Paredes con lesiones." << endl;
     cin >> UP.paredesVejiga;
     
-    int opcLesVej, cantQuiste, cantPolipos;
+    while ( (UP.paredesVejiga != 1) && (UP.paredesVejiga != 2) && (UP.paredesVejiga != 3) ){
+            system("cls || clear");
+            cout << " Error - Opcion no Valida - Intentelo de Nuevo" << endl; 
+            cout << "~ Ultrasonido Pelvico ~" << endl;
+            cout << "Estado de las paredes de la Vejiga" << endl;
+            cout << "1. Paredes Regulares." << endl;
+            cout << "2. Paredes Engrosadas." << endl; // x
+            cout << "3. Paredes con lesiones." << endl;
+            cin >> UP.paredesVejiga;        
+        }
+
+    int opcLesVej, cantQuiste, cantPolipos, engrosVeji;
     bool vejLesCompleto = false;
     bool estadoQuiste = false, estadoPolipos = false, estadoLesiones = false;
     string edit;
 
-    if (UP.paredesVejiga == 4){
-        
+    switch (UP.paredesVejiga){
+    case 1:
+        system("cls || clear;");
+        cout << "La paciente presenta Paredes Regulares - Guardado" << endl;
+        cout << "Presione Enter para continuar" << endl;
+        system("pause");
+        system("cls || clear;");
+        break;
+    
+    case 2:
+        system("cls || clear;");
+        cout << "Ingrese las medida del engrosamiento en mm" << endl;
+        cin >> engrosVeji;
+        cout << "Presione Enter para continuar" << endl;
+        system("pause");
+        system("cls || clear;");
+        break;
+
+    case 3:  
         while (vejLesCompleto == false){
         system("cls || clear");
 
@@ -106,7 +133,6 @@ int main(){
                     system("pause");
                 }
             }  
-
             break;
         
         case 2:
@@ -160,9 +186,7 @@ int main(){
                     system("pause");
                 }
             }
-            
             break;
-
 
         case 4:
             vejLesCompleto = true;
@@ -170,11 +194,14 @@ int main(){
         default:
             break;
         }
+        }
 
-        }   
+        break;
+
+    /*default:
+        break; */
     }
-    
-    
+
     /* Final - Vejiga*/
 
     return 0;
