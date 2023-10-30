@@ -9,7 +9,7 @@ int main(){
 
     /* Ultrasonido Pelvico */
 
-    cout << "~ Ultrasonido Pelvico ~" << endl;
+    printf("~ Ultrasonido P%clvico ~\n", 130);
 
     /* Inicio - Vejiga */
     
@@ -21,8 +21,8 @@ int main(){
     
     while ( (UP.paredesVejiga != 1) && (UP.paredesVejiga != 2) && (UP.paredesVejiga != 3) ){
             system("cls || clear");
-            cout << " Error - Opcion no Valida - Intentelo de Nuevo" << endl; 
-            cout << "~ Ultrasonido Pelvico ~" << endl;
+            printf(" Error - Opci%cn no v%clida - Int%cntelo de nuevo\n", 162, 160, 130);
+            printf("~ Ultrasonido P%clvico ~\n", 130);
             cout << "Estado de las paredes de la Vejiga" << endl;
             cout << "1. Paredes Regulares." << endl;
             cout << "2. Paredes Engrosadas." << endl; // x
@@ -57,7 +57,7 @@ int main(){
         while (vejLesCompleto == false){
         system("cls || clear");
 
-        cout << "Que lesiones presenta? - Si ya ingreso la deseada NO la vuelva a ingresar al menos que desee editarla." << endl;
+        printf("%cQu%c lesiones presenta? - Si ya ingres%c la deseada NO la vuelva a ingresar al menos que desee editarla.\n", 168, 130, 162);
         cout << "1. Quiste";
         if (estadoQuiste == false){
             cout << " - Sin Info." << endl;
@@ -72,7 +72,7 @@ int main(){
             cout << " - Con Info." << endl;
         }
         
-        cout << "3. Polipos"; // x * y
+        printf("3. P%clipos\n", 162); // x * y
         if (estadoPolipos == false){
             cout << " - Sin Info." << endl;
         } else{
@@ -80,7 +80,7 @@ int main(){
         }
 
         cout << "4. Salir\n" << endl;
-        cout << "Recuerda que solo tienes que Salir una vez hayas todos los datos." << endl;
+        cout << "Recuerda que solamente tienes que Salir una vez hayas ingresado todos los datos." << endl;
         cin >> opcLesVej;
 
         system("cls || clear");
@@ -88,14 +88,14 @@ int main(){
         switch (opcLesVej){
         case 1:
             if (estadoQuiste == false){
-                        
-                cout << "Cuantos quistes va a ingresar ?" << endl;
+                
+                printf("%cCu%cntos quistes vas a ingresar?\n", 168, 160);
                 cin >> cantQuiste;
                 system("cls || clear");
 
                 for (int i = 0; i < cantQuiste; i++){
-                    cout << "Ingrese la medida del quiste #" << i + 1 << " expresada en mm."<< endl; 
-                    cout << "Recuerda que en el documento se mostrara de la siguiente manera: A x B x C\n" << endl;
+                    cout << "Ingrese la medida del quiste #" << i + 1 << " expresada en mm."<< endl;
+                    printf("Recuerda que en el documento se mostrar%c de la siguiente manera: A x B x C\n\n", 160);
                     cout << "Medida A:" << endl;
                     cin >> UP.quisteX;
                     cout << "Medida B:" << endl;
@@ -107,20 +107,20 @@ int main(){
                 
                 estadoQuiste = true;
 
-                    cout << "~ Presiona Enter para volver al menu principal ~" << endl;
+                    printf("~ Presiona Enter para volver al men%c principal ~\n", 163);
                     system("pause");
 
             } else{
-                cout << "Ya agregaste informacion sobre los quistes - Deseas Cambiarla?" << endl;
+                printf("Ya agregaste informaci%cn sobre los quistes. %cDeseas cambiarla?\n", 162, 168);
                 cout << "Ingresa S para editarla o cualquier otra letra para volver a ingresar el dato." << endl;
                 cin >> edit;
                 if ((edit == "S") || (edit == "s")){
-                    cout << "Cuantos quistes va a ingresar ?" << endl;
+                    printf("%cCu%cntos quistes vas a ingresar?\n", 168, 160);
                     cin >> cantQuiste; 
                     system("cls || clear");
                     for (int i = 0; i < cantQuiste; i++){
                         cout << "Ingrese la medida del quiste #" << i + 1 << " expresada en mm."<< endl; 
-                        cout << "Recuerda que en el documento se mostrara de la siguiente manera: A x B x C\n" << endl;
+                        printf("Recuerda que en el documento se mostrar%c de la siguiente manera: A x B x C\n\n", 160);
                         cout << "Medida A:" << endl;
                         cin >> UP.quisteX;
                         cout << "Medida B:" << endl;
@@ -129,7 +129,7 @@ int main(){
                         cin >> UP.quisteZ;
                         cout << endl;
                     }
-                    cout << "~ Presiona Enter para volver al menu principal ~" << endl;
+                    printf("~ Presiona Enter para volver al men%c principal ~\n", 163);
                     system("pause");
                 }
             }  
@@ -140,7 +140,7 @@ int main(){
             
             estadoLesiones = true;
             } else{
-                cout << "Ya agregaste informacion sobre las lesiones - Pulsa Enter para volver al Menu Principal" << endl;
+                printf("Ya agregaste informaci%cn sobre las lesiones - Pulsa Enter para volver al Men%c Principal\n", 162, 163);
                 system("pause");
             }
             
@@ -149,12 +149,12 @@ int main(){
         case 3:
             if (estadoPolipos == false){
             
-            cout << "Cuantos polipos va a ingresar ?" << endl;
+            printf("%cCu%cntos p%clipos vas a ingresar?\n", 168, 160, 162);
             cin >> cantPolipos;
 
             for (int i = 0; i < cantPolipos; i++){
-                cout << "Ingrese la medida del polipo #" << i + 1<< endl; 
-                cout << "Recuerda que en el documento se mostrara de la siguiente manera: A x B\n" << endl;
+                cout << "Ingrese la medida del polipo #" << i + 1<< endl;
+                printf("Recuerda que en el documento se mostrar%c de la siguiente manera: A x B\n\n", 160);
                 cout << "Medida A:" << endl;
                 cin >> UP.polipoX;
                 cout << "Medida B:" << endl;
@@ -162,27 +162,27 @@ int main(){
             }
 
             estadoPolipos = true;
-            cout << "~ Presiona Enter para volver al menu principal ~" << endl;
+            printf("~ Presiona Enter para volver al men%c principal ~\n", 163);
             system("pause");
 
             } else{
-                cout << "Ya agregaste informacion sobre los Polipos - Deseas Cambiarla?" << endl;
+                printf("Ya agregaste informaci%cn sobre los p%clipos. %cDeseas cambiarla?\n", 162, 162, 168);
                 cout << "Ingresa S para editarla o cualquier otra letra para volver a ingresar el dato.." << endl;
                 cin >> edit;
                 if ((edit == "S") || (edit == "s")){
-                    cout << "Cuantos quistes va a ingresar ?" << endl;
+                    printf("%cCu%cntos p%clipos vas a ingresar?\n", 168, 160, 162);
                     cin >> cantPolipos; 
                     system("cls || clear");
                     for (int i = 0; i < cantPolipos; i++){
                         cout << "Ingrese la medida del polipo #" << i + 1 << " expresada en mm."<< endl; 
-                        cout << "Recuerda que en el documento se mostrara de la siguiente manera: A x B x C\n" << endl;
+                        printf("Recuerda que en el documento se mostrar%c de la siguiente manera: A x B\n\n", 160);
                         cout << "Medida A:" << endl;
                         cin >> UP.polipoX;
                         cout << "Medida B:" << endl;
                         cin >> UP.polipoY;
                         cout << endl;
                     }
-                    cout << "~ Presiona Enter para volver al menu principal ~" << endl;
+                    printf("~ Presiona Enter para volver al men%c principal ~\n", 163);
                     system("pause");
                 }
             }
@@ -207,24 +207,24 @@ int main(){
     string estadoPosUt;
 
     while (posUteroComp == false){
-        cout << "Cual es la posicion del Utero?" << endl;
-        cout << "1. En Anteversion" << endl;
-        cout << "2. En Retroversion" << endl;
+        printf("%cCu%cl es la posici%cn del %ctero?\n", 168, 160, 162, 233);
+        printf("1. En Anterversi%cn\n", 162);
+        printf("2. En Retroversi%cn\n", 162);
         cin >> UP.posicionUtero;
 
         while ( (UP.posicionUtero != 1) && (UP.posicionUtero != 2)){
             system("cls || clear");
-            cout << "~ Opcion no valida - Ingrese una nueva" << endl;
-            cout << "Cual es la posicion del Utero?" << endl;
-            cout << "1. En Anteversion" << endl;
-            cout << "2. En Retroversion" << endl;
+            printf("~ Opci%cn no v%clida - Ingrese una nueva ~\n", 162, 160);
+            printf("%cCu%cl es la posici%cn del %ctero?\n", 168, 160, 162, 233);
+            printf("1. En Anterversi%cn\n", 162);
+            printf("2. En Retroversi%cn\n", 162);
             cin >> UP.posicionUtero;
         }
         
         if (UP.posicionUtero == 1){
             system("cls || clear");
-            cout << "Usted ha ingresado que el Utero esta en Anteversion.\n" << endl;
-            cout << "Esta seguro de dejarlo de esta manera?" << endl;
+            printf("Usted ha ingresado que el %ctero est%c en Anteversi%cn.\n\n", 233, 160, 162);
+            printf("%cEst%c seguro de dejarlo de esta manera?\n", 168, 160);
             cout << "Ingrese S para si o cualquier otra letra para volver a ingresar el dato." << endl;
             cin >> estadoPosUt;
 
@@ -233,8 +233,8 @@ int main(){
             }
         } else{
             system("cls || clear");
-            cout << "Usted ha ingresado que el Utero esta en Retroversion.\n" << endl;
-            cout << "Esta seguro de dejarlo de esta manera?" << endl;
+            printf("Usted ha ingresado que el %ctero est%c en Retroversi%cn.\n\n", 233, 160, 162);
+            printf("%cEst%c seguro de dejarlo de esta manera?\n", 168, 160);
             cout << "Ingrese S para si o cualquier otra letra para volver a ingresar el dato." << endl;
             cin >> estadoPosUt;
 
@@ -249,7 +249,7 @@ int main(){
     string uteMedComp;
 
     while (estadoUteMed == false){
-        cout << "Ingrese las medidas de el Utero - Recuerda que en el documento se mostrara de la siguiente manera: A x B x C\n" << endl;
+        printf("Ingrese las medidas del %ctero - Recuerda que en el documento se mostrar%c de la siguiente manera: A x B x C\n\n", 233, 160);
         cout << "Medida A:" << endl;
         cin >> UP.medidaUteroX;
         cout << "Medida B:" << endl;
@@ -257,7 +257,7 @@ int main(){
         cout << "Medida C:" << endl;
         cin >> UP.medidaUteroZ; 
         
-        cout << "\nTiene las medidas correcta?" << endl;
+        printf("%cTiene las medidas correctas?\n", 168);
         cout << "Ingrese S para si o cualquier otra letra para volver a ingresar el dato.." << endl;
         cin >> uteMedComp;
             if ( (uteMedComp == "S") || (uteMedComp == "s")){
@@ -270,22 +270,22 @@ int main(){
     string uteTamComp;
 
     while (estadoUteTam == false){  
-        cout << "Cual es el estado del Utero segun el tamanio?" << endl;
-        cout << "1. Utero Aumentado" << endl;
-        cout << "2. Utero Normal" << endl;
-        cout << "3. Utero Disminuido" << endl;
+        printf("%cCu%cl es el estado del %ctero seg%cn el tama%co?\n", 168, 160, 233, 163, 164);
+        printf("1. %ctero Aumentado\n", 233);
+        printf("2. %ctero Normal\n", 233);
+        printf("3. %ctero Disminuido\n", 233);
         cin >> UP.segunTamanioUtero;
         
         while ( (UP.segunTamanioUtero != 1) && (UP.segunTamanioUtero != 2) && (UP.segunTamanioUtero != 3) ){
             system("cls || clear");
-            cout << " Error - Opcion no Valida - Intentelo de Nuevo" << endl;  
-            cout << "Cual es el estado del Utero segun el tamanio?" << endl;
-            cout << "1. Utero Aumentado" << endl;
-            cout << "2. Utero Normal" << endl;
-            cout << "3. Utero Disminuido" << endl;
+            printf(" Error - Opci%cn no v%clida - Int%cntelo de nuevo\n", 162, 160, 130);
+            printf("%cCu%cl es el estado del %ctero seg%cn el tama%co?\n", 168, 160, 233, 163, 164);
+            printf("1. %ctero Aumentado\n", 233);
+            printf("2. %ctero Normal\n", 233);
+            printf("3. %ctero Disminuido\n", 233);
             cin >> UP.segunTamanioUtero; 
         }
-        cout << "\nEsta bien lo que ingreso?" << endl;
+        printf("%cEst%c bien lo que ingres%c?\n", 168, 160, 162);
         cout << "Ingrese S para si o cualquier otra letra para volver a ingresar el dato." << endl;
         cin >> uteTamComp;
             if ( (uteTamComp == "S") || (uteTamComp == "s")){
@@ -298,21 +298,21 @@ int main(){
     string uteContComp;
 
     while (estadoUteCont == false){
-        cout << "Como es el contorno del Utero?" << endl;
+        printf("%cC%cmo es el contorno del %ctero?\n", 168, 162, 233);
         cout << "1. Regulares" << endl;
         cout << "2. Irregulares" << endl;
         cin >> UP.contornoUtero;
         
         while ( (UP.contornoUtero != 1) && (UP.contornoUtero != 2) ){
             system("cls || clear");
-            cout << " Error - Opcion no Valida - Intentelo de Nuevo" << endl;  
-            cout << "Como es el contorno del Utero?" << endl;
+            printf(" Error - Opci%cn no v%clida - Int%cntelo de nuevo\n", 162, 160, 130);  
+            printf("%cC%cmo es el contorno del %ctero?\n", 168, 162, 233);
             cout << "1. Regulares" << endl;
             cout << "2. Irregulares" << endl;
             cin >> UP.contornoUtero; 
         }
 
-        cout << "\nEsta seguro de dejar el dato asi?" << endl;
+        printf("\n%cEst%c seguro de dejar el dato as%c?\n", 168, 160, 161);
         cout << "Ingrese S para si o cualquier otra letra para volver a ingresar el dato." << endl;
         cin >> uteContComp;
             if ( (uteContComp == "S") || (uteContComp == "s")){
@@ -325,20 +325,20 @@ int main(){
     string uteMioComp;
 
     while (estadoMiomCont == false){
-        cout << "Como es el miometrio del Utero?" << endl;
-        cout << "1. Homogeneo" << endl;
-        cout << "2. Heterogeneo" << endl;
+        printf("%cC%cmo es el miometrio del %ctero?\n", 168, 162, 233);
+        printf("1. Homog%cneo\n", 130);
+        printf("2. Heterog%cneo\n", 130);
         cin >> UP.miometrioUtero;
         
         while ( (UP.miometrioUtero != 1) && (UP.miometrioUtero != 2) ){
             system("cls || clear");
-            cout << " Error - Opcion no Valida - Intentelo de Nuevo" << endl;  
-            cout << "Como es el miometrio del Utero?" << endl;
-            cout << "1. Homogeneo" << endl;
-            cout << "2. Heterogeneo" << endl;
+            printf(" Error - Opci%cn no v%clida - Int%cntelo de nuevo\n", 162, 160, 130);  
+            printf("%cC%cmo es el miometrio del %ctero?\n", 168, 162, 233);
+            printf("1. Homog%cneo\n", 130);
+            printf("2. Heterog%cneo\n", 130);
             cin >> UP.miometrioUtero; 
         }
-        cout << "\nEl dato del Miometrio que ingreso es el correcto ?" << endl;
+        printf("\n%cEl dato del Miometrio que ingres%c es el correcto?\n", 168, 162);
         cout << "Ingrese S para si o cualquier otra letra para volver a ingresar el dato." << endl;
         cin >> uteMioComp;
             if ( (uteMioComp == "S") || (uteMioComp == "s")){
