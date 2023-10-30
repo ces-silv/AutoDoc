@@ -26,7 +26,7 @@ struct registroP{
 struct citasProgramadas{
     registroP Paciente;
     fechaMain F_Seguimiento;
-    int ID_Prod;
+    string Procedimiento;
 };
 
 struct UltTrans{
