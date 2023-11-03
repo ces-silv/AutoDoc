@@ -11,8 +11,7 @@ using namespace std;
 
 const string archivoPacientes = "pacientes.txt";
 
-// Funcion para convertir una cadena a mayusculas
-
+//Función para convertir cadenas a mayúsculas
 string convertirMayus(const string& str){
     string resultado = str;
     for(char& c : resultado){
@@ -21,6 +20,34 @@ string convertirMayus(const string& str){
     return resultado;
 }
 
+//Función de restricción de fechas no válidas
+bool esFechaValida(int dia, int mes, int anio) {
+    if (mes < 1 || mes > 12) {
+        return false; // El mes debe estar entre 1 y 12.
+    }
+    if (dia < 1) {
+        return false; // El día debe ser mayor o igual a 1.
+    }
+    if (mes == 2) {
+        if ((anio % 4 == 0 && anio % 100 != 0) || (anio % 400 == 0)) {
+            return dia <= 29; // Febrero tiene 29 días en años bisiestos.
+        } else {
+            return dia <= 28; // Febrero tiene 28 días en años no bisiestos.
+        }
+    } else if (mes == 4 || mes == 6 || mes == 9 || mes == 11) {
+        return dia <= 30; // Abril, junio, septiembre y noviembre tienen 30 días.
+    } else {
+        return dia <= 31; // Los demás meses tienen 31 días.
+    }
+}
+
+//Función de restricción de números no válidos
+bool esNumeroDeTelefonoValido(int numCelular) {
+    // Verifica que el número de teléfono tenga 8 dígitos y que sean del 1 al 9.
+    return (numCelular >= 11111111 && numCelular <= 99999999);
+}
+
+//Función para guardar archivos en registro
 void guardarRegistro(const registroP& paciente){
     ofstream archivo(archivoPacientes, ios :: app );
     if (archivo.is_open())
@@ -34,6 +61,7 @@ void guardarRegistro(const registroP& paciente){
         cout << "No se pudo abrir el archivo" << endl;
     } 
 }
+
 void cargarRegistroDesdeLinea(const string& linea, registroP& paciente) {
     stringstream ss(linea);
     string cedula, nombre, fechaNacimiento, fechaRealizacion, peso, altura, numCelular;
@@ -78,9 +106,9 @@ void cargarRegistroDesdeLinea(const string& linea, registroP& paciente) {
 }
 
 
-
 void crearPaciente(){
     registroP paciente;
+    int numCelular;
 
     system("clear || cls");
     printf("--------MEN%C DE PACIENTES--------\n", 163);
@@ -94,21 +122,28 @@ void crearPaciente(){
     getline(cin, paciente.nombre);
     paciente.nombre = convertirMayus(paciente.nombre);
 
-    printf("Fecha de nacimiento (d%ca/mes/a%co): \n", 214, 164);
-    printf("D%ca: ", 214);
-    cin >> paciente.fechas.nacimiento.dia;
-    printf("Mes: ");
-    cin >> paciente.fechas.nacimiento.mes;
-    printf("A%co: ", 164);
-    cin >> paciente.fechas.nacimiento.anio;
+    do
+    {
+        printf("Fecha de nacimiento (d%ca/mes/a%co): \n", 214, 164);
+        printf("D%ca: ", 214);
+        cin >> paciente.fechas.nacimiento.dia;
+        printf("Mes: ");
+        cin >> paciente.fechas.nacimiento.mes;
+        printf("A%co: ", 164);
+        cin >> paciente.fechas.nacimiento.anio;
+    } while (!esFechaValida(paciente.fechas.nacimiento.dia, paciente.fechas.nacimiento.mes, paciente.fechas.nacimiento.anio));
 
-    printf("Fecha de realizaci%cn (d%ca/mes/a%co): \n", 162, 214, 164);
-    printf("D%ca: ", 214);
-    cin >> paciente.fechas.realizacion.dia;
-    printf("Mes: ");
-    cin >> paciente.fechas.realizacion.mes;
-    printf("A%co: ", 164);
-    cin >> paciente.fechas.realizacion.anio;
+    do
+    {
+        printf("Fecha de realizaci%cn (d%ca/mes/a%co): \n", 162, 214, 164);
+        printf("D%ca: ", 214);
+        cin >> paciente.fechas.realizacion.dia;
+        printf("Mes: ");
+        cin >> paciente.fechas.realizacion.mes;
+        printf("A%co: ", 164);
+        cin >> paciente.fechas.realizacion.anio;
+    } while (!esFechaValida(paciente.fechas.realizacion.dia, paciente.fechas.realizacion.mes, paciente.fechas.realizacion.anio));
+
 
     cout << "Peso del paciente (lb): ";
     cin >> paciente.peso;
@@ -116,12 +151,16 @@ void crearPaciente(){
     cout << "Altura del paciente (cm): ";
     cin >> paciente.altura;
 
-    printf("N%cmero de tel%cfono: ", 163, 144);
-    cin >> paciente.num_celular;
+    do
+    {
+        printf("N%cmero de tel%cfono: ", 163, 144);
+        cin >> numCelular;
+    } while (!esNumeroDeTelefonoValido(numCelular));
+
+paciente.num_celular = numCelular;
 
     guardarRegistro(paciente);
     cout << "Paciente creado y guardado exitosamente." << endl;
-
 }
 
 bool buscarPacientes(const string& cedulaONombre) {
@@ -206,7 +245,6 @@ void listarPacientes() {
         cout << "No se pudo abrir el archivo para lectura." << endl;
     }
 }
-
 
 void actualizarPaciente() {
     system("clear || cls");
@@ -360,6 +398,7 @@ void eliminarPaciente() {
         cout << "No se pudo abrir el archivo para lectura o escritura." << endl;
     }
 }
+
 
 int main() {
     int opcion;
