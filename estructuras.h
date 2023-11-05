@@ -8,6 +8,13 @@ struct fechaMain{
     int anio;
 };
 
+struct nombre{
+    string primerNombre;
+    string segundoNombre;
+    string primerApellido;
+    string segundoApellido;
+};
+
 struct F_Especiales{
     fechaMain nacimiento;
     fechaMain realizacion;
@@ -16,7 +23,7 @@ struct F_Especiales{
 
 struct registroP{
     string cedula;
-    string nombre;
+    nombre nombrePaciente;
     float altura;
     float peso;
     string num_celular;
