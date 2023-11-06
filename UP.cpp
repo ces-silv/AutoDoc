@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <fstream>
 #include "estructuras.h"
 
 using namespace std;
@@ -349,6 +350,60 @@ int main(){
 
 
     /* Final - Utero */
+        ofstream archivoSalida("ultrasonidoPelvico.txt");
+
+    if (archivoSalida.is_open()) {
+        // Ahora puedes escribir los datos en el archivo
+        archivoSalida << "Datos del Ultrasonido Pélvico" << endl;
+
+        archivoSalida << "Estado de las paredes de la Vejiga: ";
+        if (UP.paredesVejiga == 1) {
+            archivoSalida << "Paredes Regulares" << endl;
+        } else if (UP.paredesVejiga == 2) {
+            archivoSalida << "Paredes Engrosadas (" << UP.paredesVejiga << " mm)" << endl;
+        } else if (UP.paredesVejiga == 3) {
+            archivoSalida << "Paredes con lesiones" << endl;
+            // Aquí puedes agregar más detalles sobre las lesiones, quistes, polipos, etc.
+        }
+
+        archivoSalida << "Posición del Útero: ";
+        if (UP.posicionUtero == 1) {
+            archivoSalida << "Anteversión" << endl;
+        } else if (UP.posicionUtero == 2) {
+            archivoSalida << "Retroversión" << endl;
+        }
+
+        archivoSalida << "Medidas del Útero (A x B x C): " << UP.medidaUteroX << " x " << UP.medidaUteroY << " x " << UP.medidaUteroZ << " mm" << endl;
+
+        archivoSalida << "Estado del Útero según el tamaño: ";
+        if (UP.segunTamanioUtero == 1) {
+            archivoSalida << "Útero Aumentado" << endl;
+        } else if (UP.segunTamanioUtero == 2) {
+            archivoSalida << "Útero Normal" << endl;
+        } else if (UP.segunTamanioUtero == 3) {
+            archivoSalida << "Útero Disminuido" << endl;
+        }
+
+        archivoSalida << "Contorno del Útero: ";
+        if (UP.contornoUtero == 1) {
+            archivoSalida << "Regulares" << endl;
+        } else if (UP.contornoUtero == 2) {
+            archivoSalida << "Irregulares" << endl;
+        }
+
+        archivoSalida << "Estado del Miometrio: ";
+        if (UP.miometrioUtero == 1) {
+            archivoSalida << "Homogéneo" << endl;
+        } else if (UP.miometrioUtero == 2) {
+            archivoSalida << "Heterogéneo" << endl;
+        }
+
+        archivoSalida.close(); // Cierra el archivo después de escribir
+
+        cout << "Los datos se han guardado en el archivo ultrasonidoPelvico.txt" << endl;
+    } else {
+        cout << "Error al abrir el archivo para escritura." << endl;
+    }
 
     return 0;
 }
