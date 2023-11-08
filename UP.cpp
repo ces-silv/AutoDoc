@@ -348,8 +348,136 @@ int main(){
         system("cls || clear");
     }
 
-
     /* Final - Utero */
+
+    bool estadoHallUte = false;
+    string uteHallComp;
+
+    while (estadoHallUte == false){
+        cout << "Ingrese su diagnostico escrito " << endl;
+        cin >> UP.hallazgosUtero;
+        cout << "\nHa ingresado todo correctamente?\nSi es asi presione S o ingrese cualquier otra letra para ingresarlo nuevamente." << endl;
+        cin >> uteHallComp;
+        if ((uteHallComp == "S") || (uteHallComp == "s")){
+            estadoHallUte = true;
+        }
+        system("cls || clear");
+    }
+    
+    bool medidaEndo = false;
+    string medidaEndoComp;
+
+    while (medidaEndo == false){
+        cout << "Ingrese la medida del endometrio representada en mm" << endl;
+        cin >> UP.medidaEndometrio;
+        cout << "\nHa ingresado todo correctamente?\nSi es asi presione S o ingrese cualquier otra letra para ingresarlo nuevamente." << endl;
+        cin >> medidaEndoComp;
+        if ((medidaEndoComp == "S") || (medidaEndoComp == "s")){
+            medidaEndo = true;
+        }
+        system("cls || clear");
+    }
+    
+    bool medidaOvarIzq = false;
+    string medidaOvarIzqComp;
+
+    while (medidaOvarIzq == false){
+        cout << "Ingrese las medidas del Ovario Izquierdo - Recuerda que en el documento se mostrara de la siguiente manera: A x B x C\n" << endl;
+        cout << "Medida A:" << endl;
+        cin >> UP.medidaOvarIzqX;
+        cout << "Medida B:" << endl;
+        cin >> UP.medidaOvarIzqY;
+        cout << "Medida C:" << endl;
+        cin >> UP.medidaOvarIzqZ; 
+        cout << "\nIngrese su conclusion del Ovario Izquierdo";
+        cin >> UP.otrasCaractOvarIzq;
+        
+        cout << "\nTiene todos los datos correctos?" << endl;
+        cout << "Ingrese S para si o cualquier otra letra para volver a ingresar los datos." << endl;
+        cin >> medidaOvarIzqComp;
+            if ( (medidaOvarIzqComp == "S") || (medidaOvarIzqComp == "s")){
+                medidaOvarIzq = true;
+            }
+        system("cls || clear");
+    }
+
+    bool medidaOvarDer = false;
+    string medidaOvarDerComp;
+
+    while (medidaOvarDer == false){
+        cout << "Ingrese las medidas del Ovario Derecho - Recuerda que en el documento se mostrara de la siguiente manera: A x B x C\n" << endl;
+        cout << "Medida A:" << endl;
+        cin >> UP.medidaOvarDerX;
+        cout << "Medida B:" << endl;
+        cin >> UP.medidaOvarDerY;
+        cout << "Medida C:" << endl;
+        cin >> UP.medidaOvarDerZ; 
+        cout << "\nIngrese su conclusion del Ovario Derecho";
+        cin >> UP.otrasCaractOvarDer;
+        
+        cout << "\nTiene todos los datos correctos?" << endl;
+        cout << "Ingrese S para si o cualquier otra letra para volver a ingresar los datos." << endl;
+        cin >> medidaOvarDerComp;
+            if ( (medidaOvarDerComp == "S") || (medidaOvarDerComp == "s")){
+                medidaOvarDer = true;
+            }
+        system("cls || clear");
+    }
+
+    bool sacoDouglas = false;
+    string sacoDouglasComp;
+
+    while (sacoDouglas == false){
+        cout << "Como esta el Saco de Douglas?" << endl;
+        cout << "1. Esta Libre de Liquido." << endl;
+        cout << "2. No Esta Libre de Liquido." << endl;
+        cin >> UP.sacoDouglas;
+
+        while ( (UP.sacoDouglas != 1) && (UP.sacoDouglas != 2)){
+            system("cls || clear");
+            cout << "Como esta el Saco de Douglas?" << endl;
+            cout << "1. Esta Libre de Liquido." << endl;
+            cout << "2. No Esta Libre de Liquido." << endl;
+            cin >> UP.sacoDouglas;
+        }
+        
+        if (UP.sacoDouglas == 1){
+            system("cls || clear");
+            cout << "Usted ha ingresado que el Saco de Douglas esta libre de liquido.\n" << endl;
+            cout << "Esta seguro de dejarlo de esta manera?" << endl;
+            cout << "Ingrese S para si o cualquier otra letra para volver a ingresar el dato." << endl;
+            cin >> sacoDouglasComp;
+
+            if ( (sacoDouglasComp == "S") || (sacoDouglasComp == "s")){
+                sacoDouglas = true;
+            }
+        } else{
+            system("cls || clear");
+            cout << "Usted ha ingresado que el Saco de Douglas no esta libre de liquido.\n" << endl;
+            cout << "Esta seguro de dejarlo de esta manera?" << endl;
+            cout << "Ingrese S para si o cualquier otra letra para volver a ingresar el dato." << endl;
+            cin >> sacoDouglasComp;
+
+            if ( (sacoDouglasComp == "S") || (sacoDouglasComp == "s")){
+                sacoDouglas = true;
+            }
+        }
+    }
+    
+    bool ConclusionesGen = false;
+    string ConclusionesGenComp;
+
+    while (ConclusionesGen == false){
+        cout << "Ingrese sus conclusiones generales del procedimiento." << endl;
+        cin >> UP.conclusionesGen;
+        cout << "\nHa ingresado todo correctamente?\nSi es asi presione S o ingrese cualquier otra letra para ingresarlo nuevamente." << endl;
+        cin >> ConclusionesGenComp;
+        if ((ConclusionesGenComp == "S") || (ConclusionesGenComp == "s")){
+            ConclusionesGen = true;
+        }
+        system("cls || clear");
+    }
+    
         ofstream archivoSalida("ultrasonidoPelvico.txt");
 
     if (archivoSalida.is_open()) {

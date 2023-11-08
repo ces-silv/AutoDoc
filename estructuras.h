@@ -139,7 +139,7 @@ struct UltPelv{
     float volumenOvarIzq;
     string otrasCaractOvarIzq;
 
-    bool sacoDouglas;
+    int sacoDouglas;
     
     string conclusionesGen;
 };
