@@ -2,7 +2,6 @@
 #include <string>
 #include <fstream>
 #include <limits>
-#include <vector>
 #include "estructuras.h"
 
 using namespace std;
@@ -14,14 +13,11 @@ void lesionesMamas();
 void conclusionesGen();
 
 void mamaIzq(){
-    vector<string> tejidoPredominIzqVector;
     string opc;
 
     do {
         printf("Escribe las caracter%csticas del tejido mamario predominante (de la mama izquierda)\n\n", 161);
         getline(cin, UM.tejidoPredominIzq);
-        tejidoPredominIzqVector.push_back(UM.tejidoPredominIzq); // Agrega la entrada al vector
-
         printf("\n%cHa ingresado todo correctamente? Si es as%c, presione S o ingrese cualquier otra letra para ingresarlo nuevamente.\n", 168, 161);
         cin >> opc;
 
@@ -30,11 +26,6 @@ void mamaIzq(){
         system("clear || cls");
 
     } while (opc != "S" && opc != "s");
-
-    /*cout << "Entradas almacenadas en el vector:\n";
-    for (const string& entrada : tejidoPredominIzqVector) {
-        cout << entrada << endl;
-    }*/
 
 
     printf("\nDescripciones espec%cficas - Cuadrantes en los que est%c distribuido el tejido\n", 161, 160);
@@ -69,14 +60,11 @@ void mamaIzq(){
 }
 
 void mamaDer(){
-    vector<string> tejidoPredominDerVector;
     string opc;
 
     do {
         printf("Escribe las caracter%csticas del tejido mamario predominante (de la mama izquierda)\n\n", 161);
         getline(cin, UM.tejidoPredominDer);
-        tejidoPredominDerVector.push_back(UM.tejidoPredominDer); // Agrega la entrada al vector
-
         printf("\n%cHa ingresado todo correctamente? Si es as%c, presione S o ingrese cualquier otra letra para ingresarlo nuevamente.\n", 168, 161);
         cin >> opc;
 
@@ -127,14 +115,11 @@ void lesionesMamas(){
 }
 
 void conclusionesGen(){
-    vector<string> ConclusionesGenComp;
     string opc;
 
     do {
         cout << "Ingrese sus conclusiones generales del procedimiento." << endl;
         getline(cin, UM.conclusionesGen);
-        ConclusionesGenComp.push_back(UM.conclusionesGen); // Agrega la entrada al vector
-
         printf("\n%cHa ingresado todo correctamente? Si es as%c, presione S o ingrese cualquier otra letra para ingresarlo nuevamente.\n", 168, 161);
         cin >> opc;
 
