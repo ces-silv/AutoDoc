@@ -11,6 +11,7 @@ void mamaIzq();
 void mamaDer();
 void lesionesMamas();
 void conclusionesGen();
+void BIRADS();
 
 void mamaIzq(){
     string opc;
@@ -25,7 +26,7 @@ void mamaIzq(){
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         system("clear || cls");
 
-    } while (opc != "S" && opc != "s");
+    } while (opc != "S");
 
 
     printf("\nDescripciones espec%cficas - Cuadrantes en los que est%c distribuido el tejido\n", 161, 160);
@@ -63,7 +64,7 @@ void mamaDer(){
     string opc;
 
     do {
-        printf("Escribe las caracter%csticas del tejido mamario predominante (de la mama izquierda)\n\n", 161);
+        printf("Escribe las caracter%csticas del tejido mamario predominante (de la mama derecha)\n\n", 161);
         getline(cin, UM.tejidoPredominDer);
         printf("\n%cHa ingresado todo correctamente? Si es as%c, presione S o ingrese cualquier otra letra para ingresarlo nuevamente.\n", 168, 161);
         cin >> opc;
@@ -72,11 +73,8 @@ void mamaDer(){
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         system("clear || cls");
 
-    } while (opc != "S" && opc != "s");
+    } while (opc != "S");
 
-
-    printf("Escribe las caracter%csticas del tejido mamario predominante (de la mama derecha)\n\n", 161);
-    getline(cin, UM.tejidoPredominDer);
 
     printf("\nDescripciones espec%cficas - Cuadrantes en los que est%c distribuido el tejido\n", 161, 160);
     printf("  - Cuadrante 1\n");
@@ -110,8 +108,26 @@ void mamaDer(){
 }
 
 void lesionesMamas(){
+    int opc;
     printf("%cAlguna de las mamas tiene lesiones?\n", 168);
+    printf("1. S%clo la mama izquierda.\n", 162);
+    printf("2. S%clo la mama derecha.\n", 162);
+    printf("3. Ambas.\n");
+    printf("4. Ninguna.\n");
+    cout << " ---> "; cin >> opc;
 
+    switch(opc){
+        case 1: break;
+        case 2: break;
+        case 3: break;
+        case 4: break;
+        default: 
+            printf("ERROR - No ingresaste un n%cmero v%clido, int%cntelo otra vez\n", 163, 160, 130);
+            system("pause || read -p 'Presiona Enter para continuar...' -n 1 -s");
+            system("clear || cls");
+            lesionesMamas(); 
+            break;
+    }
 }
 
 void conclusionesGen(){
@@ -127,7 +143,21 @@ void conclusionesGen(){
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         system("clear || cls");
 
-    } while (opc != "S" && opc != "s");
+    } while (opc != "S");
+}
+
+void BIRADS(){
+    cout << "Breast Imaging-Reporting and Data System (BI-RADS)" << endl;
+    printf("Escala de 0 a 5. Ingrese el n%cmero correspondiente seg%cn las normas internacionales.\n", 163, 163);
+    cout << " ---> ";
+    cin >> UM.BIRADS;
+
+    while (UM.BIRADS < 0 || UM.BIRADS > 5)
+    {
+        printf("\nERROR - No ingresaste un n%cmero dentro del rango solicitado, int%cntelo otra vez.\n", 163, 130);
+        BIRADS();
+    }
+        
 }
 
 int main(){
@@ -144,7 +174,12 @@ int main(){
     system("pause || read -p 'Presiona Enter para continuar...' -n 1 -s");
     system("clear || cls");
     cin.ignore();
+    lesionesMamas();
+    system("clear || cls");
+    cin.ignore();
     conclusionesGen();
+    cin.ignore();
+    BIRADS();
 
     return 0;
 }
