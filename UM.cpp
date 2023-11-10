@@ -10,6 +10,8 @@ UltMamas UM;
 void mamaIzq();
 void mamaDer();
 void lesionesMamas();
+void lesionMamaIzq();
+void lesionMamaDer();
 void conclusionesGen();
 void BIRADS();
 
@@ -107,6 +109,50 @@ void mamaDer(){
     }
 }
 
+void lesionMamaIzq(){
+    UM.lesionesMamaIzq = false;
+    string lesionesMamaIzq;
+    while (UM.lesionesMamaIzq == false){
+        printf("Ingrese las medidas del quiste izquierdo - Recuerda que en el documento se mostrar%c de la siguiente manera: A x B x C\n\n", 233, 160);
+        cout << "Medida A:" << endl;
+        cin >> UM.xQuisteIzq;
+        cout << "Medida B:" << endl;
+        cin >> UM.yQuisteIzq;
+        cout << "Medida C:" << endl;
+        cin >> UM.zQuisteIzq; 
+        
+        printf("%cTiene las medidas correctas?\n", 168);
+        cout << "Ingrese S para si o cualquier otra letra para volver a ingresar el dato.." << endl;
+        cin >> lesionesMamaIzq;
+            if ( (lesionesMamaIzq == "S") || (lesionesMamaIzq == "s")){
+                UM.lesionesMamaIzq = true;
+            }
+        system("cls || clear");
+    }
+}
+
+void lesionMamaDer(){
+    UM.lesionesMamaDer = false;
+    string lesionesMamaDer;
+    while (UM.lesionesMamaDer == false){
+        printf("Ingrese las medidas del quiste derecho - Recuerda que en el documento se mostrar%c de la siguiente manera: A x B x C\n\n", 233, 160);
+        cout << "Medida A:" << endl;
+        cin >> UM.xQuisteDer;
+        cout << "Medida B:" << endl;
+        cin >> UM.yQuisteDer;
+        cout << "Medida C:" << endl;
+        cin >> UM.zQuisteDer; 
+        
+        printf("%cTiene las medidas correctas?\n", 168);
+        cout << "Ingrese S para si o cualquier otra letra para volver a ingresar el dato.." << endl;
+        cin >> lesionesMamaDer;
+            if ( (lesionesMamaDer == "S") || (lesionesMamaDer == "s")){
+                UM.lesionesMamaDer = true;
+            }
+        system("cls || clear");
+    }
+}
+
 void lesionesMamas(){
     int opc;
     printf("%cAlguna de las mamas tiene lesiones?\n", 168);
@@ -116,10 +162,12 @@ void lesionesMamas(){
     printf("4. Ninguna.\n");
     cout << " ---> "; cin >> opc;
 
+    cin.ignore();
+
     switch(opc){
-        case 1: break;
-        case 2: break;
-        case 3: break;
+        case 1: system("clear || cls"); lesionMamaIzq(); break;
+        case 2: system("clear || cls"); lesionMamaDer(); break;
+        case 3: system("clear || cls"); lesionMamaIzq(); lesionMamaDer(); break;
         case 4: break;
         default: 
             printf("ERROR - No ingresaste un n%cmero v%clido, int%cntelo otra vez\n", 163, 160, 130);
@@ -178,7 +226,6 @@ int main(){
     system("clear || cls");
     cin.ignore();
     conclusionesGen();
-    cin.ignore();
     BIRADS();
 
     return 0;
