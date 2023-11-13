@@ -73,16 +73,16 @@ struct UltTrans{
 struct UltMamas{
     registroP Paciente;
     string tejidoPredominIzq;
-    int cuadrante1Izq;
-    int cuadrante2Izq;
-    int cuadrante3Izq;
-    int cuadrante4Izq;
+    string cuadrante1Izq;
+    string cuadrante2Izq;
+    string cuadrante3Izq;
+    string cuadrante4Izq;
 
     string tejidoPredominDer;
-    int cuadrante1Der;
-    int cuadrante2Der;
-    int cuadrante3Der;
-    int cuadrante4Der;
+    string cuadrante1Der;
+    string cuadrante2Der;
+    string cuadrante3Der;
+    string cuadrante4Der;
 
     bool lesionesMamaIzq;
     bool lesionesMamaDer;
