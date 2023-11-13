@@ -175,7 +175,7 @@ void lesionesMamas(){
         case 1: system("clear || cls"); lesionMamaIzq(); break;
         case 2: system("clear || cls"); lesionMamaDer(); break;
         case 3: system("clear || cls"); lesionMamaIzq(); lesionMamaDer(); break;
-        case 4: break;
+        case 4: system("pause || read -p 'Presiona Enter para continuar...' -n 1 -s"); system("clear || cls"); break;
         default: 
             printf("ERROR - No ingresaste un n%cmero v%clido, int%cntelo otra vez\n", 163, 160, 130);
             system("pause || read -p 'Presiona Enter para continuar...' -n 1 -s");
