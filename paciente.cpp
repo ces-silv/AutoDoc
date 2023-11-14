@@ -187,10 +187,11 @@ void buscarPacientes(const string& cedulaONombre) {
             string primerApellidoMayus = convertirMayus(paciente.nombrePaciente.primerApellido);
             string segundoApellidoMayus = convertirMayus(paciente.nombrePaciente.segundoApellido);
 
-            if (primerNombreMayus == cedulaONombreMayus ||
-                segundoNombreMayus == cedulaONombreMayus ||
-                primerApellidoMayus == cedulaONombreMayus ||
-                segundoApellidoMayus == cedulaONombreMayus) {
+            // Verifica si la entrada coincide con el inicio del nombre o apellido del paciente
+            if (primerNombreMayus.find(cedulaONombreMayus) == 0 ||
+                segundoNombreMayus.find(cedulaONombreMayus) == 0 ||
+                primerApellidoMayus.find(cedulaONombreMayus) == 0 ||
+                segundoApellidoMayus.find(cedulaONombreMayus) == 0) {
                 // Muestra la información del paciente encontrado
                 if (!encontrado) {
                     system("clear || cls");
