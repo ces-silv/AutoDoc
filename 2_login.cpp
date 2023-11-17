@@ -13,6 +13,8 @@ funcionalidades relacionadas con la gesti√≥n de memoria y otras operaciones est√
 #include <fstream>
 /*funcionalidades para trabajar con archivos.
 Incluye clases y funciones para leer y escribir datos en archivos.*/
+#include <Windows.h>
+#include <ShlObj.h>
 
 #ifdef _WIN32
 #include <conio.h> // Solo para Windows
@@ -20,7 +22,10 @@ Incluye clases y funciones para leer y escribir datos en archivos.*/
 
 using namespace std;
 
+bool folderExists(const string& folderPath);
+
 void login(){
+
     /* Declaracion de variables para el logeo */
     string usuarioCorrecto = "admin";
     string passCorrecto = "1234";
@@ -88,6 +93,26 @@ void login(){
         {
             system("clear || cls");
             //INICIA EL PROGRAMA
+            
+            char desktopPath[MAX_PATH];
+            if (SUCCEEDED(SHGetFolderPathA(NULL, CSIDL_DESKTOPDIRECTORY, NULL, 0, desktopPath))) { // Usar SHGetFolderPathA para cadenas de un solo byte
+                // Crea la carpeta en el escritorio
+                string folderPath = string(desktopPath) + "\\AutoDoc";
+
+                // Verifica si la carpeta no existe antes de intentar crearla
+                if (!folderExists(folderPath)) {
+                    if (CreateDirectoryA(folderPath.c_str(), NULL) || ERROR_ALREADY_EXISTS == GetLastError()) { // Usar CreateDirectoryA para cadenas de un solo byte
+                        cout << "Se creo la carpeta " << folderPath << endl;
+                    }
+                    else {
+                        cerr << "Error creando la carpeta " << GetLastError() << endl;
+                    }
+                }
+                else {
+                    cout << "La carpeta " << folderPath << " ya existe." << endl;
+                }
+            }
+
             break;
         }
 
@@ -105,4 +130,9 @@ void login(){
         cout << "Ha excedido el maximos de intentos permitidos." << endl;
     }
 
+}
+
+bool folderExists(const string& folderPath) {
+    DWORD attributes = GetFileAttributesA(folderPath.c_str()); // Usar GetFileAttributesA para cadenas de un solo byte
+    return (attributes != INVALID_FILE_ATTRIBUTES && (attributes & FILE_ATTRIBUTE_DIRECTORY));
 }
