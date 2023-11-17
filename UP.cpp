@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-#include "estructuras.h"
+#include "3_estructuras.h"
 
 using namespace std;
 
@@ -525,6 +525,22 @@ int main(){
         } else if (UP.miometrioUtero == 2) {
             archivoSalida << "Heterogéneo" << endl;
         }
+
+        archivoSalida << "Hallazgos generales en el Útero: " << UP.hallazgosUtero << endl;
+
+        archivoSalida << "Medida del Endometrio: " << UP.medidaEndometrio << " mm" << endl;
+
+        archivoSalida << "Medidas del Ovario Izquierdo (A x B x C): " << UP.medidaOvarIzqX << " x " << UP.medidaOvarIzqY << " x " << UP.medidaOvarIzqZ << endl;
+        archivoSalida << "Medidas del Ovario Derecho (A x B x C): " << UP.medidaOvarDerX << " x " << UP.medidaOvarDerY << " x " << UP.medidaOvarDerZ << endl;
+
+        archivoSalida << "Saco de Douglas: ";
+        if (UP.sacoDouglas == 1) {
+            archivoSalida << "Está libre de líquido" << endl;
+        } else if (UP.sacoDouglas == 2) {
+            archivoSalida << "No está libre de líquido" << endl;
+        }
+
+        archivoSalida << "Conclusiones generales del procedimiento: " << UP.conclusionesGen << endl;
 
         archivoSalida.close(); // Cierra el archivo después de escribir
 

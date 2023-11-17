@@ -3,21 +3,23 @@
 #include <sstream>
 #include <fstream>
 #include <limits>
-#include "estructuras.h"
+#include "3_estructuras.h"
 
 using namespace std;
 
 UltMamas UM;
-void mamaIzq(UltMamas &um);
-void mamaDer(UltMamas &um);
-void lesionesMamas(UltMamas &um);
-void lesionMamaIzq(UltMamas &um);
-void lesionMamaDer(UltMamas &um);
-void conclusionesGen(UltMamas &um);
-void BIRADS(UltMamas &um);
+void mamaIzq(UltMamas &UM);
+void mamaDer(UltMamas &UM);
+void lesionesMamas(UltMamas &UM);
+void lesionMamaIzq(UltMamas &UM);
+void lesionMamaDer(UltMamas &UM);
+void conclusionesGen(UltMamas &UM);
+void BIRADS(UltMamas &UM);
+void asignarProcedimientoAPaciente(UltMamas &UM);
+void guardarInformacionEnArchivo(const UltMamas &UM);
 
 
-void mamaIzq(UltMamas &um){
+void mamaIzq(UltMamas &UM){
     bool tejidoPredominIzq = false;
     string opc;
 
@@ -48,7 +50,7 @@ void mamaIzq(UltMamas &um){
     }
 }
 
-void mamaDer(UltMamas &um){
+void mamaDer(UltMamas &UM){
     bool tejidoPredominDer = false;
     string opc;
 
@@ -79,7 +81,7 @@ void mamaDer(UltMamas &um){
     }
 }
 
-void lesionMamaIzq(UltMamas &um){
+void lesionMamaIzq(UltMamas &UM){
     UM.lesionesMamaIzq = false;
     string lesionesMamaIzq;
     while (UM.lesionesMamaIzq == false){
@@ -120,7 +122,7 @@ void lesionMamaIzq(UltMamas &um){
     }
 }
 
-void lesionMamaDer(UltMamas &um){
+void lesionMamaDer(UltMamas &UM){
     UM.lesionesMamaDer = false;
     string lesionesMamaDer;
     while (UM.lesionesMamaDer == false){
@@ -161,7 +163,7 @@ void lesionMamaDer(UltMamas &um){
     }
 }
 
-void lesionesMamas(UltMamas &um){
+void lesionesMamas(UltMamas &UM){
     int opc;
     cout << "~ULTRASONIDO DE MAMAS~\n\n";
     printf("%cAlguna de las mamas tiene lesiones?\n", 168);
@@ -187,7 +189,7 @@ void lesionesMamas(UltMamas &um){
     }
 }
 
-void conclusionesGen(UltMamas &um){
+void conclusionesGen(UltMamas &UM){
     bool conclusionesGen = false;
     string opc;
 
@@ -208,7 +210,7 @@ void conclusionesGen(UltMamas &um){
     } while (conclusionesGen == false);
 }
 
-void BIRADS(UltMamas &um){
+void BIRADS(UltMamas &UM){
     cout << "~ULTRASONIDO DE MAMAS~\n\n";
     cout << "Breast Imaging-Reporting and Data System (BI-RADS)" << endl;
     printf("Escala de 0 a 5. Ingrese el n%cmero correspondiente seg%cn las normas internacionales.\n", 163, 163);
@@ -231,9 +233,9 @@ void BIRADS(UltMamas &um){
         
 }
 
-void asignarProcedimientoAPaciente(UltMamas &um) {
+void asignarProcedimientoAPaciente(UltMamas &UM) {
     cout << "Ingrese la cedula del paciente: ";
-    cin >> um.Paciente.cedula;
+    cin >> UM.Paciente.cedula;
 
     // Abrir el archivo de pacientes para lectura
     ifstream pacientesFile("pacientes.txt");
@@ -245,25 +247,25 @@ void asignarProcedimientoAPaciente(UltMamas &um) {
     // Buscar al paciente por cedula y cargar su información
     string line;
     while (getline(pacientesFile, line)) {
-        if (line.find(um.Paciente.cedula) == 0) {
+        if (line.find(UM.Paciente.cedula) == 0) {
             // Suponiendo que la estructura del archivo de pacientes es: cedula,primerNombre,segundoNombre,primerApellido,segundoApellido,altura,peso,num_celular,nacimiento.dia,nacimiento.mes,nacimiento.anio
             stringstream ss(line);
             string token;
             getline(ss, token, ','); // cedula
-            getline(ss, um.Paciente.nombrePaciente.primerNombre, ',');
-            getline(ss, um.Paciente.nombrePaciente.segundoNombre, ',');
-            getline(ss, um.Paciente.nombrePaciente.primerApellido, ',');
-            getline(ss, um.Paciente.nombrePaciente.segundoApellido, ',');
-            ss >> um.Paciente.altura;
+            getline(ss, UM.Paciente.nombrePaciente.primerNombre, ',');
+            getline(ss, UM.Paciente.nombrePaciente.segundoNombre, ',');
+            getline(ss, UM.Paciente.nombrePaciente.primerApellido, ',');
+            getline(ss, UM.Paciente.nombrePaciente.segundoApellido, ',');
+            ss >> UM.Paciente.altura;
             ss.ignore(1, ',');
-            ss >> um.Paciente.peso;
+            ss >> UM.Paciente.peso;
             ss.ignore(1, ',');
-            getline(ss, um.Paciente.num_celular, ',');
-            ss >> um.Paciente.fechas.nacimiento.dia;
+            getline(ss, UM.Paciente.num_celular, ',');
+            ss >> UM.Paciente.fechas.nacimiento.dia;
             ss.ignore(1, ',');
-            ss >> um.Paciente.fechas.nacimiento.mes;
+            ss >> UM.Paciente.fechas.nacimiento.mes;
             ss.ignore(1, ',');
-            ss >> um.Paciente.fechas.nacimiento.anio;
+            ss >> UM.Paciente.fechas.nacimiento.anio;
 
             // Cerrar el archivo de pacientes
             pacientesFile.close();
@@ -277,8 +279,8 @@ void asignarProcedimientoAPaciente(UltMamas &um) {
     exit(EXIT_FAILURE);
 }
 
-void guardarInformacionEnArchivo(const UltMamas &um) {
-    ofstream archivo("informacion_procedimiento.txt");
+void guardarInformacionEnArchivo(const UltMamas &UM) {
+    ofstream archivo("ultrasonidoMamas.txt");
 
     if (!archivo.is_open()) {
         cerr << "Error al abrir el archivo para escritura." << endl;
@@ -286,31 +288,43 @@ void guardarInformacionEnArchivo(const UltMamas &um) {
     }
 
     // Guardar la información en el archivo
-    archivo << "Cedula del paciente: " << um.Paciente.cedula << endl;
-    archivo << "Tejido predominante (mama izquierda): " << um.tejidoPredominIzq << endl;
-    archivo << "Cuadrantes (mama izquierda): " << um.cuadrante1Izq << ", " << um.cuadrante2Izq << ", " << um.cuadrante3Izq << ", " << um.cuadrante4Izq << endl;
-    archivo << "Tejido predominante (mama derecha): " << um.tejidoPredominDer << endl;
-    archivo << "Cuadrantes (mama derecha): " << um.cuadrante1Der << ", " << um.cuadrante2Der << ", " << um.cuadrante3Der << ", " << um.cuadrante4Der << endl;
-    archivo << "Lesiones en mama izquierda: " << (um.lesionesMamaIzq ? "Sí" : "No") << endl;
-    if (um.lesionesMamaIzq) {
-        archivo << "Medidas del quiste izquierdo (A x B x C): " << um.xQuisteIzq << " x " << um.yQuisteIzq << " x " << um.zQuisteIzq << endl;
+    archivo << "Cedula del paciente: " << UM.Paciente.cedula << endl;
+    archivo << "Tejido predominante (mama izquierda): " << UM.tejidoPredominIzq << endl;
+    archivo << "Cuadrantes izquierdos: " << endl;
+    archivo << " - Cuadrante 1: " << UM.cuadrante1Izq << endl;
+    archivo << " - Cuadrante 2: " << UM.cuadrante2Izq << endl;
+    archivo << " - Cuadrante 3: " << UM.cuadrante3Izq << endl; 
+    archivo << " - Cuadrante 4: " << UM.cuadrante4Izq << "\n\n";
+
+    archivo << "Tejido predominante (mama derecha): " << UM.tejidoPredominDer << endl;
+    archivo << "Cuadrantes derechos: " << endl;
+    archivo << " - Cuadrante 1: " << UM.cuadrante1Der << endl;
+    archivo << " - Cuadrante 2: " << UM.cuadrante2Der << endl;
+    archivo << " - Cuadrante 3: " << UM.cuadrante3Der << endl; 
+    archivo << " - Cuadrante 4: " << UM.cuadrante4Der << "\n\n";
+
+    archivo << "Lesiones en mama izquierda: " << (UM.lesionesMamaIzq ? "Sí" : "No") << endl;
+    if (UM.lesionesMamaIzq) {
+        archivo << "Medidas del quiste izquierdo (A x B x C): " << UM.xQuisteIzq << " x " << UM.yQuisteIzq << " x " << UM.zQuisteIzq << endl;
     }
-    archivo << "Lesiones en mama derecha: " << (um.lesionesMamaDer ? "Sí" : "No") << endl;
-    if (um.lesionesMamaDer) {
-        archivo << "Medidas del quiste derecho (A x B x C): " << um.xQuisteDer << " x " << um.yQuisteDer << " x " << um.zQuisteDer << endl;
+    archivo << "Lesiones en mama derecha: " << (UM.lesionesMamaDer ? "Sí" : "No") << endl;
+    if (UM.lesionesMamaDer) {
+        archivo << "Medidas del quiste derecho (A x B x C): " << UM.xQuisteDer << " x " << UM.yQuisteDer << " x " << UM.zQuisteDer << endl;
     }
-    archivo << "Conclusiones generales: " << um.conclusionesGen << endl;
-    archivo << "BI-RADS: " << um.BIRADS << endl;
-    archivo << "Fecha de realizacion: " << um.Paciente.fechas.realizacion.dia << "/" << um.Paciente.fechas.realizacion.mes << "/" << um.Paciente.fechas.realizacion.anio << endl;
+    archivo << "Conclusiones generales: " << UM.conclusionesGen << endl;
+    archivo << "BI-RADS: " << UM.BIRADS << endl;
+    archivo << "Fecha de realizacion: " << UM.Paciente.fechas.realizacion.dia << "/" << UM.Paciente.fechas.realizacion.mes << "/" << UM.Paciente.fechas.realizacion.anio << endl;
 
     // Agrega el resto de la información que desees guardar
 
     archivo.close();
+    cout << "La informacion se ha guardado correctamente en el archivo 'ultrasonidoMamas.txt'.\n";
 }
 
 int main(){
     UltMamas UM;
     asignarProcedimientoAPaciente(UM);
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
     mamaIzq(UM);
     mamaDer(UM);
     lesionesMamas(UM);

@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include "estructuras.h"
+#include "3_estructuras.h"
 
 using namespace std;
 
