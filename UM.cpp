@@ -289,6 +289,9 @@ void guardarInformacionEnArchivo(const UltMamas &UM) {
 
     // Guardar la información en el archivo
     archivo << "Cedula del paciente: " << UM.Paciente.cedula << endl;
+    archivo << "Nombre del paciente: " << UM.Paciente.nombrePaciente.primerNombre << " " << UM.Paciente.nombrePaciente.segundoNombre
+    << " " << UM.Paciente.nombrePaciente.primerApellido << " " << UM.Paciente.nombrePaciente.segundoApellido << "\n\n";
+
     archivo << "Tejido predominante (mama izquierda): " << UM.tejidoPredominIzq << endl;
     archivo << "Cuadrantes izquierdos: " << endl;
     archivo << " - Cuadrante 1: " << UM.cuadrante1Izq << endl;
@@ -303,14 +306,19 @@ void guardarInformacionEnArchivo(const UltMamas &UM) {
     archivo << " - Cuadrante 3: " << UM.cuadrante3Der << endl; 
     archivo << " - Cuadrante 4: " << UM.cuadrante4Der << "\n\n";
 
-    archivo << "Lesiones en mama izquierda: " << (UM.lesionesMamaIzq ? "Sí" : "No") << endl;
-    if (UM.lesionesMamaIzq) {
+    if (UM.lesionesMamaIzq == true) {
+        archivo << "Lesiones en mama izquierda: Sí" << endl;
         archivo << "Medidas del quiste izquierdo (A x B x C): " << UM.xQuisteIzq << " x " << UM.yQuisteIzq << " x " << UM.zQuisteIzq << endl;
+    } else {
+        archivo << "Lesiones en mama izquierda: No" << endl;
     }
-    archivo << "Lesiones en mama derecha: " << (UM.lesionesMamaDer ? "Sí" : "No") << endl;
-    if (UM.lesionesMamaDer) {
-        archivo << "Medidas del quiste derecho (A x B x C): " << UM.xQuisteDer << " x " << UM.yQuisteDer << " x " << UM.zQuisteDer << endl;
+    if (UM.lesionesMamaDer == true) {
+        archivo << "Lesiones en mama derecha: Sí" << endl;
+        archivo << "Medidas del quiste derecho (A x B x C): " << UM.xQuisteIzq << " x " << UM.yQuisteIzq << " x " << UM.zQuisteIzq << endl;
+    } else {
+        archivo << "Lesiones en mama derecha: No" << endl;
     }
+
     archivo << "Conclusiones generales: " << UM.conclusionesGen << endl;
     archivo << "BI-RADS: " << UM.BIRADS << endl;
     archivo << "Fecha de realizacion: " << UM.Paciente.fechas.realizacion.dia << "/" << UM.Paciente.fechas.realizacion.mes << "/" << UM.Paciente.fechas.realizacion.anio << endl;
