@@ -14,6 +14,7 @@ void lesionMamaIzq();
 void lesionMamaDer();
 void conclusionesGen();
 void BIRADS();
+void saveToFile(const UltMamas& UM);
 
 void mamaIzq(){
     bool tejidoPredominIzq = false;
@@ -229,6 +230,41 @@ void BIRADS(){
         
 }
 
+void saveToFile(const UltMamas& UM) {
+    ofstream UltrasonidoMamas("ultrasonido_mamas.txt");
+
+    if (UltrasonidoMamas.is_open()) {
+        UltrasonidoMamas << "Tejido Predominante Izquierdo: " << UM.tejidoPredominIzq << "\n";
+        UltrasonidoMamas << "Cuadrantes Izquierdos:\n";
+        UltrasonidoMamas << "  - Cuadrante 1: " << UM.cuadrante1Izq << "\n";
+        UltrasonidoMamas << "  - Cuadrante 2: " << UM.cuadrante2Izq << "\n";
+        UltrasonidoMamas << "  - Cuadrante 3: " << UM.cuadrante3Izq << "\n";
+        UltrasonidoMamas << "  - Cuadrante 4: " << UM.cuadrante4Izq << "\n\n";
+
+        UltrasonidoMamas << "Tejido Predominante Derecho: " << UM.tejidoPredominDer << "\n";
+        UltrasonidoMamas << "Cuadrantes Derechos:\n";
+        UltrasonidoMamas << "  - Cuadrante 1: " << UM.cuadrante1Der << "\n";
+        UltrasonidoMamas << "  - Cuadrante 2: " << UM.cuadrante2Der << "\n";
+        UltrasonidoMamas << "  - Cuadrante 3: " << UM.cuadrante3Der << "\n";
+        UltrasonidoMamas << "  - Cuadrante 4: " << UM.cuadrante4Der << "\n\n";
+
+        if(UM.lesionesMamaIzq == true){
+            UltrasonidoMamas << "Lesiones Mama Izquierda (A x B x C): " << UM.xQuisteIzq << " x " << UM.yQuisteIzq << " x " << UM.zQuisteIzq << "\n\n";
+        }
+        if(UM.lesionesMamaDer == true){
+            UltrasonidoMamas << "Lesiones Mama Derecha (A x B x C): " << UM.xQuisteDer << " x " << UM.yQuisteDer << " x " << UM.zQuisteDer << "\n\n";
+        }
+
+        UltrasonidoMamas << "Conclusiones Generales: " << UM.conclusionesGen << "\n";
+        UltrasonidoMamas << "BIRADS: " << UM.BIRADS << "\n";
+
+        UltrasonidoMamas.close();
+        cout << "La informacion se ha guardado correctamente en el archivo 'ultrasonido_mamas.txt'.\n";
+    } else {
+        cout << "Error al abrir el archivo para escritura.\n";
+    }
+}
+
 int main(){
 
     mamaIzq();
@@ -236,6 +272,7 @@ int main(){
     lesionesMamas();
     conclusionesGen();
     BIRADS();
+    saveToFile(UM);
 
     return 0;
 }
