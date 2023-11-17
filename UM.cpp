@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <sstream>
 #include <fstream>
 #include <limits>
 #include "estructuras.h"
@@ -7,16 +8,16 @@
 using namespace std;
 
 UltMamas UM;
-void mamaIzq();
-void mamaDer();
-void lesionesMamas();
-void lesionMamaIzq();
-void lesionMamaDer();
-void conclusionesGen();
-void BIRADS();
-void saveToFile(const UltMamas& UM);
+void mamaIzq(UltMamas &um);
+void mamaDer(UltMamas &um);
+void lesionesMamas(UltMamas &um);
+void lesionMamaIzq(UltMamas &um);
+void lesionMamaDer(UltMamas &um);
+void conclusionesGen(UltMamas &um);
+void BIRADS(UltMamas &um);
 
-void mamaIzq(){
+
+void mamaIzq(UltMamas &um){
     bool tejidoPredominIzq = false;
     string opc;
 
@@ -47,7 +48,7 @@ void mamaIzq(){
     }
 }
 
-void mamaDer(){
+void mamaDer(UltMamas &um){
     bool tejidoPredominDer = false;
     string opc;
 
@@ -78,7 +79,7 @@ void mamaDer(){
     }
 }
 
-void lesionMamaIzq(){
+void lesionMamaIzq(UltMamas &um){
     UM.lesionesMamaIzq = false;
     string lesionesMamaIzq;
     while (UM.lesionesMamaIzq == false){
@@ -119,7 +120,7 @@ void lesionMamaIzq(){
     }
 }
 
-void lesionMamaDer(){
+void lesionMamaDer(UltMamas &um){
     UM.lesionesMamaDer = false;
     string lesionesMamaDer;
     while (UM.lesionesMamaDer == false){
@@ -160,7 +161,7 @@ void lesionMamaDer(){
     }
 }
 
-void lesionesMamas(){
+void lesionesMamas(UltMamas &um){
     int opc;
     cout << "~ULTRASONIDO DE MAMAS~\n\n";
     printf("%cAlguna de las mamas tiene lesiones?\n", 168);
@@ -173,20 +174,20 @@ void lesionesMamas(){
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
     switch(opc){
-        case 1: system("clear || cls"); lesionMamaIzq(); break;
-        case 2: system("clear || cls"); lesionMamaDer(); break;
-        case 3: system("clear || cls"); lesionMamaIzq(); lesionMamaDer(); break;
+        case 1: system("clear || cls"); lesionMamaIzq(UM); break;
+        case 2: system("clear || cls"); lesionMamaDer(UM); break;
+        case 3: system("clear || cls"); lesionMamaIzq(UM); lesionMamaDer(UM); break;
         case 4: system("pause || read -p 'Presiona Enter para continuar...' -n 1 -s"); system("clear || cls"); break;
         default: 
             printf("ERROR - No ingresaste un n%cmero v%clido, int%cntelo otra vez\n", 163, 160, 130);
             system("pause || read -p 'Presiona Enter para continuar...' -n 1 -s");
             system("clear || cls");
-            lesionesMamas(); 
+            lesionesMamas(UM); 
             break;
     }
 }
 
-void conclusionesGen(){
+void conclusionesGen(UltMamas &um){
     bool conclusionesGen = false;
     string opc;
 
@@ -207,7 +208,7 @@ void conclusionesGen(){
     } while (conclusionesGen == false);
 }
 
-void BIRADS(){
+void BIRADS(UltMamas &um){
     cout << "~ULTRASONIDO DE MAMAS~\n\n";
     cout << "Breast Imaging-Reporting and Data System (BI-RADS)" << endl;
     printf("Escala de 0 a 5. Ingrese el n%cmero correspondiente seg%cn las normas internacionales.\n", 163, 163);
@@ -219,60 +220,105 @@ void BIRADS(){
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         system("clear || cls");
         printf("ERROR - No ingresaste un n%cmero, int%cntelo otra vez\n\n", 163, 130);
-        BIRADS();
+        BIRADS(UM);
     }
     else if (UM.BIRADS < 0 || UM.BIRADS > 5)
     {   
         system("clear || cls");
         printf("\nERROR - No ingresaste un n%cmero dentro del rango solicitado, int%cntelo otra vez.\n\n", 163, 130);
-        BIRADS();
+        BIRADS(UM);
     }
         
 }
 
-void saveToFile(const UltMamas& UM) {
-    ofstream UltrasonidoMamas("ultrasonido_mamas.txt");
+void asignarProcedimientoAPaciente(UltMamas &um) {
+    cout << "Ingrese la cedula del paciente: ";
+    cin >> um.Paciente.cedula;
 
-    if (UltrasonidoMamas.is_open()) {
-        UltrasonidoMamas << "Tejido Predominante Izquierdo: " << UM.tejidoPredominIzq << "\n";
-        UltrasonidoMamas << "Cuadrantes Izquierdos:\n";
-        UltrasonidoMamas << "  - Cuadrante 1: " << UM.cuadrante1Izq << "\n";
-        UltrasonidoMamas << "  - Cuadrante 2: " << UM.cuadrante2Izq << "\n";
-        UltrasonidoMamas << "  - Cuadrante 3: " << UM.cuadrante3Izq << "\n";
-        UltrasonidoMamas << "  - Cuadrante 4: " << UM.cuadrante4Izq << "\n\n";
-
-        UltrasonidoMamas << "Tejido Predominante Derecho: " << UM.tejidoPredominDer << "\n";
-        UltrasonidoMamas << "Cuadrantes Derechos:\n";
-        UltrasonidoMamas << "  - Cuadrante 1: " << UM.cuadrante1Der << "\n";
-        UltrasonidoMamas << "  - Cuadrante 2: " << UM.cuadrante2Der << "\n";
-        UltrasonidoMamas << "  - Cuadrante 3: " << UM.cuadrante3Der << "\n";
-        UltrasonidoMamas << "  - Cuadrante 4: " << UM.cuadrante4Der << "\n\n";
-
-        if(UM.lesionesMamaIzq == true){
-            UltrasonidoMamas << "Lesiones Mama Izquierda (A x B x C): " << UM.xQuisteIzq << " x " << UM.yQuisteIzq << " x " << UM.zQuisteIzq << "\n\n";
-        }
-        if(UM.lesionesMamaDer == true){
-            UltrasonidoMamas << "Lesiones Mama Derecha (A x B x C): " << UM.xQuisteDer << " x " << UM.yQuisteDer << " x " << UM.zQuisteDer << "\n\n";
-        }
-
-        UltrasonidoMamas << "Conclusiones Generales: " << UM.conclusionesGen << "\n";
-        UltrasonidoMamas << "BIRADS: " << UM.BIRADS << "\n";
-
-        UltrasonidoMamas.close();
-        cout << "La informacion se ha guardado correctamente en el archivo 'ultrasonido_mamas.txt'.\n";
-    } else {
-        cout << "Error al abrir el archivo para escritura.\n";
+    // Abrir el archivo de pacientes para lectura
+    ifstream pacientesFile("pacientes.txt");
+    if (!pacientesFile.is_open()) {
+        cerr << "Error al abrir el archivo de pacientes." << endl;
+        exit(EXIT_FAILURE);
     }
+
+    // Buscar al paciente por cedula y cargar su información
+    string line;
+    while (getline(pacientesFile, line)) {
+        if (line.find(um.Paciente.cedula) == 0) {
+            // Suponiendo que la estructura del archivo de pacientes es: cedula,primerNombre,segundoNombre,primerApellido,segundoApellido,altura,peso,num_celular,nacimiento.dia,nacimiento.mes,nacimiento.anio
+            stringstream ss(line);
+            string token;
+            getline(ss, token, ','); // cedula
+            getline(ss, um.Paciente.nombrePaciente.primerNombre, ',');
+            getline(ss, um.Paciente.nombrePaciente.segundoNombre, ',');
+            getline(ss, um.Paciente.nombrePaciente.primerApellido, ',');
+            getline(ss, um.Paciente.nombrePaciente.segundoApellido, ',');
+            ss >> um.Paciente.altura;
+            ss.ignore(1, ',');
+            ss >> um.Paciente.peso;
+            ss.ignore(1, ',');
+            getline(ss, um.Paciente.num_celular, ',');
+            ss >> um.Paciente.fechas.nacimiento.dia;
+            ss.ignore(1, ',');
+            ss >> um.Paciente.fechas.nacimiento.mes;
+            ss.ignore(1, ',');
+            ss >> um.Paciente.fechas.nacimiento.anio;
+
+            // Cerrar el archivo de pacientes
+            pacientesFile.close();
+            return;
+        }
+    }
+
+    // Si llega aquí, no se encontró al paciente
+    cerr << "Paciente no encontrado." << endl;
+    pacientesFile.close();
+    exit(EXIT_FAILURE);
+}
+
+void guardarInformacionEnArchivo(const UltMamas &um) {
+    ofstream archivo("informacion_procedimiento.txt");
+
+    if (!archivo.is_open()) {
+        cerr << "Error al abrir el archivo para escritura." << endl;
+        exit(EXIT_FAILURE);
+    }
+
+    // Guardar la información en el archivo
+    archivo << "Cedula del paciente: " << um.Paciente.cedula << endl;
+    archivo << "Tejido predominante (mama izquierda): " << um.tejidoPredominIzq << endl;
+    archivo << "Cuadrantes (mama izquierda): " << um.cuadrante1Izq << ", " << um.cuadrante2Izq << ", " << um.cuadrante3Izq << ", " << um.cuadrante4Izq << endl;
+    archivo << "Tejido predominante (mama derecha): " << um.tejidoPredominDer << endl;
+    archivo << "Cuadrantes (mama derecha): " << um.cuadrante1Der << ", " << um.cuadrante2Der << ", " << um.cuadrante3Der << ", " << um.cuadrante4Der << endl;
+    archivo << "Lesiones en mama izquierda: " << (um.lesionesMamaIzq ? "Sí" : "No") << endl;
+    if (um.lesionesMamaIzq) {
+        archivo << "Medidas del quiste izquierdo (A x B x C): " << um.xQuisteIzq << " x " << um.yQuisteIzq << " x " << um.zQuisteIzq << endl;
+    }
+    archivo << "Lesiones en mama derecha: " << (um.lesionesMamaDer ? "Sí" : "No") << endl;
+    if (um.lesionesMamaDer) {
+        archivo << "Medidas del quiste derecho (A x B x C): " << um.xQuisteDer << " x " << um.yQuisteDer << " x " << um.zQuisteDer << endl;
+    }
+    archivo << "Conclusiones generales: " << um.conclusionesGen << endl;
+    archivo << "BI-RADS: " << um.BIRADS << endl;
+    archivo << "Fecha de realizacion: " << um.Paciente.fechas.realizacion.dia << "/" << um.Paciente.fechas.realizacion.mes << "/" << um.Paciente.fechas.realizacion.anio << endl;
+
+    // Agrega el resto de la información que desees guardar
+
+    archivo.close();
 }
 
 int main(){
+    UltMamas UM;
+    asignarProcedimientoAPaciente(UM);
+    mamaIzq(UM);
+    mamaDer(UM);
+    lesionesMamas(UM);
+    conclusionesGen(UM);
+    BIRADS(UM);
 
-    mamaIzq();
-    mamaDer();
-    lesionesMamas();
-    conclusionesGen();
-    BIRADS();
-    saveToFile(UM);
+    // Guardar la información en un archivo
+    guardarInformacionEnArchivo(UM);
 
     return 0;
 }
