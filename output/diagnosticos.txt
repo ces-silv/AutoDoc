@@ -1,0 +1,6 @@
+Cedula: 002
+Diagnostico: sd
+Recomendaciones Medicas: sd
+Costo Consulta: 0
+Fecha de Realizacion: 0/0/0
+----------------------------------------
