@@ -169,6 +169,7 @@ struct diagnostico{
 
 struct prescripcion{
     registroP Paciente;
+    string nombreMed;
     string dosis;
     string cantidad;
 };
