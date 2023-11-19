@@ -125,7 +125,6 @@ void guardarDiagnostico(const diagnostico& diag) {
         archivo << "Recomendaciones Medicas: " << diag.recomenMedicas << endl;
         archivo << "Costo Consulta: $ " << diag.costoConsulta << endl;
         archivo << "Fecha de Realizacion: " << diag.realizacion.realizacion.dia << "/" << diag.realizacion.realizacion.mes << "/" << diag.realizacion.realizacion.anio << endl;
-
         archivo << "----------------------------------------" << endl;
 
         // Cerrar el archivo
@@ -145,7 +144,6 @@ void guardarPrescripcion(const prescripcion& presc) {
         archivo << "Nombre del medicamento: " << presc.nombreMed << endl;
         archivo << "Dosis: " << presc.dosis << endl;
         archivo << "Cantidad: " << presc.cantidad << endl;
-
         archivo << "----------------------------------------" << endl;
 
         // Cerrar el archivo
@@ -175,6 +173,7 @@ void mostrarDiagnosticosYPrescripciones(const string& cedula) {
             if (lineaDiagnostico.find("Cedula: " + cedula) != string::npos) {
                 diagnosticoEncontrado = true;
                 cout << lineaDiagnostico << endl;
+                cout << endl;
 
                 // Leer líneas adicionales del diagnóstico
                 for (int i = 0; i < 4; ++i) {
@@ -200,6 +199,7 @@ void mostrarDiagnosticosYPrescripciones(const string& cedula) {
                 for (int i = 0; i < 3; ++i) {
                     getline(archivoPrescripciones, lineaPrescripcion);
                     cout << lineaPrescripcion << endl;
+                    cout << endl;
                 }
             }
         }
