@@ -48,7 +48,6 @@ void guardarRegistro(const registroP& paciente) {
         archivo << paciente.cedula << ',' << paciente.nombrePaciente.primerNombre << ' ' << paciente.nombrePaciente.segundoNombre
                 << ' ' << paciente.nombrePaciente.primerApellido << ' ' << paciente.nombrePaciente.segundoApellido << ','
                 << paciente.fechas.nacimiento.dia << '/' << paciente.fechas.nacimiento.mes << '/' << paciente.fechas.nacimiento.anio << ','
-                << paciente.fechas.realizacion.dia << '/' << paciente.fechas.realizacion.mes << '/' << paciente.fechas.realizacion.anio << ','
                 << paciente.peso << ',' << paciente.altura << ',' << paciente.num_celular << '\n';
         archivo.close();
     } else {
@@ -58,11 +57,10 @@ void guardarRegistro(const registroP& paciente) {
 
 void cargarRegistroDesdeLinea(const string& linea, registroP& paciente) {
     stringstream ss(linea);
-    string cedula, nombre, fechaNacimiento, fechaRealizacion, peso, altura, numCelular;
+    string cedula, nombre, fechaNacimiento, peso, altura, numCelular;
     getline(ss, cedula, ',');
     getline(ss, nombre, ',');
     getline(ss, fechaNacimiento, ',');
-    getline(ss, fechaRealizacion, ',');
     getline(ss, peso, ',');
     getline(ss, altura, ',');
     getline(ss, numCelular);
@@ -88,14 +86,6 @@ void cargarRegistroDesdeLinea(const string& linea, registroP& paciente) {
     paciente.fechas.nacimiento.mes = stoi(token);
     getline(fechaNacStream, token, '/');
     paciente.fechas.nacimiento.anio = stoi(token);
-
-    stringstream fechaRealStream(fechaRealizacion);
-    getline(fechaRealStream, token, '/');
-    paciente.fechas.realizacion.dia = stoi(token);
-    getline(fechaRealStream, token, '/');
-    paciente.fechas.realizacion.mes = stoi(token);
-    getline(fechaRealStream, token, '/');
-    paciente.fechas.realizacion.anio = stoi(token);
 
     stringstream pesoStream(peso);
     pesoStream >> paciente.peso;
@@ -145,16 +135,6 @@ void crearPaciente() {
         cin >> paciente.fechas.nacimiento.anio;
     } while (!esFechaValida(paciente.fechas.nacimiento.dia, paciente.fechas.nacimiento.mes, paciente.fechas.nacimiento.anio));
 
-    do {
-        printf("Fecha de realizaci%cn (d%ca/mes/a%co): \n", 162, 214, 164);
-        printf("D%ca: ", 214);
-        cin >> paciente.fechas.realizacion.dia;
-        printf("Mes: ");
-        cin >> paciente.fechas.realizacion.mes;
-        printf("A%co: ", 164);
-        cin >> paciente.fechas.realizacion.anio;
-    } while (!esFechaValida(paciente.fechas.realizacion.dia, paciente.fechas.realizacion.mes, paciente.fechas.realizacion.anio));
-
     cout << "Peso del paciente (lb): ";
     cin >> paciente.peso;
 
@@ -169,58 +149,72 @@ void crearPaciente() {
 }
 
 void buscarPacientes(const string& cedulaONombre) {
-    ifstream archivo(archivoPacientes);
-    if (archivo.is_open()) {
-        string linea;
-        bool encontrado = false;
+    system("clear || cls");
+    printf("--------MEN%C DE PACIENTES--------\n", 163);
 
-        // Convierte la entrada a mayúsculas
-        string cedulaONombreMayus = convertirMayus(cedulaONombre);
+    string cedulaONombreInput;  // Variable local para almacenar la entrada del usuario
 
-        while (getline(archivo, linea)) {
-            registroP paciente;
-            cargarRegistroDesdeLinea(linea, paciente);
+    do {
+        cin.ignore();  // Limpiar el búfer del teclado
+        cout << "Ingrese la cédula o nombre del paciente a buscar (o 'v' para volver al menú principal): ";
+        getline(cin, cedulaONombreInput);  // Leer toda la línea, permitiendo espacios en blanco
 
-            // Convierte los nombres y apellidos del paciente a mayúsculas para la comparación
-            string primerNombreMayus = convertirMayus(paciente.nombrePaciente.primerNombre);
-            string segundoNombreMayus = convertirMayus(paciente.nombrePaciente.segundoNombre);
-            string primerApellidoMayus = convertirMayus(paciente.nombrePaciente.primerApellido);
-            string segundoApellidoMayus = convertirMayus(paciente.nombrePaciente.segundoApellido);
+        if (cedulaONombreInput == "v" || cedulaONombreInput == "V") {
+            break;  // Salir del bucle si el usuario quiere volver al menú principal
+        }
 
-            // Verifica si la entrada coincide con el inicio del nombre o apellido del paciente
-            if (primerNombreMayus.find(cedulaONombreMayus) == 0 ||
-                segundoNombreMayus.find(cedulaONombreMayus) == 0 ||
-                primerApellidoMayus.find(cedulaONombreMayus) == 0 ||
-                segundoApellidoMayus.find(cedulaONombreMayus) == 0) {
-                // Muestra la información del paciente encontrado
-                if (!encontrado) {
-                    system("clear || cls");
-                    printf("--------MEN%C DE PACIENTES--------\n", 163);
-                    cout << "Pacientes encontrados:" << endl;
+        ifstream archivo(archivoPacientes);
+        if (archivo.is_open()) {
+            string linea;
+            bool encontrado = false;
+
+            // Convierte la entrada a mayúsculas
+            string cedulaONombreMayus = convertirMayus(cedulaONombreInput);
+
+            while (getline(archivo, linea)) {
+                registroP paciente;
+                cargarRegistroDesdeLinea(linea, paciente);
+
+                // Convierte los nombres y apellidos del paciente a mayúsculas para la comparación
+                string nombreCompletoMayus = convertirMayus(
+                    paciente.nombrePaciente.primerNombre + ' ' +
+                    paciente.nombrePaciente.segundoNombre + ' ' +
+                    paciente.nombrePaciente.primerApellido + ' ' +
+                    paciente.nombrePaciente.segundoApellido
+                );
+
+                // Verifica si la entrada coincide con cualquier parte del nombre o la cédula del paciente
+                if (nombreCompletoMayus.find(cedulaONombreMayus) != string::npos ||
+                    convertirMayus(paciente.cedula).find(cedulaONombreMayus) != string::npos) {
+                    // Muestra la información del paciente encontrado
+                    if (!encontrado) {
+                        system("clear || cls");
+                        printf("--------MEN%C DE PACIENTES--------\n", 163);
+                        cout << "Pacientes encontrados:" << endl;
+                    }
+                    cout << "Cédula: " << paciente.cedula << endl;
+                    cout << "Nombre: " << paciente.nombrePaciente.primerNombre << ' ' << paciente.nombrePaciente.segundoNombre << ' ' << paciente.nombrePaciente.primerApellido << ' ' << paciente.nombrePaciente.segundoApellido << endl;
+                    cout << "Fecha de nacimiento: " << paciente.fechas.nacimiento.dia << "/" << paciente.fechas.nacimiento.mes << "/" << paciente.fechas.nacimiento.anio << endl;
+                    cout << "Peso: " << paciente.peso << " lb" << endl;
+                    cout << "Altura: " << paciente.altura << " cm" << endl;
+                    cout << "Número de teléfono: " << paciente.num_celular << endl;
+
+                    cout << "----------------------------------------" << endl;
+                    encontrado = true;
                 }
-                cout << "Cédula: " << paciente.cedula << endl;
-                cout << "Nombre: " << paciente.nombrePaciente.primerNombre << ' ' << paciente.nombrePaciente.segundoNombre << ' ' << paciente.nombrePaciente.primerApellido << ' ' << paciente.nombrePaciente.segundoApellido << endl;
-                cout << "Fecha de nacimiento: " << paciente.fechas.nacimiento.dia << "/" << paciente.fechas.nacimiento.mes << "/" << paciente.fechas.nacimiento.anio << endl;
-                cout << "Fecha de realización: " << paciente.fechas.realizacion.dia << "/" << paciente.fechas.realizacion.mes << "/" << paciente.fechas.realizacion.anio << endl;
-                cout << "Peso: " << paciente.peso << " lb" << endl;
-                cout << "Altura: " << paciente.altura << " cm" << endl;
-                cout << "Número de teléfono: " << paciente.num_celular << endl;
-
-                cout << "----------------------------------------" << endl;
-                encontrado = true;
             }
-        }
 
-        archivo.close();
+            archivo.close();
 
-        if (!encontrado) {
-            cout << "Pacientes no encontrados." << endl;
-            system("clear || cls");
-            printf("--------MEN%C DE PACIENTES--------\n", 163);
+            if (!encontrado) {
+                cout << "Pacientes no encontrados." << endl;
+                system("clear || cls");
+                printf("--------MEN%C DE PACIENTES--------\n", 163);
+            }
+        } else {
+            cout << "No se pudo abrir el archivo para lectura." << endl;
         }
-    } else {
-        cout << "No se pudo abrir el archivo para lectura." << endl;
-    }
+    } while (true);
 }
 
 void listarPacientes() {
@@ -242,7 +236,6 @@ void listarPacientes() {
             cout << "Cédula: " << paciente.cedula << endl;
             cout << "Nombre: " << paciente.nombrePaciente.primerNombre << ' ' << paciente.nombrePaciente.segundoNombre << ' ' << paciente.nombrePaciente.primerApellido << ' ' << paciente.nombrePaciente.segundoApellido << endl;
             cout << "Fecha de nacimiento: " << paciente.fechas.nacimiento.dia << "/" << paciente.fechas.nacimiento.mes << "/" << paciente.fechas.nacimiento.anio << endl;
-            cout << "Fecha de realización: " << paciente.fechas.realizacion.dia << "/" << paciente.fechas.realizacion.mes << "/" << paciente.fechas.realizacion.anio << endl;
             cout << "Peso: " << paciente.peso << " lb" << endl;
             cout << "Altura: " << paciente.altura << " cm" << endl;
             cout << "Número de teléfono: " << paciente.num_celular << endl;
@@ -273,6 +266,7 @@ void actualizarPaciente() {
 
     if (archivo.is_open() && archivoTemp.is_open()) {
         string linea;
+
         bool encontrado = false;
 
         while (getline(archivo, linea)) {
@@ -297,7 +291,6 @@ void actualizarPaciente() {
                 cout << "Cédula: " << paciente.cedula << endl;
                 cout << "Nombre: " << paciente.nombrePaciente.primerNombre << ' ' << paciente.nombrePaciente.segundoNombre << ' ' << paciente.nombrePaciente.primerApellido << ' ' << paciente.nombrePaciente.segundoApellido << endl;
                 cout << "Fecha de nacimiento: " << paciente.fechas.nacimiento.dia << "/" << paciente.fechas.nacimiento.mes << "/" << paciente.fechas.nacimiento.anio << endl;
-                cout << "Fecha de realización: " << paciente.fechas.realizacion.dia << "/" << paciente.fechas.realizacion.mes << "/" << paciente.fechas.realizacion.anio << endl;
                 cout << "Peso: " << paciente.peso << " lb" << endl;
                 cout << "Altura: " << paciente.altura << " cm" << endl;
                 cout << "Número de teléfono: " << paciente.num_celular << endl;
@@ -308,11 +301,10 @@ void actualizarPaciente() {
                     cout << "¿Qué dato desea actualizar?" << endl;
                     cout << "1. Nombre" << endl;
                     cout << "2. Fecha de nacimiento" << endl;
-                    cout << "3. Fecha de realización" << endl;
-                    cout << "4. Peso" << endl;
-                    cout << "5. Altura" << endl;
-                    cout << "6. Número de teléfono" << endl;
-                    cout << "7. Finalizar actualización" << endl;
+                    cout << "3. Peso" << endl;
+                    cout << "4. Altura" << endl;
+                    cout << "5. Número de teléfono" << endl;
+                    cout << "6. Finalizar actualización" << endl;
                     cout << "Elija una opción: ";
                     cin >> opcion;
 
@@ -335,24 +327,18 @@ void actualizarPaciente() {
                             } while (!esFechaValida(paciente.fechas.nacimiento.dia, paciente.fechas.nacimiento.mes, paciente.fechas.nacimiento.anio));
                             break;
                         case 3:
-                            do {
-                                cout << "Nueva fecha de realización (día mes año): ";
-                                cin >> paciente.fechas.realizacion.dia >> paciente.fechas.realizacion.mes >> paciente.fechas.realizacion.anio;
-                            } while (!esFechaValida(paciente.fechas.realizacion.dia, paciente.fechas.realizacion.mes, paciente.fechas.realizacion.anio));
-                            break;
-                        case 4:
                             cout << "Nuevo peso del paciente: ";
                             cin >> paciente.peso;
                             break;
-                        case 5:
+                        case 4:
                             cout << "Nueva altura del paciente: ";
                             cin >> paciente.altura;
                             break;
-                        case 6:
+                        case 5:
                             cout << "Nuevo número de teléfono del paciente";
                             cin >> paciente.num_celular;
                             break;
-                        case 7:
+                        case 6:
                             break;  // Finaliza la actualización
                         default:
                             cout << "Opción no válida. Por favor, elija una opción válida." << endl;
@@ -362,8 +348,7 @@ void actualizarPaciente() {
 
                 archivoTemp << paciente.cedula << ',' << paciente.nombrePaciente.primerNombre << ' ' << paciente.nombrePaciente.segundoNombre << ' ' << paciente.nombrePaciente.primerApellido << ' ' << paciente.nombrePaciente.segundoApellido << ',' << paciente.fechas.nacimiento.dia << '/'
                         << paciente.fechas.nacimiento.mes << '/' << paciente.fechas.nacimiento.anio << ','
-                        << paciente.fechas.realizacion.dia << '/' << paciente.fechas.realizacion.mes << '/'
-                        << paciente.fechas.realizacion.anio << ',' << paciente.peso << ',' << paciente.altura << ',' << paciente.num_celular << '\n';
+                        << paciente.peso << ',' << paciente.altura << ',' << paciente.num_celular << '\n';
             } else {
                 archivoTemp << linea << endl;
             }
@@ -424,7 +409,6 @@ void eliminarPaciente() {
                 cout << "Cédula: " << paciente.cedula << endl;
                 cout << "Nombre: " << paciente.nombrePaciente.primerNombre << ' ' << paciente.nombrePaciente.segundoNombre << ' ' << paciente.nombrePaciente.primerApellido << ' ' << paciente.nombrePaciente.segundoApellido << endl;
                 cout << "Fecha de nacimiento: " << paciente.fechas.nacimiento.dia << "/" << paciente.fechas.nacimiento.mes << "/" << paciente.fechas.nacimiento.anio << endl;
-                cout << "Fecha de realización: " << paciente.fechas.realizacion.dia << "/" << paciente.fechas.realizacion.mes << "/" << paciente.fechas.realizacion.anio << endl;
                 cout << "Peso: " << paciente.peso << " lb" << endl;
                 cout << "Altura: " << paciente.altura << " cm" << endl;
                 cout << "Número de teléfono: " << paciente.num_celular << endl;
@@ -460,7 +444,7 @@ void eliminarPaciente() {
     }
 }
 
-void mainPacientes() {
+int main() {
     int opcion;
     string cedulaONombreABuscar;  // Variable para almacenar la cédula o nombre a buscar
 
@@ -480,8 +464,12 @@ void mainPacientes() {
         cout << "5. Eliminar paciente" << endl;
         cout << "6. Volver Menu Principal" << endl;
         cout << "Elija una opción: ";
-        cin >> opcion;
 
+    while (!(cin >> opcion) || cin.peek() != '\n' || opcion < 1 || opcion > 6) {
+        cout << "Entrada inválida. Por favor, ingrese un número entero del 1 al 6: ";
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
         switch (opcion) {
             case 1:
                 crearPaciente();
@@ -506,7 +494,7 @@ void mainPacientes() {
             default:
                 system("clear || cls");
                 printf("--------MEN%C DE PACIENTES--------", 163);
-
+                cout << endl;
                 cout << "Opción no válida. Intente de nuevo." << endl;
                 cin.clear();
                 cin.ignore(numeric_limits<streamsize>::max(), '\n');

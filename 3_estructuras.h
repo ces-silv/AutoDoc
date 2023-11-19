@@ -1,7 +1,5 @@
 #include <string>
-
 using namespace std;
-
 struct fechaMain{
     int dia;
     int mes;
