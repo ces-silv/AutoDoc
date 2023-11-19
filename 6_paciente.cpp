@@ -148,7 +148,7 @@ void crearPaciente() {
     cout << "Paciente creado y guardado exitosamente." << endl;
 }
 
-void buscarPacientes(const string& cedulaONombre) {
+void buscarPacientes(){//const string& cedulaONombreABuscar){
     system("clear || cls");
     printf("--------MEN%C DE PACIENTES--------\n", 163);
 
@@ -445,7 +445,7 @@ void eliminarPaciente() {
 }
 
 // void mainPacientes
-void mainPacientes() {
+int main() {
     int opcion;
     string cedulaONombreABuscar;  // Variable para almacenar la cédula o nombre a buscar
 
@@ -479,10 +479,7 @@ void mainPacientes() {
                 listarPacientes();
                 break;
             case 3:
-                cin.ignore();  // Limpiar el búfer del teclado
-                cout << "Ingrese la cédula o nombre del paciente a buscar: ";
-                getline(cin, cedulaONombreABuscar);  // Leer toda la línea, permitiendo espacios en blanco
-                buscarPacientes(cedulaONombreABuscar);
+                buscarPacientes();//cedulaONombreABuscar);
                 break;
             case 4:
                 actualizarPaciente();
