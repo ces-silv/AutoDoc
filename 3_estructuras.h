@@ -148,15 +148,14 @@ struct seguimEmb{
     int presArtSisto;
     int presArtDias;
     float medidasLeopold;
-
     float circunfCraneana;
     float diametBiparietal;
     float circunfAbdominal;
     float longFemoral;
     float pesoBebe;
     float edadBebe;
-
     string conclusionesGen;
+    F_Especiales realizacion;
 };
 
 struct diagnostico{
@@ -172,10 +171,4 @@ struct prescripcion{
     string nombreMed;
     string dosis;
     string cantidad;
-};
-
-struct informesMedicos{
-    registroP Paciente;
-    citasProgramadas procdRealizado;
-    string Resultados;
 };

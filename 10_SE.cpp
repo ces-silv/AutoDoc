@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <ctime>
 #include "6_paciente.cpp"
 
 using namespace std;
@@ -26,6 +27,17 @@ bool obtenerInfoPaciente(const string& cedula, registroP& paciente) {
     }
 
     return false; // La cédula no existe en el archivo
+}
+
+// Método para obtener la fecha actual
+string obtenerFechaActual() {
+    time_t now = time(0);
+    tm *ltm = localtime(&now);
+
+    // Crear un string con la fecha actual
+    string fecha = to_string(ltm->tm_mday) + "/" + to_string(1 + ltm->tm_mon) + "/" + to_string(ltm->tm_mday) + "/" +  to_string(1900 + ltm->tm_year);
+
+    return fecha;
 }
 
     // Método para realizar el seguimiento del embarazo
@@ -55,6 +67,7 @@ bool obtenerInfoPaciente(const string& cedula, registroP& paciente) {
             }
 
         } while (!obtenerInfoPaciente(cedula, paciente));
+        string fechaActual = obtenerFechaActual();
 
         // Resto de la lógica para realizar el seguimiento del embarazo
         cout << "Introduza el peso de la madre: ";
@@ -93,6 +106,7 @@ bool obtenerInfoPaciente(const string& cedula, registroP& paciente) {
             archivo << "Peso del bebé: " << seguimiento.pesoBebe << endl;
             archivo << "Edad del bebé: " << seguimiento.edadBebe << endl;
             archivo << "Conclusiones y valoraciones: " << seguimiento.conclusionesGen << endl;
+            archivo << "Fecha de realización: " << fechaActual << endl;
             archivo << "-------------------------------------------------------" << endl;
 
             cout << "Datos guardados en el archivo seguimientoEmbarazo.txt" << endl;

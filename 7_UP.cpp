@@ -1,13 +1,58 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-#include "3_estructuras.h"
+#include "6_paciente.cpp"
 
 using namespace std;
 
-int main(){
-    UltPelv UP;
+bool obtenerInfoPaciente(const string& cedula, registroP& paciente) {
+    ifstream archivoPacientes("pacientes.txt");
 
+    if (archivoPacientes.is_open()) {
+        string linea;
+        while (getline(archivoPacientes, linea)) {
+            registroP pacienteTemp;
+            cargarRegistroDesdeLinea(linea, pacienteTemp);
+
+            if (pacienteTemp.cedula == cedula) {
+                paciente = pacienteTemp;
+                archivoPacientes.close();
+                return true; // La cédula existe en el archivo
+            }
+        }
+        archivoPacientes.close();
+    } else {
+        cout << "Error al abrir el archivo 'pacientes.txt'" << endl;
+    }
+
+    return false; // La cédula no existe en el archivo
+}
+
+int main(){
+    registroP paciente;
+    UltPelv UP;
+    string cedula;
+
+    do {
+            cout << "Introduzca la cédula del paciente: ";
+            cin >> cedula;
+
+            if (!obtenerInfoPaciente(cedula, paciente)) {
+                cout << "La cédula no existe en el registro. Introduzca una cédula válida." << endl;
+            } else {
+                // Mostrar la información del paciente
+                system("clear || cls");
+                cout << "Información del Paciente:" << endl;
+                cout << "Cédula: " << paciente.cedula << endl;
+                cout << "Nombre: " << paciente.nombrePaciente.primerNombre << ' ' << paciente.nombrePaciente.segundoNombre << ' ' << paciente.nombrePaciente.primerApellido << ' ' << paciente.nombrePaciente.segundoApellido << endl;
+                cout << "Fecha de nacimiento: " << paciente.fechas.nacimiento.dia << "/" << paciente.fechas.nacimiento.mes << "/" << paciente.fechas.nacimiento.anio << endl;
+                cout << "Peso: " << paciente.peso << " lb" << endl;
+                cout << "Altura: " << paciente.altura << " cm" << endl;
+                cout << "Número de teléfono: " << paciente.num_celular << endl;
+                cout << endl;
+            }
+
+        } while (!obtenerInfoPaciente(cedula, paciente));
     /* Ultrasonido Pelvico */
 
     printf("~ Ultrasonido P%clvico ~\n", 130);
@@ -389,7 +434,8 @@ int main(){
         cin >> UP.medidaOvarIzqY;
         cout << "Medida C:" << endl;
         cin >> UP.medidaOvarIzqZ; 
-        cout << "\nIngrese su conclusion del Ovario Izquierdo";
+        cout << "\nIngrese su conclusion del Ovario Izquierdo: ";
+        cin.ignore();
         cin >> UP.otrasCaractOvarIzq;
         
         cout << "\nTiene todos los datos correctos?" << endl;
@@ -412,7 +458,7 @@ int main(){
         cin >> UP.medidaOvarDerY;
         cout << "Medida C:" << endl;
         cin >> UP.medidaOvarDerZ; 
-        cout << "\nIngrese su conclusion del Ovario Derecho";
+        cout << "\nIngrese su conclusion del Ovario Derecho: ";
         cin >> UP.otrasCaractOvarDer;
         
         cout << "\nTiene todos los datos correctos?" << endl;
@@ -483,7 +529,7 @@ int main(){
     if (archivoSalida.is_open()) {
         // Ahora puedes escribir los datos en el archivo
         archivoSalida << "Datos del Ultrasonido Pélvico" << endl;
-
+        archivoSalida << "Cédula del paciente: " << cedula << endl;
         archivoSalida << "Estado de las paredes de la Vejiga: ";
         if (UP.paredesVejiga == 1) {
             archivoSalida << "Paredes Regulares" << endl;
@@ -541,6 +587,7 @@ int main(){
         }
 
         archivoSalida << "Conclusiones generales del procedimiento: " << UP.conclusionesGen << endl;
+        archivoSalida << "-----------------------------------------------------" << endl;
 
         archivoSalida.close(); // Cierra el archivo después de escribir
 
