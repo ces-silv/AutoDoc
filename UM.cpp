@@ -3,6 +3,7 @@
 #include <sstream>
 #include <fstream>
 #include <limits>
+#include <ctime>
 #include "3_estructuras.h"
 
 using namespace std;
@@ -308,20 +309,21 @@ void guardarInformacionEnArchivo(const UltMamas &UM) {
 
     if (UM.lesionesMamaIzq == true) {
         archivo << "Lesiones en mama izquierda: Sí" << endl;
-        archivo << "Medidas del quiste izquierdo (A x B x C): " << UM.xQuisteIzq << " x " << UM.yQuisteIzq << " x " << UM.zQuisteIzq << endl;
+        archivo << "Medidas del quiste izquierdo (A x B x C): " << UM.xQuisteIzq << " x " << UM.yQuisteIzq << " x " << UM.zQuisteIzq << endl << endl;
     } else {
         archivo << "Lesiones en mama izquierda: No" << endl;
     }
     if (UM.lesionesMamaDer == true) {
         archivo << "Lesiones en mama derecha: Sí" << endl;
-        archivo << "Medidas del quiste derecho (A x B x C): " << UM.xQuisteIzq << " x " << UM.yQuisteIzq << " x " << UM.zQuisteIzq << endl;
+        archivo << "Medidas del quiste derecho (A x B x C): " << UM.xQuisteDer << " x " << UM.yQuisteDer << " x " << UM.zQuisteDer << endl << endl;
     } else {
-        archivo << "Lesiones en mama derecha: No" << endl;
+        archivo << "Lesiones en mama derecha: No" << endl << endl;
     }
 
     archivo << "Conclusiones generales: " << UM.conclusionesGen << endl;
     archivo << "BI-RADS: " << UM.BIRADS << endl;
-    archivo << "Fecha de realizacion: " << UM.Paciente.fechas.realizacion.dia << "/" << UM.Paciente.fechas.realizacion.mes << "/" << UM.Paciente.fechas.realizacion.anio << endl;
+
+    archivo << "Fecha de realización: " << UM.Paciente.fechas.realizacion.dia << "/" << UM.Paciente.fechas.realizacion.mes << "/" << UM.Paciente.fechas.realizacion.anio << endl;
 
     // Agrega el resto de la información que desees guardar
 
@@ -338,7 +340,12 @@ int main(){
     lesionesMamas(UM);
     conclusionesGen(UM);
     BIRADS(UM);
+    time_t tiempoActual = time(nullptr);
+    tm* tiempoLocal = localtime(&tiempoActual);
 
+    UM.Paciente.fechas.realizacion.dia = tiempoLocal->tm_mday;
+    UM.Paciente.fechas.realizacion.mes = tiempoLocal->tm_mon + 1; // tm_mon está en el rango 0-11
+    UM.Paciente.fechas.realizacion.anio = tiempoLocal->tm_year + 1900; // tm_year es el año desde 1900
     // Guardar la información en un archivo
     guardarInformacionEnArchivo(UM);
 
