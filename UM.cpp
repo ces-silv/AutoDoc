@@ -235,6 +235,7 @@ void BIRADS(UltMamas &UM){
 }
 
 void asignarProcedimientoAPaciente(UltMamas &UM) {
+    string cedulaPaciente;
     cout << "Ingrese la cedula del paciente: ";
     cin >> UM.Paciente.cedula;
 
@@ -252,25 +253,47 @@ void asignarProcedimientoAPaciente(UltMamas &UM) {
             // Suponiendo que la estructura del archivo de pacientes es: cedula,primerNombre,segundoNombre,primerApellido,segundoApellido,altura,peso,num_celular,nacimiento.dia,nacimiento.mes,nacimiento.anio
             stringstream ss(line);
             string token;
-            getline(ss, token, ','); // cedula
-            getline(ss, UM.Paciente.nombrePaciente.primerNombre, ',');
-            getline(ss, UM.Paciente.nombrePaciente.segundoNombre, ',');
-            getline(ss, UM.Paciente.nombrePaciente.primerApellido, ',');
+
+            getline(ss, token, ',');
+            getline(ss, UM.Paciente.nombrePaciente.primerNombre, ' ');
+            getline(ss, UM.Paciente.nombrePaciente.segundoNombre, ' ');
+            ss >> UM.Paciente.nombrePaciente.primerApellido;
+            ss.ignore();
             getline(ss, UM.Paciente.nombrePaciente.segundoApellido, ',');
-            ss >> UM.Paciente.altura;
+            ss >> UM.Paciente.fechas.nacimiento.dia;
+            ss.ignore(1, '/');
+            ss >> UM.Paciente.fechas.nacimiento.mes;
+            ss.ignore(1, '/');
+            ss >> UM.Paciente.fechas.nacimiento.anio;
             ss.ignore(1, ',');
             ss >> UM.Paciente.peso;
             ss.ignore(1, ',');
-            getline(ss, UM.Paciente.num_celular, ',');
-            ss >> UM.Paciente.fechas.nacimiento.dia;
+            ss >> UM.Paciente.altura;
             ss.ignore(1, ',');
-            ss >> UM.Paciente.fechas.nacimiento.mes;
-            ss.ignore(1, ',');
-            ss >> UM.Paciente.fechas.nacimiento.anio;
+            getline(ss, UM.Paciente.num_celular);
 
-            // Cerrar el archivo de pacientes
-            pacientesFile.close();
-            return;
+            cout << "\nPaciente encontrado" << endl << endl;
+            printf("C%cdula: ", 130); cout << UM.Paciente.cedula << endl;
+            cout << "Nombre: " << UM.Paciente.nombrePaciente.primerNombre << ' ' << UM.Paciente.nombrePaciente.segundoNombre << ' ' << UM.Paciente.nombrePaciente.primerApellido << ' ' << UM.Paciente.nombrePaciente.segundoApellido << endl;
+            cout << "Fecha de nacimiento: " << UM.Paciente.fechas.nacimiento.dia << "/" << UM.Paciente.fechas.nacimiento.mes << "/" << UM.Paciente.fechas.nacimiento.anio << endl;
+            cout << "Peso: " << UM.Paciente.peso << " lb" << endl;
+            cout << "Altura: " << UM.Paciente.altura << " cm" << endl;
+            printf("N%cmero de tel%cfono: ", 163, 130); cout << UM.Paciente.num_celular << endl << endl;
+
+            printf("%cEste es el paciente que estabas buscando? Si es as%c, presione S o ingrese cualquier otra letra para ingresarlo nuevamente.\n", 168, 161);
+            cin >> cedulaPaciente;
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+            if ( (cedulaPaciente == "S") || (cedulaPaciente == "s")){
+                pacientesFile.close();
+                return;
+            } else{
+                pacientesFile.close();
+                system("pause || read -p 'Presiona Enter para continuar...' -n 1 -s");
+                system("clear || cls");
+                asignarProcedimientoAPaciente(UM);
+                return;
+            }
         }
     }
 
