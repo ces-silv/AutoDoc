@@ -7,3 +7,11 @@
 #include <ctime>
 #include "3_estructuras.h"
 
+using namespace std;
+
+citasProgramadas consultasSeguimiento;
+
+int main(){
+    
+    return 0;
+}
