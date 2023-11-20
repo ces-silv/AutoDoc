@@ -148,7 +148,7 @@ void crearPaciente() {
     cout << "Paciente creado y guardado exitosamente." << endl;
 }
 
-void buscarPacientes(){//const string& cedulaONombreABuscar){
+void buscarPacientes(){
     system("clear || cls");
     printf("--------MEN%C DE PACIENTES--------\n", 163);
 
