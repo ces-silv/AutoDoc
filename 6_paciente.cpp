@@ -444,8 +444,7 @@ void eliminarPaciente() {
     }
 }
 
-// void mainPacientes
-int main() {
+void mainPacientes() {
     int opcion;
     string cedulaONombreABuscar;  // Variable para almacenar la cédula o nombre a buscar
 
