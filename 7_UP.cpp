@@ -28,7 +28,7 @@ bool obtenerInfoPaciente(const string& cedula, registroP& paciente) {
     return false; // La cédula no existe en el archivo
 }
 
-int main(){
+void crearUP(){
     registroP paciente;
     UltPelv UP;
     string cedula;
@@ -523,10 +523,19 @@ int main(){
         }
         system("cls || clear");
     }
-    
-        ofstream archivoSalida("ultrasonidoPelvico.txt");
+
+        ofstream archivoSalida("ultrasonidoPelvico.txt", ios :: app);
 
     if (archivoSalida.is_open()) {
+        // Primero, escribimos la información del paciente en el archivo
+        archivoSalida << "Información del Paciente:" << endl;
+        archivoSalida << "Cédula: " << paciente.cedula << endl;
+        archivoSalida << "Nombre: " << paciente.nombrePaciente.primerNombre << ' ' << paciente.nombrePaciente.segundoNombre << ' ' << paciente.nombrePaciente.primerApellido << ' ' << paciente.nombrePaciente.segundoApellido << endl;
+        archivoSalida << "Fecha de nacimiento: " << paciente.fechas.nacimiento.dia << "/" << paciente.fechas.nacimiento.mes << "/" << paciente.fechas.nacimiento.anio << endl;
+        archivoSalida << "Peso: " << paciente.peso << " lb" << endl;
+        archivoSalida << "Altura: " << paciente.altura << " cm" << endl;
+        archivoSalida << "Número de teléfono: " << paciente.num_celular << endl;
+        archivoSalida << "-----------------------------------------------------" << endl;
         // Ahora puedes escribir los datos en el archivo
         archivoSalida << "Datos del Ultrasonido Pélvico" << endl;
         archivoSalida << "Cédula del paciente: " << cedula << endl;
@@ -596,5 +605,84 @@ int main(){
         cout << "Error al abrir el archivo para escritura." << endl;
     }
 
+}
+
+string toLowerCase(const string& str) {
+    string lowerStr;
+    for (char c : str) {
+        lowerStr += tolower(static_cast<unsigned char>(c));
+    }
+    return lowerStr;
+}
+
+
+bool buscarRegistroPorNombreCompleto(const string& nombreBuscado) {
+    ifstream archivo("ultrasonidoPelvico.txt");
+    string linea;
+    bool encontrado = false;
+
+    string nombreBuscadoLower = toLowerCase(nombreBuscado);
+
+    if (archivo.is_open()) {
+        while (getline(archivo, linea)) {
+            // Encuentra la línea que comienza con "Nombre: "
+            if (toLowerCase(linea).find("nombre: ") != string::npos) {
+                string nombreCompleto = linea.substr(linea.find(":") + 2); // Extrae el nombre completo
+                if (toLowerCase(nombreCompleto).find(nombreBuscadoLower) != string::npos) {
+                    // Mostrar detalles del registro encontrado
+                    cout << linea << endl; // Muestra la línea con el nombre
+                    for (int i = 0; i < 19; ++i) { // Asumiendo que los siguientes 19 líneas son del registro
+                        getline(archivo, linea);
+                        cout << linea << endl;
+                    }
+                    encontrado = true;
+                    break;
+                }
+            }
+        }
+        archivo.close();
+    } else {
+        cout << "No se pudo abrir el archivo para lectura." << endl;
+    }
+    return encontrado;
+}
+
+
+void mostrarMenu() {
+    int opcion;
+    string nombreBuscado;
+
+    do {
+        cout << "Menú de Opciones:" << endl;
+        cout << "1. Crear un nuevo procedimiento de ultrasonido pélvico" << endl;
+        cout << "2. Buscar un procedimiento por nombre del paciente" << endl;
+        cout << "3. Salir" << endl;
+        cout << "Ingrese su opción: ";
+        cin >> opcion;
+
+        switch(opcion) {
+            case 1:
+                crearUP();
+                break;
+            case 2:
+                cout << "Ingrese el nombre completo del paciente a buscar: ";
+                cin.ignore(); // Limpia el buffer de entrada
+                getline(cin, nombreBuscado);
+                if (!buscarRegistroPorNombreCompleto(nombreBuscado)) {
+                    cout << "Registro no encontrado." << endl;
+                }
+                break;
+            case 3:
+                cout << "Saliendo..." << endl;
+                break;
+            default:
+                cout << "Opción no válida. Intente nuevamente." << endl;
+                break;
+        }
+    } while (opcion != 3);
+}
+
+int main() {
+    mostrarMenu();
     return 0;
 }

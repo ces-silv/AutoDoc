@@ -36,8 +36,16 @@ struct citasProgramadas{
 
 struct UltTrans{
     registroP Paciente;
-
     int paredesVejiga;
+    
+    int quisteX;
+    int quisteY;
+    int quisteZ;
+    string conclusionesQuiste;
+    int polipoX;
+    int polipoY;
+    string conclusionesPolipo;
+
     string anomaliasVejiga;
     
     int posicionUtero;
@@ -63,7 +71,7 @@ struct UltTrans{
     float volumenOvarIzq;
     string otrasCaractOvarIzq;
 
-    bool sacoDouglas;
+    int sacoDouglas;
     
     string conclusionesGen;
 };
