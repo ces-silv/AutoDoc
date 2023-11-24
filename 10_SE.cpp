@@ -35,7 +35,7 @@ string obtenerFechaActual() {
     tm *ltm = localtime(&now);
 
     // Crear un string con la fecha actual
-    string fecha = to_string(ltm->tm_mday) + "/" + to_string(1 + ltm->tm_mon) + "/" + to_string(ltm->tm_mday) + "/" +  to_string(1900 + ltm->tm_year);
+    string fecha = to_string(ltm->tm_mday) + "/" + to_string(1 + ltm->tm_mon) + "/"  +  to_string(1900 + ltm->tm_year);
 
     return fecha;
 }
@@ -96,6 +96,7 @@ string obtenerFechaActual() {
 
         if (archivo.is_open()) {
             archivo << "Cédula: " << cedula << endl;
+            archivo << "Nombre: " << paciente.nombrePaciente.primerNombre << ' ' << paciente.nombrePaciente.segundoNombre << ' ' << paciente.nombrePaciente.primerApellido << ' ' << paciente.nombrePaciente.segundoApellido << endl;
             archivo << "Peso de la madre: " << seguimiento.pesoMadre  << endl;
             archivo << "Presión arterial sistólica: " << seguimiento.presArtSisto << endl;
             archivo << "Presión arterial diastólica: " << seguimiento.presArtDias << endl;
