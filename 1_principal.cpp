@@ -1,7 +1,5 @@
 #include "2_login.cpp"
-#include "4_gotoxy.h"
 #include "5_menu.cpp"
-#include "6_paciente.cpp"
 #include <iostream>
 
 using namespace std;
@@ -28,6 +26,7 @@ void menus(){
     cout << "1. Ver Registro Pacientes" << endl;
     cout << "2. Revisar Informes Medicos" << endl;
     cout << "3. Crear Archivos Procedimientos" << endl;
+    cout <<" 4. Crear o ver citas agendadas" << endl;
     cout << "4. Salir" << endl;
     cin >> opc;
 
@@ -50,15 +49,17 @@ void menus(){
         menus();
         break;
 
-    case 4:    
-        cout << "Vuelva Pronto Dr. Carlos Silva :D" << endl;
+    case 4:  
+        agenda();
+        menus();
         break;
 
+    case 5:
+        cout << "Vuelva Pronto Dr. Carlos Silva :D" << endl;
     default:
         system("cls");
         cout << "Doctor, por favor ingrese una opcion entre el 1 al 4 - Recuerde que solo esas opciones son admitidas.\n" << endl;
         menus();
         break;
     }
-
 }

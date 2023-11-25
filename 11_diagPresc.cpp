@@ -216,7 +216,7 @@ void mostrarDiagnosticosYPrescripciones(const string& cedula) {
 }
 
 // Modificar la función principal (main)
-int main() {
+void diagPres() {
     int opcion;
 
     do {
@@ -279,6 +279,4 @@ int main() {
         }
 
     } while (true);
-
-    return 0;
 }

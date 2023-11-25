@@ -1,5 +1,13 @@
 #include <iostream>
 #include <string>
+#include "7_UP.cpp"
+#include "8_UT.cpp"
+#include "9_UM.cpp"
+#include "10_SE.cpp"
+#include "11_diagPresc.cpp"
+#include "12_informesMed.cpp"
+#include "13_citasProgramadas.cpp"
+
 
 using namespace std;
 
@@ -21,16 +29,16 @@ void procedimientos(){
     switch (opcion)
     {
     case 1:
-        //Añadir el archivo de UT
+        UT();
         break;
     case 2:
-        //Añadir el archivo de UP
+        UP();
         break;
     case 3:
-        //Añadir el archivo de UM
+        UM();
         break;
     case 4:
-        //Añadir el archivo de seguimEmb
+        SE();
         break;
     case 5:
         system("clear || cls");
@@ -55,9 +63,11 @@ void infoMed(){
     cout << "  --->"; cin >> opcion;
 
     switch(opcion){
-        case 1: //Añadir la lógica para agregar el archivo de nuevo diagnóstico y prescripción
+        case 1:
+            diagPres();
             break;
-        case 2: //Añadir la lógica para ver el archivo de informes médicos anteriores de un paciente
+        case 2: 
+            informes();
             break;
         case 3: 
             system("clear || cls");
@@ -70,44 +80,6 @@ void infoMed(){
             system("clear || cls");
             infoMed();
             break;
-    }
-}
-
-void menuPacientes(){
-    int opcion;
-    cout << "REGISTRO DE PACIENTES" << endl;
-    printf("1. A%cadir paciente.\n", 164);
-    cout << "2. Editar paciente." << endl;
-    cout << "3. Ver lista de pacientes." << endl;
-    cout << "4. Eliminar paciente." << endl;
-    printf("5. Regresar al men%c principal.\n", 163);
-    cout << "  --->"; cin >> opcion;
-
-    switch(opcion){
-        case 1: //Añadir la lógica para agregar un nuevo paciente
-            break;
-        
-        case 2: //Hacer el menú de qué es lo que se va a editar
-            break;
-        
-        case 3: //Añadir la lógica para ver lista de pacientes
-            break;
-
-        case 4: //Añadir la lógica para eliminar paciente
-            break;
-        
-        case 5: 
-            system("clear || cls");
-            //menu();
-            break;
-
-        default:
-            printf("\nOpci%cn no v%clida. Por favor, elija una opci%cn dentro del rango de n%cmeros permitidos.\n", 162, 160, 162, 163);
-                //ó, á y ú en ASCII
-                system("pause || read -p 'Presiona Enter para continuar...' -n 1 -s");
-                system("clear || cls");
-                menuPacientes();
-                break;
     }
 }
 /*

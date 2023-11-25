@@ -1,3 +1,5 @@
+#define _CRT_SECURE_NO_WARNINGS
+
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -457,7 +459,7 @@ void draw_text_with_header_and_footer(HPDF_Page page, HPDF_Font font, const stri
 
 
 
-int main() {
+void UM() {
     UltMamas UM;
     HPDF_Doc pdf;
     HPDF_Page page;
@@ -568,5 +570,4 @@ int main() {
     HPDF_Free(pdf);
 
     cout << "Documento PDF generado con éxito: output.pdf" << endl;
-    return 0;
 }

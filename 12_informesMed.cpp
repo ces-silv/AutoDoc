@@ -85,8 +85,7 @@ void ingresarDatosInformesMed(){
     
 }
 
-int main(){
+void informes(){
     informesMedicos Expediente;
     void asignarInformeMedAPaciente();
-    return 0;
 }

@@ -152,7 +152,7 @@ void mostrarCitasProgramadas() {
 }
 
 // Método principal
-int main() {
+void agenda() {
     int opcion;
 
     do {
@@ -180,6 +180,4 @@ int main() {
         }
 
     } while (opcion != 3);
-
-    return 0;
 }

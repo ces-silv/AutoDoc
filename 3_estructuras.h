@@ -180,3 +180,9 @@ struct prescripcion{
     string dosis;
     string cantidad;
 };
+
+struct informesMedicos{
+    registroP Paciente;
+    citasProgramadas procdRealizado;
+    string Resultados;
+};

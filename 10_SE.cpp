@@ -117,8 +117,7 @@ string obtenerFechaActual() {
         }
     };
 
-int main() {
+void SE() {
     seguimEmb seguimiento;
     realizarSeguimiento();
-    return 0;
 }
