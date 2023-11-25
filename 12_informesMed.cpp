@@ -5,7 +5,7 @@
 #include <limits>
 #include <sstream>
 #include <ctime>
-#include "3_estructuras.h"
+#include "6_paciente.cpp"
 
 using namespace std;
 

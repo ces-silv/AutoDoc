@@ -607,12 +607,12 @@ void crearUT(){
 
 }
 
-string toLowerCase(const string& str) {
-    string lowerStr;
+string convertirMin(const string& str) {
+    string minStr;
     for (char c : str) {
-        lowerStr += tolower(static_cast<unsigned char>(c));
+        minStr += tolower(static_cast<unsigned char>(c));
     }
-    return lowerStr;
+    return minStr;
 }
 
 
@@ -621,14 +621,14 @@ bool buscarRegistroPorNombreCompleto(const string& nombreBuscado) {
     string linea;
     bool encontrado = false;
 
-    string nombreBuscadoLower = toLowerCase(nombreBuscado);
+    string nombreBuscadoLower = convertirMin(nombreBuscado);
 
     if (archivo.is_open()) {
         while (getline(archivo, linea)) {
             // Encuentra la línea que comienza con "Nombre: "
-            if (toLowerCase(linea).find("nombre: ") != string::npos) {
+            if (convertirMin(linea).find("nombre: ") != string::npos) {
                 string nombreCompleto = linea.substr(linea.find(":") + 2); // Extrae el nombre completo
-                if (toLowerCase(nombreCompleto).find(nombreBuscadoLower) != string::npos) {
+                if (convertirMin(nombreCompleto).find(nombreBuscadoLower) != string::npos) {
                     // Mostrar detalles del registro encontrado
                     cout << linea << endl; // Muestra la línea con el nombre
                     for (int i = 0; i < 19; ++i) { // Asumiendo que los siguientes 19 líneas son del registro
@@ -682,7 +682,6 @@ void mostrarMenu() {
     } while (opcion != 3);
 }
 
-int main() {
+void UP(){
     mostrarMenu();
-    return 0;
 }

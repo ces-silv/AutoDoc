@@ -497,5 +497,4 @@ void mainPacientes() {
                 cin.ignore(numeric_limits<streamsize>::max(), '\n');
         }
     } while (opcion != 6);
-
 }

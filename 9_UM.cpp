@@ -8,7 +8,7 @@
 #include <ctime>
 #include <hpdf.h>
 #include <vector>
-#include "3_estructuras.h"
+#include "6_paciente.cpp"
 
 using namespace std;
 
