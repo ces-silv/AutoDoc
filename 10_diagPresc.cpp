@@ -9,6 +9,7 @@
 using namespace std;
 
 
+
 // Función para ingresar datos de diagnóstico desde el usuario
 diagnostico ingresarDatosDiagnostico() {
     diagnostico diag;

@@ -53,7 +53,7 @@ void Procedimientos(){
         break;
     case 2: //UP();
         break;
-    case 3:
+    case 3: system("clear || cls"); regresarMenuPrincipal();
         break;
     case 4: system("clear || cls"); SE(); regresarMenuPrincipal();
         break;

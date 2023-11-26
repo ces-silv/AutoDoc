@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\2_menuPrincipal.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\3_login.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\4_pacientes.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\5_citasProgramadas.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\8_SE.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\10_diagPresc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\1_estructuras.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{831AD172-0415-39AD-BD9D-23FA2F7F0063}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{1773F470-AB1E-3DC4-AAB3-8DB67CAC7310}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

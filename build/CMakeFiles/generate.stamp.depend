@@ -1,0 +1,37 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/CMake/share/cmake-3.27/Modules/CMakeCInformation.cmake
+C:/Program Files/CMake/share/cmake-3.27/Modules/CMakeCXXInformation.cmake
+C:/Program Files/CMake/share/cmake-3.27/Modules/CMakeCommonLanguageInclude.cmake
+C:/Program Files/CMake/share/cmake-3.27/Modules/CMakeDependentOption.cmake
+C:/Program Files/CMake/share/cmake-3.27/Modules/CMakeGenericSystem.cmake
+C:/Program Files/CMake/share/cmake-3.27/Modules/CMakeInitializeConfigs.cmake
+C:/Program Files/CMake/share/cmake-3.27/Modules/CMakeLanguageInformation.cmake
+C:/Program Files/CMake/share/cmake-3.27/Modules/CMakeRCInformation.cmake
+C:/Program Files/CMake/share/cmake-3.27/Modules/CMakeSystemSpecificInformation.cmake
+C:/Program Files/CMake/share/cmake-3.27/Modules/CMakeSystemSpecificInitialize.cmake
+C:/Program Files/CMake/share/cmake-3.27/Modules/CPack.cmake
+C:/Program Files/CMake/share/cmake-3.27/Modules/CPackComponent.cmake
+C:/Program Files/CMake/share/cmake-3.27/Modules/CTest.cmake
+C:/Program Files/CMake/share/cmake-3.27/Modules/CTestTargets.cmake
+C:/Program Files/CMake/share/cmake-3.27/Modules/CTestUseLaunchers.cmake
+C:/Program Files/CMake/share/cmake-3.27/Modules/Compiler/CMakeCommonCompilerMacros.cmake
+C:/Program Files/CMake/share/cmake-3.27/Modules/Compiler/MSVC-C.cmake
+C:/Program Files/CMake/share/cmake-3.27/Modules/Compiler/MSVC-CXX.cmake
+C:/Program Files/CMake/share/cmake-3.27/Modules/Compiler/MSVC.cmake
+C:/Program Files/CMake/share/cmake-3.27/Modules/DartConfiguration.tcl.in
+C:/Program Files/CMake/share/cmake-3.27/Modules/Platform/Windows-Initialize.cmake
+C:/Program Files/CMake/share/cmake-3.27/Modules/Platform/Windows-MSVC-C.cmake
+C:/Program Files/CMake/share/cmake-3.27/Modules/Platform/Windows-MSVC-CXX.cmake
+C:/Program Files/CMake/share/cmake-3.27/Modules/Platform/Windows-MSVC.cmake
+C:/Program Files/CMake/share/cmake-3.27/Modules/Platform/Windows.cmake
+C:/Program Files/CMake/share/cmake-3.27/Modules/Platform/WindowsPaths.cmake
+C:/Program Files/CMake/share/cmake-3.27/Templates/CPackConfig.cmake.in
+C:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc/CMakeLists.txt
+C:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc/build/CMakeFiles/3.27.8/CMakeCCompiler.cmake
+C:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc/build/CMakeFiles/3.27.8/CMakeCXXCompiler.cmake
+C:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc/build/CMakeFiles/3.27.8/CMakeRCCompiler.cmake
+C:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc/build/CMakeFiles/3.27.8/CMakeSystem.cmake
+C:/des/vcpkg/installed/x64-windows/share/unofficial-libharu/unofficial-libharu-config-debug.cmake
+C:/des/vcpkg/installed/x64-windows/share/unofficial-libharu/unofficial-libharu-config-release.cmake
+C:/des/vcpkg/installed/x64-windows/share/unofficial-libharu/unofficial-libharu-config.cmake
+C:/des/vcpkg/scripts/buildsystems/vcpkg.cmake

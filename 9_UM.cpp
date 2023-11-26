@@ -459,7 +459,7 @@ void draw_text_with_header_and_footer(HPDF_Page page, HPDF_Font font, const stri
 
 
 
-void UM() {
+int main() {
     UltMamas UM;
     HPDF_Doc pdf;
     HPDF_Page page;
@@ -570,4 +570,6 @@ void UM() {
     HPDF_Free(pdf);
 
     printf("Documento PDF generado con %cxito: output.pdf\n", 130);
+
+    return 0;
 }
