@@ -1,0 +1,88 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <ctime>
+
+using namespace std;
+
+    // Método para realizar el seguimiento del embarazo
+    void realizarSeguimiento() {
+        // Solicitar la cédula del paciente y validarla
+        string cedula;
+        registroP paciente;
+        seguimEmb seguimiento;
+
+        do {
+            cout << "Introduzca la cédula del paciente: ";
+            cin >> cedula;
+
+            if (!obtenerInfoPaciente(cedula, paciente)) {
+                cout << "La cédula no existe en el registro. Introduzca una cédula válida." << endl;
+            } else {
+                // Mostrar la información del paciente
+                system("clear || cls");
+                cout << "Información del Paciente:" << endl;
+                cout << "Cédula: " << paciente.cedula << endl;
+                cout << "Nombre: " << paciente.nombrePaciente.primerNombre << ' ' << paciente.nombrePaciente.segundoNombre << ' ' << paciente.nombrePaciente.primerApellido << ' ' << paciente.nombrePaciente.segundoApellido << endl;
+                cout << "Fecha de nacimiento: " << paciente.fechas.nacimiento.dia << "/" << paciente.fechas.nacimiento.mes << "/" << paciente.fechas.nacimiento.anio << endl;
+                cout << "Peso: " << paciente.peso << " lb" << endl;
+                cout << "Altura: " << paciente.altura << " cm" << endl;
+                cout << "Número de teléfono: " << paciente.num_celular << endl;
+                cout << endl;
+            }
+
+        } while (!obtenerInfoPaciente(cedula, paciente));
+        string fechaActual = obtenerFechaActual();
+
+        // Resto de la lógica para realizar el seguimiento del embarazo
+        cout << "Introduza el peso de la madre: ";
+        cin >> seguimiento.pesoMadre;
+        cout << "Introduzca la presión arterial sistólica: ";
+        cin >> seguimiento.presArtSisto;
+        cout << "Introduzca la presión arterial diastólica: ";
+        cin >> seguimiento.presArtDias;
+        cout << "Introduzca las medidas Leopold: ";
+        cin >> seguimiento.medidasLeopold;
+        cout << "Introduzca las medidas de la circunferencia craneana del bebé: ";
+        cin >> seguimiento.circunfCraneana;
+        cout << "Introduzca el diámetro biparietal del bebé: ";
+        cin >> seguimiento.diametBiparietal;
+        cout << "Introduzca la circunferencia abdominal del bebé: ";
+        cin >> seguimiento.circunfAbdominal;
+        cout << "Introduzca el peso del bebé: ";
+        cin >> seguimiento.pesoBebe;
+        cout << "Introduzca la edad del bebé: ";
+        cin >> seguimiento.edadBebe;
+        cin.ignore(); 
+        cout << "Redacte sus conclusiones y valoraciones: ";
+        getline(cin, seguimiento.conclusionesGen);
+
+        ofstream archivo("seguimientoEmbarazo.txt", ios::app);
+
+        if (archivo.is_open()) {
+            archivo << "Cédula: " << cedula << endl;
+            archivo << "Nombre: " << paciente.nombrePaciente.primerNombre << ' ' << paciente.nombrePaciente.segundoNombre << ' ' << paciente.nombrePaciente.primerApellido << ' ' << paciente.nombrePaciente.segundoApellido << endl;
+            archivo << "Peso de la madre: " << seguimiento.pesoMadre  << endl;
+            archivo << "Presión arterial sistólica: " << seguimiento.presArtSisto << endl;
+            archivo << "Presión arterial diastólica: " << seguimiento.presArtDias << endl;
+            archivo << "Medidas Leopold: " << seguimiento.medidasLeopold << endl;
+            archivo << "Circunferencia craneana del bebé: " << seguimiento.circunfCraneana << endl;
+            archivo << "Diámetro biparietal del bebé: " << seguimiento.diametBiparietal << endl;
+            archivo << "Circunferencia abdominal del bebé: " << seguimiento.circunfAbdominal << endl;
+            archivo << "Peso del bebé: " << seguimiento.pesoBebe << endl;
+            archivo << "Edad del bebé: " << seguimiento.edadBebe << endl;
+            archivo << "Conclusiones y valoraciones: " << seguimiento.conclusionesGen << endl;
+            archivo << "Fecha de realización: " << fechaActual << endl;
+            archivo << "-------------------------------------------------------" << endl;
+
+            cout << "\nDatos guardados en el archivo seguimientoEmbarazo.txt" << endl;
+            archivo.close();
+        } else {
+            cout << "Error: No se pudo abrir el archivo." << endl;
+        }
+    };
+
+void SE() {
+    seguimEmb seguimiento;
+    realizarSeguimiento();
+}

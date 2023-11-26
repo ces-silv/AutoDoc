@@ -1,7 +1,8 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-#include "6_paciente.cpp"
+#include "1_estructuras.h"
+#include "4_pacientes.cpp"
 
 using namespace std;
 
@@ -19,7 +20,7 @@ bool obtenerInfoPaciente(const string& cedula, registroP& paciente) {
                 archivoPacientes.close();
                 return true; // La cédula existe en el archivo
             }
-        }
+        }       
         archivoPacientes.close();
     } else {
         cout << "Error al abrir el archivo 'pacientes.txt'" << endl;
@@ -28,9 +29,9 @@ bool obtenerInfoPaciente(const string& cedula, registroP& paciente) {
     return false; // La cédula no existe en el archivo
 }
 
-void crearUP(){
+void crearUT(){
     registroP paciente;
-    UltPelv UP;
+    UltTrans UT;
     string cedula;
 
     do {
@@ -55,33 +56,60 @@ void crearUP(){
         } while (!obtenerInfoPaciente(cedula, paciente));
     /* Ultrasonido Pelvico */
 
-    printf("~ Ultrasonido P%clvico ~\n", 130);
+    printf("~ Ultrasonido Transvaginal ~\n");
 
     /* Inicio - Vejiga */
-    
+    bool compVeji = false;
+    string estadParVeji;
+
+    while (compVeji == false){
     cout << "Estado de las paredes de la Vejiga" << endl;
     cout << "1. Paredes Regulares." << endl;
     cout << "2. Paredes Engrosadas." << endl; // x
     cout << "3. Paredes con lesiones." << endl;
-    cin >> UP.paredesVejiga;
+    cin >> UT.paredesVejiga;
     
-    while ( (UP.paredesVejiga != 1) && (UP.paredesVejiga != 2) && (UP.paredesVejiga != 3) ){
-            system("cls || clear");
-            printf(" Error - Opci%cn no v%clida - Int%cntelo de nuevo\n", 162, 160, 130);
-            printf("~ Ultrasonido P%clvico ~\n", 130);
-            cout << "Estado de las paredes de la Vejiga" << endl;
-            cout << "1. Paredes Regulares." << endl;
-            cout << "2. Paredes Engrosadas." << endl; // x
-            cout << "3. Paredes con lesiones." << endl;
-            cin >> UP.paredesVejiga;        
-        }
+        while ( (UT.paredesVejiga != 1) && (UT.paredesVejiga != 2) && (UT.paredesVejiga != 3) ){
+                system("cls || clear");
+                printf(" Error - Opci%cn no v%clida - Int%cntelo de nuevo\n", 162, 160, 130);
+                printf("~ Ultrasonido P%clvico ~\n", 130);
+                cout << "Estado de las paredes de la Vejiga" << endl;
+                cout << "1. Paredes Regulares." << endl;
+                cout << "2. Paredes Engrosadas." << endl; // x
+                cout << "3. Paredes con lesiones." << endl;
+                cin >> UT.paredesVejiga;        
+                }
+
+                if (UT.paredesVejiga == 1){
+                system("cls || clear");
+                cout << "Usted ha ingresado que las paredes de la vejiga son Regulares" << endl;
+                printf("%cEst%c seguro de dejarlo de esta manera?\n", 168, 160);
+                cout << "Ingrese S para si o cualquier otra letra para volver a ingresar el dato." << endl;
+                cin >> estadParVeji;
+                    if ( (estadParVeji == "S") || (estadParVeji == "s")){compVeji = true;}  
+                    } else if(UT.paredesVejiga == 2) {
+                        system("cls || clear");
+                        cout << "Usted ha ingresado que las paredes de la vejiga estan Engrosadas" << endl;
+                        printf("%cEst%c seguro de dejarlo de esta manera?\n", 168, 160);
+                        cout << "Ingrese S para si o cualquier otra letra para volver a ingresar el dato." << endl;
+                        cin >> estadParVeji;
+                        if ( (estadParVeji == "S") || (estadParVeji == "s")){compVeji = true;}  
+                    } else{
+                            system("cls || clear");
+                            cout << "Usted ha ingresado que las paredes de la vejiga presentan Lesiones" << endl;
+                            printf("%cEst%c seguro de dejarlo de esta manera?\n", 168, 160);
+                            cout << "Ingrese S para si o cualquier otra letra para volver a ingresar el dato." << endl;
+                            cin >> estadParVeji;
+                            if ( (estadParVeji == "S") || (estadParVeji == "s")){compVeji = true;}
+                        }
+    }
 
     int opcLesVej, cantQuiste, cantPolipos, engrosVeji;
     bool vejLesCompleto = false;
     bool estadoQuiste = false, estadoPolipos = false, estadoLesiones = false;
     string edit;
 
-    switch (UP.paredesVejiga){
+    switch (UT.paredesVejiga){
     case 1:
         system("cls || clear;");
         cout << "La paciente presenta Paredes Regulares - Guardado\n" << endl;
@@ -143,11 +171,11 @@ void crearUP(){
                     cout << "Ingrese la medida del quiste #" << i + 1 << " expresada en mm."<< endl;
                     printf("Recuerda que en el documento se mostrar%c de la siguiente manera: A x B x C\n\n", 160);
                     cout << "Medida A:" << endl;
-                    cin >> UP.quisteX;
+                    cin >> UT.quisteX;
                     cout << "Medida B:" << endl;
-                    cin >> UP.quisteY;
+                    cin >> UT.quisteY;
                     cout << "Medida C:" << endl;
-                    cin >> UP.quisteZ;
+                    cin >> UT.quisteZ;
                     cout << endl;
                 }
                 
@@ -168,11 +196,11 @@ void crearUP(){
                         cout << "Ingrese la medida del quiste #" << i + 1 << " expresada en mm."<< endl; 
                         printf("Recuerda que en el documento se mostrar%c de la siguiente manera: A x B x C\n\n", 160);
                         cout << "Medida A:" << endl;
-                        cin >> UP.quisteX;
+                        cin >> UT.quisteX;
                         cout << "Medida B:" << endl;
-                        cin >> UP.quisteY;
+                        cin >> UT.quisteY;
                         cout << "Medida C:" << endl;
-                        cin >> UP.quisteZ;
+                        cin >> UT.quisteZ;
                         cout << endl;
                     }
                     printf("~ Presiona Enter para volver al men%c principal ~\n", 163);
@@ -202,9 +230,9 @@ void crearUP(){
                 cout << "Ingrese la medida del polipo #" << i + 1<< endl;
                 printf("Recuerda que en el documento se mostrar%c de la siguiente manera: A x B\n\n", 160);
                 cout << "Medida A:" << endl;
-                cin >> UP.polipoX;
+                cin >> UT.polipoX;
                 cout << "Medida B:" << endl;
-                cin >> UP.polipoY;
+                cin >> UT.polipoY;
             }
 
             estadoPolipos = true;
@@ -223,9 +251,9 @@ void crearUP(){
                         cout << "Ingrese la medida del polipo #" << i + 1 << " expresada en mm."<< endl; 
                         printf("Recuerda que en el documento se mostrar%c de la siguiente manera: A x B\n\n", 160);
                         cout << "Medida A:" << endl;
-                        cin >> UP.polipoX;
+                        cin >> UT.polipoX;
                         cout << "Medida B:" << endl;
-                        cin >> UP.polipoY;
+                        cin >> UT.polipoY;
                         cout << endl;
                     }
                     printf("~ Presiona Enter para volver al men%c principal ~\n", 163);
@@ -256,18 +284,18 @@ void crearUP(){
         printf("%cCu%cl es la posici%cn del %ctero?\n", 168, 160, 162, 233);
         printf("1. En Anterversi%cn\n", 162);
         printf("2. En Retroversi%cn\n", 162);
-        cin >> UP.posicionUtero;
+        cin >> UT.posicionUtero;
 
-        while ( (UP.posicionUtero != 1) && (UP.posicionUtero != 2)){
+        while ( (UT.posicionUtero != 1) && (UT.posicionUtero != 2)){
             system("cls || clear");
             printf("~ Opci%cn no v%clida - Ingrese una nueva ~\n", 162, 160);
             printf("%cCu%cl es la posici%cn del %ctero?\n", 168, 160, 162, 233);
             printf("1. En Anterversi%cn\n", 162);
             printf("2. En Retroversi%cn\n", 162);
-            cin >> UP.posicionUtero;
+            cin >> UT.posicionUtero;
         }
         
-        if (UP.posicionUtero == 1){
+        if (UT.posicionUtero == 1){
             system("cls || clear");
             printf("Usted ha ingresado que el %ctero est%c en Anteversi%cn.\n\n", 233, 160, 162);
             printf("%cEst%c seguro de dejarlo de esta manera?\n", 168, 160);
@@ -297,11 +325,11 @@ void crearUP(){
     while (estadoUteMed == false){
         printf("Ingrese las medidas del %ctero - Recuerda que en el documento se mostrar%c de la siguiente manera: A x B x C\n\n", 233, 160);
         cout << "Medida A:" << endl;
-        cin >> UP.medidaUteroX;
+        cin >> UT.medidaUteroX;
         cout << "Medida B:" << endl;
-        cin >> UP.medidaUteroY;
+        cin >> UT.medidaUteroY;
         cout << "Medida C:" << endl;
-        cin >> UP.medidaUteroZ; 
+        cin >> UT.medidaUteroZ; 
         
         printf("%cTiene las medidas correctas?\n", 168);
         cout << "Ingrese S para si o cualquier otra letra para volver a ingresar el dato.." << endl;
@@ -320,16 +348,16 @@ void crearUP(){
         printf("1. %ctero Aumentado\n", 233);
         printf("2. %ctero Normal\n", 233);
         printf("3. %ctero Disminuido\n", 233);
-        cin >> UP.segunTamanioUtero;
+        cin >> UT.segunTamanioUtero;
         
-        while ( (UP.segunTamanioUtero != 1) && (UP.segunTamanioUtero != 2) && (UP.segunTamanioUtero != 3) ){
+        while ( (UT.segunTamanioUtero != 1) && (UT.segunTamanioUtero != 2) && (UT.segunTamanioUtero != 3) ){
             system("cls || clear");
             printf(" Error - Opci%cn no v%clida - Int%cntelo de nuevo\n", 162, 160, 130);
             printf("%cCu%cl es el estado del %ctero seg%cn el tama%co?\n", 168, 160, 233, 163, 164);
             printf("1. %ctero Aumentado\n", 233);
             printf("2. %ctero Normal\n", 233);
             printf("3. %ctero Disminuido\n", 233);
-            cin >> UP.segunTamanioUtero; 
+            cin >> UT.segunTamanioUtero; 
         }
         printf("%cEst%c bien lo que ingres%c?\n", 168, 160, 162);
         cout << "Ingrese S para si o cualquier otra letra para volver a ingresar el dato." << endl;
@@ -347,15 +375,15 @@ void crearUP(){
         printf("%cC%cmo es el contorno del %ctero?\n", 168, 162, 233);
         cout << "1. Regulares" << endl;
         cout << "2. Irregulares" << endl;
-        cin >> UP.contornoUtero;
+        cin >> UT.contornoUtero;
         
-        while ( (UP.contornoUtero != 1) && (UP.contornoUtero != 2) ){
+        while ( (UT.contornoUtero != 1) && (UT.contornoUtero != 2) ){
             system("cls || clear");
             printf(" Error - Opci%cn no v%clida - Int%cntelo de nuevo\n", 162, 160, 130);  
             printf("%cC%cmo es el contorno del %ctero?\n", 168, 162, 233);
             cout << "1. Regulares" << endl;
             cout << "2. Irregulares" << endl;
-            cin >> UP.contornoUtero; 
+            cin >> UT.contornoUtero; 
         }
 
         printf("\n%cEst%c seguro de dejar el dato as%c?\n", 168, 160, 161);
@@ -374,15 +402,15 @@ void crearUP(){
         printf("%cC%cmo es el miometrio del %ctero?\n", 168, 162, 233);
         printf("1. Homog%cneo\n", 130);
         printf("2. Heterog%cneo\n", 130);
-        cin >> UP.miometrioUtero;
+        cin >> UT.miometrioUtero;
         
-        while ( (UP.miometrioUtero != 1) && (UP.miometrioUtero != 2) ){
+        while ( (UT.miometrioUtero != 1) && (UT.miometrioUtero != 2) ){
             system("cls || clear");
             printf(" Error - Opci%cn no v%clida - Int%cntelo de nuevo\n", 162, 160, 130);  
             printf("%cC%cmo es el miometrio del %ctero?\n", 168, 162, 233);
             printf("1. Homog%cneo\n", 130);
             printf("2. Heterog%cneo\n", 130);
-            cin >> UP.miometrioUtero; 
+            cin >> UT.miometrioUtero; 
         }
         printf("\n%cEl dato del Miometrio que ingres%c es el correcto?\n", 168, 162);
         cout << "Ingrese S para si o cualquier otra letra para volver a ingresar el dato." << endl;
@@ -400,7 +428,7 @@ void crearUP(){
 
     while (estadoHallUte == false){
         cout << "Ingrese su diagnostico escrito " << endl;
-        cin >> UP.hallazgosUtero;
+        cin >> UT.hallazgosUtero;
         cout << "\nHa ingresado todo correctamente?\nSi es asi presione S o ingrese cualquier otra letra para ingresarlo nuevamente." << endl;
         cin >> uteHallComp;
         if ((uteHallComp == "S") || (uteHallComp == "s")){
@@ -414,7 +442,7 @@ void crearUP(){
 
     while (medidaEndo == false){
         cout << "Ingrese la medida del endometrio representada en mm" << endl;
-        cin >> UP.medidaEndometrio;
+        cin >> UT.medidaEndometrio;
         cout << "\nHa ingresado todo correctamente?\nSi es asi presione S o ingrese cualquier otra letra para ingresarlo nuevamente." << endl;
         cin >> medidaEndoComp;
         if ((medidaEndoComp == "S") || (medidaEndoComp == "s")){
@@ -429,14 +457,14 @@ void crearUP(){
     while (medidaOvarIzq == false){
         cout << "Ingrese las medidas del Ovario Izquierdo - Recuerda que en el documento se mostrara de la siguiente manera: A x B x C\n" << endl;
         cout << "Medida A:" << endl;
-        cin >> UP.medidaOvarIzqX;
+        cin >> UT.medidaOvarIzqX;
         cout << "Medida B:" << endl;
-        cin >> UP.medidaOvarIzqY;
+        cin >> UT.medidaOvarIzqY;
         cout << "Medida C:" << endl;
-        cin >> UP.medidaOvarIzqZ; 
+        cin >> UT.medidaOvarIzqZ; 
         cout << "\nIngrese su conclusion del Ovario Izquierdo: ";
         cin.ignore();
-        cin >> UP.otrasCaractOvarIzq;
+        cin >> UT.otrasCaractOvarIzq;
         
         cout << "\nTiene todos los datos correctos?" << endl;
         cout << "Ingrese S para si o cualquier otra letra para volver a ingresar los datos." << endl;
@@ -453,13 +481,13 @@ void crearUP(){
     while (medidaOvarDer == false){
         cout << "Ingrese las medidas del Ovario Derecho - Recuerda que en el documento se mostrara de la siguiente manera: A x B x C\n" << endl;
         cout << "Medida A:" << endl;
-        cin >> UP.medidaOvarDerX;
+        cin >> UT.medidaOvarDerX;
         cout << "Medida B:" << endl;
-        cin >> UP.medidaOvarDerY;
+        cin >> UT.medidaOvarDerY;
         cout << "Medida C:" << endl;
-        cin >> UP.medidaOvarDerZ; 
+        cin >> UT.medidaOvarDerZ; 
         cout << "\nIngrese su conclusion del Ovario Derecho: ";
-        cin >> UP.otrasCaractOvarDer;
+        cin >> UT.otrasCaractOvarDer;
         
         cout << "\nTiene todos los datos correctos?" << endl;
         cout << "Ingrese S para si o cualquier otra letra para volver a ingresar los datos." << endl;
@@ -477,17 +505,17 @@ void crearUP(){
         cout << "Como esta el Saco de Douglas?" << endl;
         cout << "1. Esta Libre de Liquido." << endl;
         cout << "2. No Esta Libre de Liquido." << endl;
-        cin >> UP.sacoDouglas;
+        cin >> UT.sacoDouglas;
 
-        while ( (UP.sacoDouglas != 1) && (UP.sacoDouglas != 2)){
+        while ( (UT.sacoDouglas != 1) && (UT.sacoDouglas != 2)){
             system("cls || clear");
             cout << "Como esta el Saco de Douglas?" << endl;
             cout << "1. Esta Libre de Liquido." << endl;
             cout << "2. No Esta Libre de Liquido." << endl;
-            cin >> UP.sacoDouglas;
+            cin >> UT.sacoDouglas;
         }
         
-        if (UP.sacoDouglas == 1){
+        if (UT.sacoDouglas == 1){
             system("cls || clear");
             cout << "Usted ha ingresado que el Saco de Douglas esta libre de liquido.\n" << endl;
             cout << "Esta seguro de dejarlo de esta manera?" << endl;
@@ -515,7 +543,7 @@ void crearUP(){
 
     while (ConclusionesGen == false){
         cout << "Ingrese sus conclusiones generales del procedimiento." << endl;
-        cin >> UP.conclusionesGen;
+        cin >> UT.conclusionesGen;
         cout << "\nHa ingresado todo correctamente?\nSi es asi presione S o ingrese cualquier otra letra para ingresarlo nuevamente." << endl;
         cin >> ConclusionesGenComp;
         if ((ConclusionesGenComp == "S") || (ConclusionesGenComp == "s")){
@@ -524,7 +552,7 @@ void crearUP(){
         system("cls || clear");
     }
 
-        ofstream archivoSalida("ultrasonidoPelvico.txt", ios :: app);
+        ofstream archivoSalida("ultrasonidoTransvaginal.txt", ios :: app);
 
     if (archivoSalida.is_open()) {
         // Primero, escribimos la información del paciente en el archivo
@@ -537,65 +565,65 @@ void crearUP(){
         archivoSalida << "Número de teléfono: " << paciente.num_celular << endl;
         archivoSalida << "-----------------------------------------------------" << endl;
         // Ahora puedes escribir los datos en el archivo
-        archivoSalida << "Datos del Ultrasonido Pélvico" << endl;
+        archivoSalida << "Datos del Ultrasonido Transvaginal" << endl;
         archivoSalida << "Cédula del paciente: " << cedula << endl;
         archivoSalida << "Estado de las paredes de la Vejiga: ";
-        if (UP.paredesVejiga == 1) {
+        if (UT.paredesVejiga == 1) {
             archivoSalida << "Paredes Regulares" << endl;
-        } else if (UP.paredesVejiga == 2) {
-            archivoSalida << "Paredes Engrosadas (" << UP.paredesVejiga << " mm)" << endl;
-        } else if (UP.paredesVejiga == 3) {
+        } else if (UT.paredesVejiga == 2) {
+            archivoSalida << "Paredes Engrosadas (" << UT.paredesVejiga << " mm)" << endl;
+        } else if (UT.paredesVejiga == 3) {
             archivoSalida << "Paredes con lesiones" << endl;
             // Aquí puedes agregar más detalles sobre las lesiones, quistes, polipos, etc.
         }
 
         archivoSalida << "Posición del Útero: ";
-        if (UP.posicionUtero == 1) {
+        if (UT.posicionUtero == 1) {
             archivoSalida << "Anteversión" << endl;
-        } else if (UP.posicionUtero == 2) {
+        } else if (UT.posicionUtero == 2) {
             archivoSalida << "Retroversión" << endl;
         }
 
-        archivoSalida << "Medidas del Útero (A x B x C): " << UP.medidaUteroX << " x " << UP.medidaUteroY << " x " << UP.medidaUteroZ << " mm" << endl;
+        archivoSalida << "Medidas del Útero (A x B x C): " << UT.medidaUteroX << " x " << UT.medidaUteroY << " x " << UT.medidaUteroZ << " mm" << endl;
 
         archivoSalida << "Estado del Útero según el tamaño: ";
-        if (UP.segunTamanioUtero == 1) {
+        if (UT.segunTamanioUtero == 1) {
             archivoSalida << "Útero Aumentado" << endl;
-        } else if (UP.segunTamanioUtero == 2) {
+        } else if (UT.segunTamanioUtero == 2) {
             archivoSalida << "Útero Normal" << endl;
-        } else if (UP.segunTamanioUtero == 3) {
+        } else if (UT.segunTamanioUtero == 3) {
             archivoSalida << "Útero Disminuido" << endl;
         }
 
         archivoSalida << "Contorno del Útero: ";
-        if (UP.contornoUtero == 1) {
+        if (UT.contornoUtero == 1) {
             archivoSalida << "Regulares" << endl;
-        } else if (UP.contornoUtero == 2) {
+        } else if (UT.contornoUtero == 2) {
             archivoSalida << "Irregulares" << endl;
         }
 
         archivoSalida << "Estado del Miometrio: ";
-        if (UP.miometrioUtero == 1) {
+        if (UT.miometrioUtero == 1) {
             archivoSalida << "Homogéneo" << endl;
-        } else if (UP.miometrioUtero == 2) {
+        } else if (UT.miometrioUtero == 2) {
             archivoSalida << "Heterogéneo" << endl;
         }
 
-        archivoSalida << "Hallazgos generales en el Útero: " << UP.hallazgosUtero << endl;
+        archivoSalida << "Hallazgos generales en el Útero: " << UT.hallazgosUtero << endl;
 
-        archivoSalida << "Medida del Endometrio: " << UP.medidaEndometrio << " mm" << endl;
+        archivoSalida << "Medida del Endometrio: " << UT.medidaEndometrio << " mm" << endl;
 
-        archivoSalida << "Medidas del Ovario Izquierdo (A x B x C): " << UP.medidaOvarIzqX << " x " << UP.medidaOvarIzqY << " x " << UP.medidaOvarIzqZ << endl;
-        archivoSalida << "Medidas del Ovario Derecho (A x B x C): " << UP.medidaOvarDerX << " x " << UP.medidaOvarDerY << " x " << UP.medidaOvarDerZ << endl;
+        archivoSalida << "Medidas del Ovario Izquierdo (A x B x C): " << UT.medidaOvarIzqX << " x " << UT.medidaOvarIzqY << " x " << UT.medidaOvarIzqZ << endl;
+        archivoSalida << "Medidas del Ovario Derecho (A x B x C): " << UT.medidaOvarDerX << " x " << UT.medidaOvarDerY << " x " << UT.medidaOvarDerZ << endl;
 
         archivoSalida << "Saco de Douglas: ";
-        if (UP.sacoDouglas == 1) {
+        if (UT.sacoDouglas == 1) {
             archivoSalida << "Está libre de líquido" << endl;
-        } else if (UP.sacoDouglas == 2) {
+        } else if (UT.sacoDouglas == 2) {
             archivoSalida << "No está libre de líquido" << endl;
         }
 
-        archivoSalida << "Conclusiones generales del procedimiento: " << UP.conclusionesGen << endl;
+        archivoSalida << "Conclusiones generales del procedimiento: " << UT.conclusionesGen << endl;
         archivoSalida << "-----------------------------------------------------" << endl;
 
         archivoSalida.close(); // Cierra el archivo después de escribir
@@ -615,9 +643,8 @@ string convertirMin(const string& str) {
     return minStr;
 }
 
-
 bool buscarRegistroPorNombreCompleto(const string& nombreBuscado) {
-    ifstream archivo("ultrasonidoPelvico.txt");
+    ifstream archivo("ultrasonidoTransvaginal.txt");
     string linea;
     bool encontrado = false;
 
@@ -647,14 +674,13 @@ bool buscarRegistroPorNombreCompleto(const string& nombreBuscado) {
     return encontrado;
 }
 
-
 void mostrarMenu() {
     int opcion;
     string nombreBuscado;
 
     do {
         cout << "Menú de Opciones:" << endl;
-        cout << "1. Crear un nuevo procedimiento de ultrasonido pélvico" << endl;
+        cout << "1. Crear un nuevo procedimiento de ultrasonido transvaginal" << endl;
         cout << "2. Buscar un procedimiento por nombre del paciente" << endl;
         cout << "3. Salir" << endl;
         cout << "Ingrese su opción: ";
@@ -662,7 +688,7 @@ void mostrarMenu() {
 
         switch(opcion) {
             case 1:
-                crearUP();
+                crearUT();
                 break;
             case 2:
                 cout << "Ingrese el nombre completo del paciente a buscar: ";
@@ -680,8 +706,4 @@ void mostrarMenu() {
                 break;
         }
     } while (opcion != 3);
-}
-
-void UT() {
-    mostrarMenu();
 }

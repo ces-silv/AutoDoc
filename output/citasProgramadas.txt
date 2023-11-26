@@ -1,5 +1,10 @@
-Cédula: 001-070505-1020W
-Nombre: SILVIA ALEJANDRA MORA MENDOZA
-Fecha de seguimiento: 12/2/2024
-Procedimiento: Ultrasonido de mamas
+Cédula: 001-100405-1032K
+Nombre: CESARINA AUGUSTA SILVA HERNANDEZ
+Fecha de seguimiento: 26/11/2023
+Procedimiento: Ultrasonido Transvaginal
+-------------------------------------------------------
+Cédula: 001-270704-1022L
+Nombre: KAREN MARIZA FONSECA VEGA
+Fecha de seguimiento: 25/11/2023
+Procedimiento: Ultrasonido de Mamas
 -------------------------------------------------------

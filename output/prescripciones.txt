@@ -1,5 +1,0 @@
-Cedula: 001-070505-1020W
-Nombre del medicamento: Iboprufeno
-Dosis: 40mg cada 4 horas
-Cantidad: Por 12 semanas
-----------------------------------------

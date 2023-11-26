@@ -8,7 +8,7 @@
 #include <ctime>
 #include <hpdf.h>
 #include <vector>
-#include "6_paciente.cpp"
+#include "1_estructuras.h"
 
 using namespace std;
 
@@ -92,7 +92,7 @@ void lesionMamaIzq(UltMamas& UM) {
     string lesionesMamaIzq;
     while (UM.lesionesMamaIzq == false) {
         cout << "ULTRASONIDO DE MAMAS\n\n";
-        printf("Ingrese las medidas del quiste izquierdo - ");
+        printf("Ingrese las medidas en mm del quiste izquierdo - ");
         printf("Recuerda que en el documento se mostrar%c de la siguiente manera : A x B x C\n\n", 160);
         cout << "Medida A:" << endl;
         while (!(cin >> UM.xQuisteIzq) || cin.fail()) {
@@ -134,7 +134,7 @@ void lesionMamaDer(UltMamas& UM) {
     string lesionesMamaDer;
     while (UM.lesionesMamaDer == false) {
         cout << "ULTRASONIDO DE MAMAS\n\n";
-        printf("Ingrese las medidas del quiste derecho - ");
+        printf("Ingrese las medidas en mm del quiste derecho - ");
         printf("Recuerda que en el documento se mostrar%c de la siguiente manera : A x B x C\n\n", 160);
         cout << "Medida A:" << endl;
         while (!(cin >> UM.xQuisteDer) || cin.fail()) {
@@ -569,5 +569,5 @@ void UM() {
     // Liberar recursos
     HPDF_Free(pdf);
 
-    cout << "Documento PDF generado con éxito: output.pdf" << endl;
+    printf("Documento PDF generado con %cxito: output.pdf\n", 130);
 }
