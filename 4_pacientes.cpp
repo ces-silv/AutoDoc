@@ -148,7 +148,7 @@ void crearPaciente() {
     cin >> paciente.num_celular;
 
    // Crea una carpeta con el número de la cédula del paciente
-    string path = "C:/Users/user/OneDrive/Escritorio/AutoDoc/" + paciente.cedula; // Ajusta la ruta según necesites
+    string path = "C:/Users/silva/OneDrive/Escritorio/AutoDoc/" + paciente.cedula; // Ajusta la ruta según necesites
     if (_access(path.c_str(), 0) != 0) {  // Verifica si la carpeta ya existe
         if (_mkdir(path.c_str()) != 0) {  // Intenta crear la carpeta
             cout << "No se pudo crear la carpeta para el paciente." << endl;

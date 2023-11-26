@@ -95,7 +95,7 @@ void login(){
         {
             system("clear || cls");
             //INICIA EL PROGRAMA
-            string desktopPath = "C:/Users/user/OneDrive/Escritorio/AutoDoc";
+            string desktopPath = "C:/Users/silva/OneDrive/Escritorio/AutoDoc";
 
             // Verificar si la carpeta ya existe
             if (_access(desktopPath.c_str(), 0) == 0) { //Se utiliza la funcion access para que verifique si la carpeta ya esta creada

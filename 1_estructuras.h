@@ -162,7 +162,7 @@ struct seguimEmb{
     float circunfAbdominal;
     float longFemoral;
     float pesoBebe;
-    float edadBebe;
+    int edadBebe;
     string conclusionesGen;
     F_Especiales realizacion;
 };
@@ -180,10 +180,4 @@ struct prescripcion{
     string nombreMed;
     string dosis;
     string cantidad;
-};
-
-struct informesMedicos {
-    registroP Paciente;
-    citasProgramadas procdRealizado;
-    string Resultados;
 };
