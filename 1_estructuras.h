@@ -43,14 +43,6 @@ struct citasProgramadas{
 struct UltTrans{
     registroP Paciente;
     int paredesVejiga;
-    
-    int quisteX;
-    int quisteY;
-    int quisteZ;
-    string conclusionesQuiste;
-    int polipoX;
-    int polipoY;
-    string conclusionesPolipo;
 
     string anomaliasVejiga;
     
@@ -117,14 +109,6 @@ struct UltMamas{
 struct UltPelv{
     registroP Paciente;
     int paredesVejiga;
-    
-    int quisteX;
-    int quisteY;
-    int quisteZ;
-    string conclusionesQuiste;
-    int polipoX;
-    int polipoY;
-    string conclusionesPolipo;
 
     string anomaliasVejiga;
     
