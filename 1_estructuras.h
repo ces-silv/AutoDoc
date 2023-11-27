@@ -44,8 +44,6 @@ struct UltTrans{
     registroP Paciente;
     int paredesVejiga;
 
-    string anomaliasVejiga;
-    
     int posicionUtero;
     float medidaUteroX;
     float medidaUteroY;
@@ -109,8 +107,6 @@ struct UltMamas{
 struct UltPelv{
     registroP Paciente;
     int paredesVejiga;
-
-    string anomaliasVejiga;
     
     int posicionUtero;
     float medidaUteroX;
