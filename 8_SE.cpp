@@ -55,8 +55,18 @@ void realizarSeguimiento() {
     // Resto de la lógica para realizar el seguimiento del embarazo
     cout << "Introduza el peso de la madre (lb): ";
     cin >> seguimiento.pesoMadre;
+    while(seguimiento.pesoMadre <= 0){
+        cout << "Peso Ingresado NO Valido - Introduzca nuevamente el peso de la madre" << endl;
+        cout << "Peso de la Madre (lb): "; cin >> seguimiento.pesoMadre;
+    }
+    
     cout << "Introduzca la presión arterial sistólica: ";
     cin >> seguimiento.presArtSisto;
+    while(seguimiento.pesoMadre <= 0){
+        cout << "Presion Sistolica NO Valida - Introduzcalo nuevamente" << endl;
+        cout << "Presion Arterial Sistolica: "; cin >> seguimiento.presArtSisto;
+    }
+    
     cout << "Introduzca la presión arterial diastólica: ";
     cin >> seguimiento.presArtDias;
 
