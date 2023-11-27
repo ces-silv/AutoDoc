@@ -14,6 +14,20 @@ using namespace std;
 
 const string archivoPacientes = "pacientes.txt";
 
+bool cedulaExiste(const string& cedula) {
+    ifstream archivo(archivoPacientes);
+    if (archivo.is_open()) {
+        string linea;
+        while (getline(archivo, linea)) {
+            if (linea.find(cedula + ",") != string::npos) {
+                return true; // La cédula ya existe.
+            }
+        }
+        archivo.close();
+    }
+    return false; // La cédula no existe.
+}
+
 //Función para convertir cadenas a mayúsculas
 string convertirMayus(const string& str){
     string resultado = str;
