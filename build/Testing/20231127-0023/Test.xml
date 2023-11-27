@@ -18,17 +18,17 @@
 	ProcessorCacheSize="-1"
 	NumberOfLogicalCPU="8"
 	NumberOfPhysicalCPU="4"
-	TotalVirtualMemory="22770"
+	TotalVirtualMemory="19562"
 	TotalPhysicalMemory="16259"
 	LogicalProcessorsPerPhysical="2"
 	ProcessorClockFrequency="1800"
 	>
 	<Testing>
-		<StartDateTime>Nov 27 01:02 Hora est[NON-UTF-8-BYTE-0xE1]ndar, Am[NON-UTF-8-BYTE-0xE9]rica Central</StartDateTime>
-		<StartTestTime>1701068524</StartTestTime>
+		<StartDateTime>Nov 27 02:50 Hora est[NON-UTF-8-BYTE-0xE1]ndar, Am[NON-UTF-8-BYTE-0xE9]rica Central</StartDateTime>
+		<StartTestTime>1701075011</StartTestTime>
 		<TestList/>
-		<EndDateTime>Nov 27 01:02 Hora est[NON-UTF-8-BYTE-0xE1]ndar, Am[NON-UTF-8-BYTE-0xE9]rica Central</EndDateTime>
-		<EndTestTime>1701068524</EndTestTime>
+		<EndDateTime>Nov 27 02:50 Hora est[NON-UTF-8-BYTE-0xE1]ndar, Am[NON-UTF-8-BYTE-0xE9]rica Central</EndDateTime>
+		<EndTestTime>1701075011</EndTestTime>
 		<ElapsedMinutes>0</ElapsedMinutes>
 	</Testing>
 </Site>

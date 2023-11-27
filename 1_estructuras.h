@@ -305,5 +305,7 @@ void SE();
 void realizarSeguimiento();
 
 //UP
-void crearUT();
+void UP();
 
+//UT
+void UT();

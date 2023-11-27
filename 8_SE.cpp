@@ -286,7 +286,7 @@ void realizarSeguimiento() {
 
     string header_text = "";
     header_text += "                                              CLINICA MEDICA ESPERANZA\n";
-    header_text += "                                                ULTRASONIDO DE MAMAS\n\n";
+    header_text += "                                               SEGUIMIENTO DE EMBARAZO\n\n";
 
     full_text += "Cedula: " + cedula + "\n";
     full_text += "Nombre: " + paciente.nombrePaciente.primerNombre + " " + paciente.nombrePaciente.segundoNombre + " " + paciente.nombrePaciente.primerApellido + " " + paciente.nombrePaciente.segundoApellido + "\n";

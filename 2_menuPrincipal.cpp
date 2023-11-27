@@ -36,9 +36,9 @@ void Procedimientos(){
 
     switch (opcion)
     {
-    case 1: system("clear || cls"); 
+    case 1: system("clear || cls"); UT();
         break;
-    case 2: //UP();
+    case 2: system("clear || cls"); UP();
         break;
     case 3: system("clear || cls"); UM();
         break;

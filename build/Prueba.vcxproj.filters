@@ -13,6 +13,12 @@
     <ClCompile Include="C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\5_citasProgramadas.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\6_UT.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\7_UP.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\8_SE.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
