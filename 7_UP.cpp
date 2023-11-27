@@ -448,7 +448,7 @@ void UP(){
         cin >> UP.medidaOvarIzqZ; 
         cout << "\nIngrese su conclusion del Ovario Izquierdo: ";
         cin.ignore();
-        cin >> UP.otrasCaractOvarIzq;
+        getline(cin, UP.otrasCaractOvarIzq);
         
         cout << "\nTiene todos los datos correctos?" << endl;
         cout << "Ingrese S para si o cualquier otra letra para volver a ingresar los datos." << endl;
@@ -471,7 +471,7 @@ void UP(){
         cout << "Medida C:" << endl;
         cin >> UP.medidaOvarDerZ; 
         cout << "\nIngrese su conclusion del Ovario Derecho: ";
-        cin >> UP.otrasCaractOvarDer;
+        getline(cin, UP.otrasCaractOvarDer);
         
         cout << "\nTiene todos los datos correctos?" << endl;
         cout << "Ingrese S para si o cualquier otra letra para volver a ingresar los datos." << endl;
