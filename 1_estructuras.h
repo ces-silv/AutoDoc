@@ -246,6 +246,7 @@ bool folderExists(const string& folderPath);
 void login();
 
 //Pacientes
+bool cedulaExiste(const string& cedula);
 string convertirMayus(const string& str);
 bool esFechaValida(int dia, int mes, int anio); 
 void guardarRegistro(const registroP& paciente);
