@@ -58,47 +58,47 @@ void guardarRegistro(const registroP& paciente) {
     }
 }
 
-void cargarRegistroDesdeLinea(const string& linea, registroP& paciente) {
-    stringstream ss(linea);
-    string cedula, nombre, fechaNacimiento, peso, altura, numCelular;
-    getline(ss, cedula, ',');
-    getline(ss, nombre, ',');
-    getline(ss, fechaNacimiento, ',');
-    getline(ss, peso, ',');
-    getline(ss, altura, ',');
-    getline(ss, numCelular);
+// void cargarRegistroDesdeLinea(const string& linea, registroP& paciente) {
+//     stringstream ss(linea);
+//     string cedula, nombre, fechaNacimiento, peso, altura, numCelular;
+//     getline(ss, cedula, ',');
+//     getline(ss, nombre, ',');
+//     getline(ss, fechaNacimiento, ',');
+//     getline(ss, peso, ',');
+//     getline(ss, altura, ',');
+//     getline(ss, numCelular);
 
-    paciente.cedula = cedula;
+//     paciente.cedula = cedula;
 
-    string token;
+//     string token;
 
-    stringstream nombreStream(nombre);
-    getline(nombreStream, token, ' ');
-    paciente.nombrePaciente.primerNombre = token;
-    getline(nombreStream, token, ' ');
-    paciente.nombrePaciente.segundoNombre = token;
-    getline(nombreStream, token, ' ');
-    paciente.nombrePaciente.primerApellido = token;
-    getline(nombreStream, token, ' ');
-    paciente.nombrePaciente.segundoApellido = token;
+//     stringstream nombreStream(nombre);
+//     getline(nombreStream, token, ' ');
+//     paciente.nombrePaciente.primerNombre = token;
+//     getline(nombreStream, token, ' ');
+//     paciente.nombrePaciente.segundoNombre = token;
+//     getline(nombreStream, token, ' ');
+//     paciente.nombrePaciente.primerApellido = token;
+//     getline(nombreStream, token, ' ');
+//     paciente.nombrePaciente.segundoApellido = token;
 
-    stringstream fechaNacStream(fechaNacimiento);
-    getline(fechaNacStream, token, '/');
-    paciente.fechas.nacimiento.dia = stoi(token);
-    getline(fechaNacStream, token, '/');
-    paciente.fechas.nacimiento.mes = stoi(token);
-    getline(fechaNacStream, token, '/');
-    paciente.fechas.nacimiento.anio = stoi(token);
+//     stringstream fechaNacStream(fechaNacimiento);
+//     getline(fechaNacStream, token, '/');
+//     paciente.fechas.nacimiento.dia = stoi(token);
+//     getline(fechaNacStream, token, '/');
+//     paciente.fechas.nacimiento.mes = stoi(token);
+//     getline(fechaNacStream, token, '/');
+//     paciente.fechas.nacimiento.anio = stoi(token);
 
-    stringstream pesoStream(peso);
-    pesoStream >> paciente.peso;
+//     stringstream pesoStream(peso);
+//     pesoStream >> paciente.peso;
 
-    stringstream alturaStream(altura);
-    alturaStream >> paciente.altura;
+//     stringstream alturaStream(altura);
+//     alturaStream >> paciente.altura;
 
-    stringstream numCelularStream(numCelular);
-    numCelularStream >> paciente.num_celular;
-}
+//     stringstream numCelularStream(numCelular);
+//     numCelularStream >> paciente.num_celular;
+// }
 
 
 void crearPaciente() {
@@ -109,7 +109,7 @@ void crearPaciente() {
 
     printf("C%cdula del paciente: ", 130);
     cin >> paciente.cedula;
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
     paciente.cedula = convertirMayus(paciente.cedula);
 
     cout << "Primer nombre del paciente: ";
@@ -148,7 +148,7 @@ void crearPaciente() {
     cin >> paciente.num_celular;
 
    // Crea una carpeta con el número de la cédula del paciente
-    string path = "C:/Users/silva/OneDrive/Escritorio/AutoDoc/" + paciente.cedula; // Ajusta la ruta según necesites
+    string path = "C:/Users/user/OneDrive/Escritorio/AutoDoc/" + paciente.cedula; // Ajusta la ruta según necesites
     if (_access(path.c_str(), 0) != 0) {  // Verifica si la carpeta ya existe
         if (_mkdir(path.c_str()) != 0) {  // Intenta crear la carpeta
             cout << "No se pudo crear la carpeta para el paciente." << endl;
@@ -360,7 +360,7 @@ void actualizarPaciente() {
                             cin >> paciente.altura;
                             break;
                         case 5:
-                            printf("Nuevo n%cmero de tel%fono del paciente", 163, 130);
+                            printf("Nuevo n%cmero de tel%cfono del paciente", 163, 130);
                             cin >> paciente.num_celular;
                             break;
                         case 6:

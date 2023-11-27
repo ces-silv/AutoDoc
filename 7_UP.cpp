@@ -2,7 +2,6 @@
 #include <string>
 #include <fstream>
 #include "1_estructuras.h"
-#include "4_pacientes.cpp"
 
 using namespace std;
 

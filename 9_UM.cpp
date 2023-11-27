@@ -1,5 +1,3 @@
-#define _CRT_SECURE_NO_WARNINGS
-
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -247,7 +245,7 @@ void asignarProcedimientoAPaciente(UltMamas& UM) {
     cin >> UM.Paciente.cedula;
 
     // Abrir el archivo de pacientes para lectura
-    string filePath = "C:\\Users\\user\\OneDrive\\Escritorio\\AutoDoc\\AutoDoc\\output\\pacientes.txt";
+    string filePath = "C:\\Users\\user\\OneDrive\\Escritorio\\AutoDocprueba\\AutoDoc\\output\\pacientes.txt";
     ifstream pacientesFile(filePath);
     if (!pacientesFile.is_open()) {
         cerr << "Error al abrir el archivo de pacientes." << endl;
@@ -457,8 +455,6 @@ void draw_text_with_header_and_footer(HPDF_Page page, HPDF_Font font, const stri
     }
 }
 
-
-
 int main() {
     UltMamas UM;
     HPDF_Doc pdf;
@@ -563,8 +559,19 @@ int main() {
 
     draw_text_with_header_and_footer(page, font, full_text, margin, HPDF_Page_GetHeight(page) - margin, HPDF_Page_GetWidth(page) - 2 * margin, font_size, line_spacing, header_text, footer_text, header_spacing, footer_spacing);
 
-    // Guardar el documento en un archivo
-    HPDF_SaveToFile(pdf, "output.pdf");
+    /*
+    time_t tiempoActual = time(0); //Esta línea obtiene el tiempo actual en segundos desde el 1 de enero de 1970 y lo guarda en la variable
+    //Esto se haceya que se representa el tiempo en formato unix, el cual se empieza desde el 1 de enero de 1970 a las 00:00:00
+    tm* fecha = localtime(&tiempoActual); Luego, este tiempo se convierte en una estructura que contiene información detallada sobre la fecha y la hora asi como dia mas año
+    ostringstream formatoFecha; //es declarado para construir la cadena de caracteres
+
+    formatoFecha << setw(2) << setfill('0') << fecha->tm_mday << "_" << setw(2) << setfill('0') << (fecha->tm_mon + 1) << "_"<< (fecha->tm_year + 1900);
+    //se define dia y mes en 2 digitos, rellenando a la izquierda en caso que falte, por ejemplo el primero de enero de 2023 se guardaria como 01_01_2023
+    //se le suma 1900 para que de la fecha actual ya que estamos usando formato unix
+
+    string fechaActual = "C:/Users/user/OneDrive/Escritorio/AutoDoc/" + UM.Paciente.cedula + "/UM/" +formatoFecha.str() + ".pdf";
+
+    */
 
     // Liberar recursos
     HPDF_Free(pdf);

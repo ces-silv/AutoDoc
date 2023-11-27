@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Site BuildName="Win32-MSBuild"
-	BuildStamp="20231126-2316-Experimental"
+	BuildStamp="20231127-0023-Experimental"
 	Name="DESKTOP-B6RFV7C"
 	Generator="ctest-3.27.8"
 	CompilerName="C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.37.32822/bin/Hostx64/x64/cl.exe"
@@ -18,17 +18,17 @@
 	ProcessorCacheSize="-1"
 	NumberOfLogicalCPU="8"
 	NumberOfPhysicalCPU="4"
-	TotalVirtualMemory="18691"
+	TotalVirtualMemory="21800"
 	TotalPhysicalMemory="16259"
 	LogicalProcessorsPerPhysical="2"
-	ProcessorClockFrequency="1818"
+	ProcessorClockFrequency="1800"
 	>
 	<Testing>
-		<StartDateTime>Nov 26 17:18 Hora est[NON-UTF-8-BYTE-0xE1]ndar, Am[NON-UTF-8-BYTE-0xE9]rica Central</StartDateTime>
-		<StartTestTime>1701040729</StartTestTime>
+		<StartDateTime>Nov 26 20:45 Hora est[NON-UTF-8-BYTE-0xE1]ndar, Am[NON-UTF-8-BYTE-0xE9]rica Central</StartDateTime>
+		<StartTestTime>1701053125</StartTestTime>
 		<TestList/>
-		<EndDateTime>Nov 26 17:18 Hora est[NON-UTF-8-BYTE-0xE1]ndar, Am[NON-UTF-8-BYTE-0xE9]rica Central</EndDateTime>
-		<EndTestTime>1701040729</EndTestTime>
+		<EndDateTime>Nov 26 20:45 Hora est[NON-UTF-8-BYTE-0xE1]ndar, Am[NON-UTF-8-BYTE-0xE9]rica Central</EndDateTime>
+		<EndTestTime>1701053125</EndTestTime>
 		<ElapsedMinutes>0</ElapsedMinutes>
 	</Testing>
 </Site>

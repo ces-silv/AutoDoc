@@ -1,22 +1,17 @@
 #include <iostream>
 #include <limits>
-#include "3_login.cpp"
+#include "1_estructuras.h"
+/*#include "3_login.cpp"
 #include "4_pacientes.cpp"
 #include "5_citasProgramadas.cpp"
-#include "10_diagPresc.cpp"
+#include "10_diagPresc.cpp"*/
 //#include "6_UT.cpp"
 //#include "7_UP.cpp"
-#include "8_SE.cpp"
+//#include "8_SE.cpp"
 //#include "9_UM.cpp"
 
 using namespace std;
 
-void Procedimientos();
-void menuPrincipal();
-void agenda();
-void mainPacientes();
-void diagPres();
-void regresarMenuPrincipal();
 
 int main(){
     login();
@@ -49,13 +44,13 @@ void Procedimientos(){
 
     switch (opcion)
     {
-    case 1:
+    case 1: system("clear || cls"); regresarMenuPrincipal();
         break;
     case 2: //UP();
         break;
     case 3: system("clear || cls"); regresarMenuPrincipal();
         break;
-    case 4: system("clear || cls"); SE(); regresarMenuPrincipal();
+    case 4: system("clear || cls"); regresarMenuPrincipal();
         break;
     case 5:
         system("clear || cls");
@@ -94,7 +89,7 @@ void menuPrincipal(){
     case 3: system("clear || cls"); Procedimientos();
         break;
 
-    case 4: system("clear || cls"); diagPres();
+    case 4: system("clear || cls"); diagPres(); regresarMenuPrincipal();
         break;
 
     case 5:    
@@ -167,8 +162,8 @@ void mainPacientes() {
 
     while (!(cin >> opcion) || cin.peek() != '\n' || opcion < 1 || opcion > 6) {
         printf("Entrada inv%clida. Por favor, ingrese un n%cmero entero del 1 al 6: ", 160, 163);
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        std::cin.clear();
+        std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
     }
         switch (opcion) {
             case 1:
@@ -193,74 +188,9 @@ void mainPacientes() {
                 printf("--------MEN%C DE PACIENTES--------", 163);
                 cout << endl;
                 printf("Opci%cn no v%clida. Int%cntelo de nuevo.\n", 162, 160, 130);
-                cin.clear();
-                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                std::cin.clear();
+                std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
         }
     } while (opcion != 6);
 
-}
-
-void diagPres() {
-    int opcion;
-
-    do {
-        printf("Seleccione una opci%cn:\n", 162);
-        printf("1. Ingresar diagn%cstico\n", 162);
-        printf("2. Ingresar prescripci%cn\n", 162);
-        printf("3. Mostrar diagn%csticos y prescripciones anteriores\n", 162);  // Nueva opción
-        printf("Elija una opci%cn: ", 162);
-        
-        while (!(cin >> opcion) || cin.peek() != '\n' || opcion < 1 || opcion > 3) {
-            printf("Entrada inv%clida. Por favor, ingrese 1, 2 o 3: ", 160);
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        }
-
-        switch (opcion) {
-            case 1: {
-                diagnostico nuevoDiagnostico = ingresarDatosDiagnostico();
-                guardarDiagnostico(nuevoDiagnostico);
-                printf("Diagn%cstico guardado exitosamente.\n", 162);
-                break;
-            }
-            case 2: {
-                prescripcion nuevaPrescripcion = ingresarDatosPrescripcion();
-                guardarPrescripcion(nuevaPrescripcion);
-                printf("Prescripci%cn guardada exitosamente.\n", 162);
-                break;
-            }
-            case 3: {
-                string cedula;
-                bool cedulaValida = false;
-                registroP paciente;
-
-                // Solicitar la cédula hasta que sea válida
-                while (!cedulaValida) {
-                    printf("Ingrese la c%cdula del paciente para mostrar diagn%csticos y prescripciones anteriores: ", 130, 162);
-                    cin >> cedula;
-
-                    if (obtenerInfoPaciente(cedula, paciente)) {
-                        cedulaValida = true;
-                    } else {
-                        printf("La c%cdula no existe en el registro. Ingrese una c%cdula v%clida.\n", 130, 130, 160);
-                    }
-                }
-
-                mostrarDiagnosticosYPrescripciones(cedula);
-                break;
-            }
-            default:
-                printf("Opci%cn no v%clida.\n", 162, 160);
-        }
-
-        // Preguntar si el usuario desea volver al menú principal
-        char respuesta;
-        printf("%cDesea volver al men%c principal (S/N): ", 168, 163);
-        cin >> respuesta;
-        
-        if (toupper(respuesta) != 'S') {
-            break; // Salir del bucle si la respuesta no es 'S' (ignora mayúsculas/minúsculas)
-        }
-
-    } while (true);
 }

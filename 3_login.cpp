@@ -17,6 +17,7 @@ Incluye clases y funciones para leer y escribir datos en archivos.*/
 
 #include <direct.h>
 #include <io.h>
+#include "1_estructuras.h"
 
 #ifdef _WIN32
 #include <conio.h> // Solo para Windows
@@ -24,7 +25,10 @@ Incluye clases y funciones para leer y escribir datos en archivos.*/
 
 using namespace std;
 
-bool folderExists(const string& folderPath);
+bool folderExists(const string& folderPath) {
+    DWORD attributes = GetFileAttributesA(folderPath.c_str()); // Usar GetFileAttributesA para cadenas de un solo byte
+    return (attributes != INVALID_FILE_ATTRIBUTES && (attributes & FILE_ATTRIBUTE_DIRECTORY));
+}
 
 void login(){
 
@@ -95,7 +99,7 @@ void login(){
         {
             system("clear || cls");
             //INICIA EL PROGRAMA
-            string desktopPath = "C:/Users/silva/OneDrive/Escritorio/AutoDoc";
+            string desktopPath = "C:/Users/user/OneDrive/Escritorio/AutoDoc";
 
             // Verificar si la carpeta ya existe
             if (_access(desktopPath.c_str(), 0) == 0) { //Se utiliza la funcion access para que verifique si la carpeta ya esta creada
@@ -126,9 +130,4 @@ void login(){
         cout << "Ha excedido el maximos de intentos permitidos." << endl;
     }
 
-}
-
-bool folderExists(const string& folderPath) {
-    DWORD attributes = GetFileAttributesA(folderPath.c_str()); // Usar GetFileAttributesA para cadenas de un solo byte
-    return (attributes != INVALID_FILE_ATTRIBUTES && (attributes & FILE_ATTRIBUTE_DIRECTORY));
 }

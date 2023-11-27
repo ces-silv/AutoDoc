@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "MinSizeRel/Prueba.exe"
+			"path" : "Debug/Prueba.exe"
 		},
 		{
-			"path" : "MinSizeRel/Prueba.pdb"
+			"path" : "Debug/Prueba.pdb"
 		}
 	],
 	"backtrace" : 2,
@@ -34,7 +34,7 @@
 			{
 				"command" : 1,
 				"file" : 1,
-				"line" : 7,
+				"line" : 10,
 				"parent" : 0
 			},
 			{
@@ -46,13 +46,13 @@
 			{
 				"command" : 2,
 				"file" : 1,
-				"line" : 10,
+				"line" : 13,
 				"parent" : 0
 			},
 			{
 				"command" : 5,
 				"file" : 1,
-				"line" : 9,
+				"line" : 12,
 				"parent" : 0
 			},
 			{
@@ -79,7 +79,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "/DWIN32 /D_WINDOWS /W3 /GR /EHsc /MD /O1 /Ob1 /DNDEBUG"
+					"fragment" : "/DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1"
 				}
 			],
 			"includes" : 
@@ -91,14 +91,21 @@
 				}
 			],
 			"language" : "CXX",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					2
+				],
+				"standard" : "11"
+			},
 			"sourceIndexes" : 
 			[
 				1,
 				2,
 				3,
 				4,
-				5,
-				6
+				5
 			]
 		}
 	],
@@ -114,26 +121,26 @@
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "/DWIN32 /D_WINDOWS /W3 /GR /EHsc /MD /O1 /Ob1 /DNDEBUG",
+				"fragment" : "/DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1",
 				"role" : "flags"
 			},
 			{
-				"fragment" : "/machine:x64 /INCREMENTAL:NO /subsystem:console",
+				"fragment" : "/machine:x64 /debug /INCREMENTAL /subsystem:console",
 				"role" : "flags"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "C:\\des\\vcpkg\\installed\\x64-windows\\lib\\hpdf.lib",
+				"fragment" : "C:\\des\\vcpkg\\installed\\x64-windows\\debug\\lib\\hpdf.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 7,
-				"fragment" : "C:\\des\\vcpkg\\installed\\x64-windows\\lib\\libpng16.lib",
+				"fragment" : "C:\\des\\vcpkg\\installed\\x64-windows\\debug\\lib\\libpng16d.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 7,
-				"fragment" : "C:\\des\\vcpkg\\installed\\x64-windows\\lib\\zlib.lib",
+				"fragment" : "C:\\des\\vcpkg\\installed\\x64-windows\\debug\\lib\\zlibd.lib",
 				"role" : "libraries"
 			},
 			{
@@ -167,8 +174,7 @@
 				2,
 				3,
 				4,
-				5,
-				6
+				5
 			]
 		}
 	],
@@ -201,12 +207,6 @@
 			"backtrace" : 2,
 			"compileGroupIndex" : 0,
 			"path" : "5_citasProgramadas.cpp",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 2,
-			"compileGroupIndex" : 0,
-			"path" : "8_SE.cpp",
 			"sourceGroupIndex" : 1
 		},
 		{

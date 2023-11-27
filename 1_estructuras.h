@@ -1,4 +1,7 @@
 #include <string>
+#include <sstream>
+#include <iostream>
+#include <fstream>
 using namespace std;
 
 struct fechaMain{
@@ -181,3 +184,104 @@ struct prescripcion{
     string dosis;
     string cantidad;
 };
+
+
+inline void cargarRegistroDesdeLinea(const string& linea, registroP& paciente) {
+    stringstream ss(linea);
+    string cedula, nombre, fechaNacimiento, peso, altura, numCelular;
+    getline(ss, cedula, ',');
+    getline(ss, nombre, ',');
+    getline(ss, fechaNacimiento, ',');
+    getline(ss, peso, ',');
+    getline(ss, altura, ',');
+    getline(ss, numCelular);
+
+    paciente.cedula = cedula;
+
+    string token;
+
+    stringstream nombreStream(nombre);
+    getline(nombreStream, token, ' ');
+    paciente.nombrePaciente.primerNombre = token;
+    getline(nombreStream, token, ' ');
+    paciente.nombrePaciente.segundoNombre = token;
+    getline(nombreStream, token, ' ');
+    paciente.nombrePaciente.primerApellido = token;
+    getline(nombreStream, token, ' ');
+    paciente.nombrePaciente.segundoApellido = token;
+
+    stringstream fechaNacStream(fechaNacimiento);
+    getline(fechaNacStream, token, '/');
+    paciente.fechas.nacimiento.dia = stoi(token);
+    getline(fechaNacStream, token, '/');
+    paciente.fechas.nacimiento.mes = stoi(token);
+    getline(fechaNacStream, token, '/');
+    paciente.fechas.nacimiento.anio = stoi(token);
+
+    stringstream pesoStream(peso);
+    pesoStream >> paciente.peso;
+
+    stringstream alturaStream(altura);
+    alturaStream >> paciente.altura;
+
+    stringstream numCelularStream(numCelular);
+    numCelularStream >> paciente.num_celular;
+}
+
+inline bool obtenerInfoPaciente(const string& cedula, registroP& paciente) {
+    ifstream archivoPacientes("pacientes.txt");
+
+    if (archivoPacientes.is_open()) {
+        string linea;
+        while (getline(archivoPacientes, linea)) {
+            registroP pacienteTemp;
+            cargarRegistroDesdeLinea(linea, pacienteTemp);
+
+            if (pacienteTemp.cedula == cedula) {
+                paciente = pacienteTemp;
+                archivoPacientes.close();
+                return true; // La cédula existe en el archivo
+            }
+        }
+        archivoPacientes.close();
+    } else {
+        cout << "Error al abrir el archivo 'pacientes.txt'" << endl;
+    }
+
+    return false; // La cédula no existe en el archivo
+}
+
+//Menu Principal
+void Procedimientos();
+void menuPrincipal();
+void agenda();
+void mainPacientes();
+void diagPres();
+void regresarMenuPrincipal();
+
+//Login
+bool folderExists(const string& folderPath);
+void login();
+
+//Pacientes
+string convertirMayus(const string& str);
+bool esFechaValida(int dia, int mes, int anio); 
+void guardarRegistro(const registroP& paciente);
+void crearPaciente();
+void buscarPacientes();
+void listarPacientes();
+void actualizarPaciente();
+void eliminarDirectorio(const string& path);
+void eliminarPaciente();
+
+//Citas Programadas
+bool esBisiesto(int anio);
+bool esFechaFutura(const fechaMain& fecha);
+void programarCita();
+void mostrarCitasProgramadas();
+
+//Diagnóstico y preescripciones
+void guardarDiagnostico(const diagnostico& diag);
+void guardarPrescripcion(const prescripcion& presc);
+void mostrarDiagnosticosYPrescripciones(const string& cedula);
+

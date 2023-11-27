@@ -2,31 +2,33 @@
 #include <fstream>
 #include <string>
 #include <ctime>
+#include "1_estructuras.h"
 
 using namespace std;
 
-bool obtenerInfoPaciente(const string& cedula, registroP& paciente) {
-    ifstream archivoPacientes("pacientes.txt");
 
-    if (archivoPacientes.is_open()) {
-        string linea;
-        while (getline(archivoPacientes, linea)) {
-            registroP pacienteTemp;
-            cargarRegistroDesdeLinea(linea, pacienteTemp);
+// bool obtenerInfoPaciente(const string& cedula, registroP& paciente) {
+//     ifstream archivoPacientes("pacientes.txt");
 
-            if (pacienteTemp.cedula == cedula) {
-                paciente = pacienteTemp;
-                archivoPacientes.close();
-                return true; // La cédula existe en el archivo
-            }
-        }
-        archivoPacientes.close();
-    } else {
-        cout << "Error al abrir el archivo 'pacientes.txt'" << endl;
-    }
+//     if (archivoPacientes.is_open()) {
+//         string linea;
+//         while (getline(archivoPacientes, linea)) {
+//             registroP pacienteTemp;
+//             cargarRegistroDesdeLinea(linea, pacienteTemp);
 
-    return false; // La cédula no existe en el archivo
-}
+//             if (pacienteTemp.cedula == cedula) {
+//                 paciente = pacienteTemp;
+//                 archivoPacientes.close();
+//                 return true; // La cédula existe en el archivo
+//             }
+//         }
+//         archivoPacientes.close();
+//     } else {
+//         cout << "Error al abrir el archivo 'pacientes.txt'" << endl;
+//     }
+
+//     return false; // La cédula no existe en el archivo
+// }
 
 // Método para obtener la fecha actual
 string obtenerFechaActual() {
