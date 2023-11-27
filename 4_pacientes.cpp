@@ -86,6 +86,12 @@ void crearPaciente() {
     cin >> paciente.cedula;
     //std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
     paciente.cedula = convertirMayus(paciente.cedula);
+    
+    if (cedulaExiste(paciente.cedula)) {
+    cout << "Error: Ya existe un paciente con esa cédula." << endl;
+    return; // Salir de la función si la cédula ya está registrada.
+}
+
 
     cout << "Primer nombre del paciente: ";
     cin >> paciente.nombrePaciente.primerNombre;
