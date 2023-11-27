@@ -1,32 +1,16 @@
 #include <iostream>
 #include <string>
+#include <sstream>
 #include <fstream>
+#include <limits>
+#include <ctime>
+#include <iomanip>
+#include <hpdf.h>
+#include <vector>
 #include "1_estructuras.h"
 
 using namespace std;
 
-bool obtenerInfoPaciente(const string& cedula, registroP& paciente) {
-    ifstream archivoPacientes("pacientes.txt");
-
-    if (archivoPacientes.is_open()) {
-        string linea;
-        while (getline(archivoPacientes, linea)) {
-            registroP pacienteTemp;
-            cargarRegistroDesdeLinea(linea, pacienteTemp);
-
-            if (pacienteTemp.cedula == cedula) {
-                paciente = pacienteTemp;
-                archivoPacientes.close();
-                return true; // La cédula existe en el archivo
-            }
-        }       
-        archivoPacientes.close();
-    } else {
-        cout << "Error al abrir el archivo 'pacientes.txt'" << endl;
-    }
-
-    return false; // La cédula no existe en el archivo
-}
 
 void crearUT(){
     registroP paciente;

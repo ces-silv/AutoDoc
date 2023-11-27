@@ -2,6 +2,8 @@
 #include <sstream>
 #include <iostream>
 #include <fstream>
+#include <hpdf.h>
+
 using namespace std;
 
 struct fechaMain{
@@ -229,7 +231,7 @@ inline void cargarRegistroDesdeLinea(const string& linea, registroP& paciente) {
 }
 
 inline bool obtenerInfoPaciente(const string& cedula, registroP& paciente) {
-    ifstream archivoPacientes("pacientes.txt");
+    ifstream archivoPacientes("C:\\Users\\user\\OneDrive\\Escritorio\\AutoDoc\\pacientes.txt");
 
     if (archivoPacientes.is_open()) {
         string linea;
@@ -284,4 +286,24 @@ void mostrarCitasProgramadas();
 void guardarDiagnostico(const diagnostico& diag);
 void guardarPrescripcion(const prescripcion& presc);
 void mostrarDiagnosticosYPrescripciones(const string& cedula);
+
+//UM
+void UM();
+void mamaIzq(UltMamas& UM);
+void mamaDer(UltMamas& UM);
+void lesionesMamas(UltMamas& UM);
+void lesionMamaIzq(UltMamas& UM);
+void lesionMamaDer(UltMamas& UM);
+void conclusionesGen(UltMamas& UM);
+void BIRADS(UltMamas& UM);
+void asignarProcedimientoAPaciente(UltMamas& UM);
+void error_handler(HPDF_STATUS error_no, HPDF_STATUS detail_no, void* user_data);
+void draw_text_with_header_and_footer(HPDF_Page page, HPDF_Font font, const string& text, float x, float y, float max_width, float font_size, float line_spacing, const string& header, const string& footer, float header_spacing, float footer_spacing);
+
+//SE
+void SE();
+void realizarSeguimiento();
+
+//UP
+void crearUT();
 

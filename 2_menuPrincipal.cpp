@@ -1,14 +1,6 @@
 #include <iostream>
 #include <limits>
 #include "1_estructuras.h"
-/*#include "3_login.cpp"
-#include "4_pacientes.cpp"
-#include "5_citasProgramadas.cpp"
-#include "10_diagPresc.cpp"*/
-//#include "6_UT.cpp"
-//#include "7_UP.cpp"
-//#include "8_SE.cpp"
-//#include "9_UM.cpp"
 
 using namespace std;
 
@@ -44,13 +36,13 @@ void Procedimientos(){
 
     switch (opcion)
     {
-    case 1: system("clear || cls"); regresarMenuPrincipal();
+    case 1: system("clear || cls"); 
         break;
     case 2: //UP();
         break;
-    case 3: system("clear || cls"); regresarMenuPrincipal();
+    case 3: system("clear || cls"); UM();
         break;
-    case 4: system("clear || cls"); regresarMenuPrincipal();
+    case 4: system("clear || cls"); SE();
         break;
     case 5:
         system("clear || cls");

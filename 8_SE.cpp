@@ -1,11 +1,10 @@
-#define _CRT_SECURE_NO_WARNINGS
-
 #include <iostream>
 #include <string>
 #include <sstream>
 #include <fstream>
 #include <limits>
 #include <ctime>
+#include <iomanip>
 #include <hpdf.h>
 #include <vector>
 #include "1_estructuras.h"
@@ -16,229 +15,6 @@ string cedula;
 registroP paciente;
 seguimEmb seguimiento;
 
-void asignarProcedimientoAPaciente(seguimEmb& seguimiento);
-void error_handler(HPDF_STATUS error_no, HPDF_STATUS detail_no, void* user_data);
-void draw_text_with_header_and_footer(HPDF_Page page, HPDF_Font font, const string& text, float x, float y, float max_width, float font_size, float line_spacing, const string& header, const string& footer, float header_spacing, float footer_spacing);
-void realizarSeguimiento();
-
-
-void asignarProcedimientoAPaciente(seguimEmb& seguimiento) {
-    string cedulaPaciente;
-    cout << "Ingrese la cedula del paciente: ";
-    cin >> seguimiento.Paciente.cedula;
-
-    // Abrir el archivo de pacientes para lectura
-    string filePath = "C:\\Users\\user\\OneDrive\\Escritorio\\AutoDocprueba\\AutoDoc\\output\\pacientes.txt";
-    ifstream pacientesFile(filePath);
-    if (!pacientesFile.is_open()) {
-        cerr << "Error al abrir el archivo de pacientes." << endl;
-        exit(EXIT_FAILURE);
-    }
-
-    // Buscar al paciente por cedula y cargar su información
-    string line;
-    while (getline(pacientesFile, line)) {
-        if (line.find(seguimiento.Paciente.cedula) == 0) {
-            // Suponiendo que la estructura del archivo de pacientes es: cedula,primerNombre,segundoNombre,primerApellido,segundoApellido,altura,peso,num_celular,nacimiento.dia,nacimiento.mes,nacimiento.anio
-            stringstream ss(line);
-            string token;
-
-            getline(ss, token, ',');
-            getline(ss, seguimiento.Paciente.nombrePaciente.primerNombre, ' ');
-            getline(ss, seguimiento.Paciente.nombrePaciente.segundoNombre, ' ');
-            ss >> seguimiento.Paciente.nombrePaciente.primerApellido;
-            ss.ignore();
-            getline(ss, seguimiento.Paciente.nombrePaciente.segundoApellido, ',');
-            ss >> seguimiento.Paciente.fechas.nacimiento.dia;
-            ss.ignore(1, '/');
-            ss >> seguimiento.Paciente.fechas.nacimiento.mes;
-            ss.ignore(1, '/');
-            ss >> seguimiento.Paciente.fechas.nacimiento.anio;
-            ss.ignore(1, ',');
-            ss >> seguimiento.Paciente.peso;
-            ss.ignore(1, ',');
-            ss >> seguimiento.Paciente.altura;
-            ss.ignore(1, ',');
-            getline(ss, seguimiento.Paciente.num_celular);
-
-            cout << "\nPaciente encontrado" << endl << endl;
-            printf("C%cdula: ", 130); cout << seguimiento.Paciente.cedula << endl;
-            cout << "Nombre: " << seguimiento.Paciente.nombrePaciente.primerNombre << ' ' << seguimiento.Paciente.nombrePaciente.segundoNombre << ' ' << seguimiento.Paciente.nombrePaciente.primerApellido << ' ' << seguimiento.Paciente.nombrePaciente.segundoApellido << endl;
-            cout << "Fecha de nacimiento: " << seguimiento.Paciente.fechas.nacimiento.dia << "/" << seguimiento.Paciente.fechas.nacimiento.mes << "/" << seguimiento.Paciente.fechas.nacimiento.anio << endl;
-            cout << "Peso: " << seguimiento.Paciente.peso << " lb" << endl;
-            cout << "Altura: " << seguimiento.Paciente.altura << " cm" << endl;
-            printf("N%cmero de tel%cfono: ", 163, 130); cout << seguimiento.Paciente.num_celular << endl << endl;
-
-            printf("%cEste es el paciente que estabas buscando? Si es as%c, presione S o ingrese cualquier otra letra para ingresarlo nuevamente.\n", 168, 161);
-            cin >> cedulaPaciente;
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-
-            if ((cedulaPaciente == "S") || (cedulaPaciente == "s")) {
-                pacientesFile.close();
-                return;
-            }
-            else {
-                pacientesFile.close();
-                system("pause || read -p 'Presiona Enter para continuar...' -n 1 -s");
-                system("clear || cls");
-                asignarProcedimientoAPaciente(seguimiento);
-                return;
-            }
-        }
-    }
-
-    // Si llega aquí, no se encontró al paciente
-    cerr << "Paciente no encontrado." << endl;
-    pacientesFile.close();
-    exit(EXIT_FAILURE);
-}
-
-
-void error_handler(HPDF_STATUS error_no, HPDF_STATUS detail_no, void* user_data) {
-    // Esta función se encarga de manejar los errores generados por LibHaru.
-    // Recibe el número de error principal (error_no) y el número de detalle (detail_no).
-    // Además, user_data es un parámetro adicional que no estamos utilizando en este caso.
-
-    // Imprimir información de error en formato hexadecimal y decimal
-    cout << "LibHaru error: " << hex << error_no << ", " << dec << detail_no << endl;
-
-    // Salir del programa con código de error 1
-    exit(1);
-}
-
-void draw_text_with_header_and_footer(HPDF_Page page, HPDF_Font font, const string& text, float x, float y, float max_width, float font_size, float line_spacing, const string& header, const string& footer, float header_spacing, float footer_spacing) {
-    HPDF_Page_SetFontAndSize(page, font, font_size);
-    const float margin = 50.0f;
-
-    // Dividir el texto del encabezado en líneas
-    vector<string> header_lines;
-    stringstream header_stream(header);
-    string header_line;
-    while (getline(header_stream, header_line, '\n')) {
-        header_lines.push_back(header_line);
-    }
-
-    // Dibujar encabezado
-    for (const auto& line : header_lines) {
-        HPDF_Page_BeginText(page);
-        HPDF_Page_TextOut(page, x, y, line.c_str());
-        HPDF_Page_EndText(page);
-        y -= header_spacing;
-    }
-
-    // Actualizar la posición y para el contenido principal
-    y -= header_spacing;
-
-    // Calcular la altura de una línea de texto
-    float line_height = static_cast<float>(HPDF_Font_GetCapHeight(font)) * font_size / 1000.0f;
-
-    // Encontrar saltos de línea en el texto
-    size_t start_pos = 0;
-    size_t end_pos = text.find('\n');
-
-    // Iterar sobre las líneas del texto
-    while (end_pos != string::npos) {
-        // Obtener una línea de texto
-        string line = text.substr(start_pos, end_pos - start_pos);
-
-        // Verificar si la posición y está en la parte superior de la página
-        if (y > HPDF_Page_GetHeight(page) - margin) {
-            // Agregar el encabezado
-            for (const auto& header_line : header_lines) {
-                HPDF_Page_BeginText(page);
-                HPDF_Page_TextOut(page, x, y, header_line.c_str());
-                HPDF_Page_EndText(page);
-                y -= header_spacing;
-            }
-
-            // Actualizar la posición Y para el siguiente encabezado
-            y -= header_spacing;
-        }
-
-        // Verificar si la línea cabe en el ancho disponible
-        if (HPDF_Page_TextWidth(page, line.c_str()) <= max_width) {
-            // Dibujar la línea
-            HPDF_Page_BeginText(page);
-            HPDF_Page_TextOut(page, x, y, line.c_str());
-            HPDF_Page_EndText(page);
-
-            // Mover la posición Y para la siguiente línea con espacio adicional
-            y -= line_height + line_spacing;
-        }
-        else {
-            // Dividir la línea en fragmentos que se ajusten al ancho
-            size_t pos = 0;
-            while (pos < line.length()) {
-                size_t len = line.length() - pos;
-                while (HPDF_Page_TextWidth(page, line.substr(pos, len).c_str()) > max_width) {
-                    len--;
-                }
-
-                // Dibujar la porción que cabe en la página
-                HPDF_Page_BeginText(page);
-                HPDF_Page_TextOut(page, x, y, line.substr(pos, len).c_str());
-                HPDF_Page_EndText(page);
-
-                // Mover la posición Y para la siguiente línea con espacio adicional
-                y -= line_height + line_spacing;
-
-                pos += len;
-            }
-        }
-
-        // Actualizar las posiciones para la siguiente línea
-        start_pos = end_pos + 1;
-        end_pos = text.find('\n', start_pos);
-    }
-
-    // Dibujar la última línea
-    string last_line = text.substr(start_pos);
-
-    // Verificar si la última línea cabe en el ancho disponible
-    if (HPDF_Page_TextWidth(page, last_line.c_str()) <= max_width) {
-        // Dibujar la última línea
-        HPDF_Page_BeginText(page);
-        HPDF_Page_TextOut(page, x, y, last_line.c_str());
-        HPDF_Page_EndText(page);
-    }
-    else {
-        // Dividir la última línea en fragmentos que se ajusten al ancho
-        size_t pos = 0;
-        while (pos < last_line.length()) {
-            size_t len = last_line.length() - pos;
-            while (HPDF_Page_TextWidth(page, last_line.substr(pos, len).c_str()) > max_width) {
-                len--;
-            }
-
-            // Dibujar la porción que cabe en la página
-            HPDF_Page_BeginText(page);
-            HPDF_Page_TextOut(page, x, y, last_line.substr(pos, len).c_str());
-            HPDF_Page_EndText(page);
-
-            // Mover la posición Y para la siguiente línea con espacio adicional
-            y -= line_height + line_spacing;
-
-            pos += len;
-        }
-    }
-
-    // Dividir el texto del pie de página en líneas
-    vector<string> footer_lines;
-    stringstream footer_stream(footer);
-    string footer_line;
-    while (getline(footer_stream, footer_line, '\n')) {
-        footer_lines.push_back(footer_line);
-    }
-
-    // Agregar el pie de página
-    for (const auto& footer_line : footer_lines) {
-        HPDF_Page_BeginText(page);
-        HPDF_Page_TextOut(page, x, y - line_height - footer_spacing, footer_line.c_str());
-        HPDF_Page_EndText(page);
-        y -= footer_spacing;
-    }
-}
-
 // Método para realizar el seguimiento del embarazo
 void realizarSeguimiento() {
     // Solicitar la cédula del paciente y validarla
@@ -246,7 +22,28 @@ void realizarSeguimiento() {
     registroP paciente;
     seguimEmb seguimiento;
 
-    asignarProcedimientoAPaciente(seguimiento);
+    do {
+            cout << "Introduzca la cédula del paciente: ";
+            cin >> cedula;
+
+            if (!obtenerInfoPaciente(cedula, paciente)) {
+                cout << "La cédula no existe en el registro. Introduzca una cédula válida." << endl;
+            } else {
+                // Mostrar la información del paciente
+                system("clear || cls");
+                cout << "Información del Paciente:" << endl;
+                cout << "Cédula: " << paciente.cedula << endl;
+                cout << "Nombre: " << paciente.nombrePaciente.primerNombre << ' ' << paciente.nombrePaciente.segundoNombre << ' ' << paciente.nombrePaciente.primerApellido << ' ' << paciente.nombrePaciente.segundoApellido << endl;
+                cout << "Fecha de nacimiento: " << paciente.fechas.nacimiento.dia << "/" << paciente.fechas.nacimiento.mes << "/" << paciente.fechas.nacimiento.anio << endl;
+                cout << "Peso: " << paciente.peso << " lb" << endl;
+                cout << "Altura: " << paciente.altura << " cm" << endl;
+                cout << "Número de teléfono: " << paciente.num_celular << endl;
+                cout << endl;
+            }
+
+        } while (!obtenerInfoPaciente(cedula, paciente));
+
+    cin.ignore();
 
     time_t tiempoActual = time(nullptr);
     tm* tiempoLocal = localtime(&tiempoActual);
@@ -256,7 +53,7 @@ void realizarSeguimiento() {
     seguimiento.Paciente.fechas.realizacion.anio = tiempoLocal->tm_year + 1900; // tm_year es el año desde 1900
 
     // Resto de la lógica para realizar el seguimiento del embarazo
-    cout << "Introduza el peso de la madre: ";
+    cout << "Introduza el peso de la madre (lb): ";
     cin >> seguimiento.pesoMadre;
     cout << "Introduzca la presión arterial sistólica: ";
     cin >> seguimiento.presArtSisto;
@@ -276,18 +73,19 @@ void realizarSeguimiento() {
         cout << "Tiene una presion arterial saludable - Recuerde valorar segun su experiencia medica.\n" << endl;
     }
 
-    cout << "Introduzca las medidas Leopold: ";
+    cout << "Introduzca las medidas Leopold (cm): ";
     cin >> seguimiento.medidasLeopold;
-    cout << "Introduzca las medidas de la circunferencia craneana del bebé: ";
+    cout << "Introduzca las medidas de la circunferencia craneana del bebé (mm): ";
     cin >> seguimiento.circunfCraneana;
-    cout << "Introduzca el diámetro biparietal del bebé: ";
+    cout << "Introduzca el diámetro biparietal del bebé (mm): ";
     cin >> seguimiento.diametBiparietal;
-    cout << "Introduzca la circunferencia abdominal del bebé: ";
+    cout << "Introduzca la circunferencia abdominal del bebé (mm): ";
     cin >> seguimiento.circunfAbdominal;
-    cout << "Introduzca el peso del bebé: ";
+    cout << "Introduzca el peso del bebé (lb): ";
     cin >> seguimiento.pesoBebe;
-    cout << "Introduzca la edad del bebé: ";
+    cout << "Introduzca la edad del bebé (semanas): ";
     cin >> seguimiento.edadBebe;
+ 
     cin.ignore();
     switch (seguimiento.edadBebe) {
     case 4:
@@ -481,45 +279,55 @@ void realizarSeguimiento() {
 
     string footer_text = "";
     footer_text += "                                                  Dr. Carlos Ernesto Silva Bustos\n";
-    footer_text += "                                          Especialista en Ginecología y Obstetricia\n";
+    footer_text += "                                          Especialista en Ginecologia y Obstetricia\n";
     footer_text += "                                                            Ultrasonografista\n";
     footer_text += "                                                              Colposcopista\n";
-    footer_text += "                                                        Código minsa 12962";
+    footer_text += "                                                        Codigo minsa 12962";
 
     string header_text = "";
     header_text += "                                              CLINICA MEDICA ESPERANZA\n";
     header_text += "                                                ULTRASONIDO DE MAMAS\n\n";
 
-    full_text += "ID: " + seguimiento.Paciente.cedula + "\n";
-    full_text += "Nombre: " + seguimiento.Paciente.nombrePaciente.primerNombre + " " + seguimiento.Paciente.nombrePaciente.segundoNombre + " " + seguimiento.Paciente.nombrePaciente.primerApellido + " " + seguimiento.Paciente.nombrePaciente.segundoApellido + "\n";
+    full_text += "Cedula: " + cedula + "\n";
+    full_text += "Nombre: " + paciente.nombrePaciente.primerNombre + " " + paciente.nombrePaciente.segundoNombre + " " + paciente.nombrePaciente.primerApellido + " " + paciente.nombrePaciente.segundoApellido + "\n";
     full_text += "Fecha: " + to_string(seguimiento.Paciente.fechas.realizacion.dia) + "/" + to_string(seguimiento.Paciente.fechas.realizacion.mes) + "/" + to_string(seguimiento.Paciente.fechas.realizacion.anio) + "\n\n";
 
-    full_text += "Peso de la madre : " + to_string(seguimiento.pesoMadre) + "\n";
+    full_text += "Peso de la madre : " + to_string(seguimiento.pesoMadre) + " lb\n";
     full_text += "Presion arterial sistolica: " + to_string(seguimiento.presArtSisto) + "\n";
     full_text += "Presion arterial diastolica: " + to_string(seguimiento.presArtDias) + "\n";
-    full_text += "Medidas Leopold: " + to_string(seguimiento.medidasLeopold) + "\n";
-    full_text += "Circunferencia craneana del bebe: " + to_string(seguimiento.circunfCraneana) + "\n";
-    full_text += "Diámetro biparietal del bebe: " + to_string(seguimiento.diametBiparietal) + "\n";
-    full_text += "Circunferencia abdominal del bebe: " + to_string(seguimiento.circunfAbdominal) + "\n";
-    full_text += "Peso del bebe: " + to_string(seguimiento.pesoBebe) + "\n";
-    full_text += "Edad del bebe: " + to_string(seguimiento.edadBebe) + "\n\n";
+    full_text += "Medidas Leopold: " + to_string(seguimiento.medidasLeopold) + " cm\n";
+    full_text += "Circunferencia craneana del bebe: " + to_string(seguimiento.circunfCraneana) + " mm\n";
+    full_text += "Diametro biparietal del bebe: " + to_string(seguimiento.diametBiparietal) + " mm\n";
+    full_text += "Circunferencia abdominal del bebe: " + to_string(seguimiento.circunfAbdominal) + " mm\n";
+    full_text += "Peso del bebe: " + to_string(seguimiento.pesoBebe) + " lb\n";
+    full_text += "Edad del bebe: " + to_string(seguimiento.edadBebe) + " semanas\n\n";
 
     full_text += "Conclusiones y valoraciones: " + seguimiento.conclusionesGen + "\n\n";
 
     draw_text_with_header_and_footer(page, font, full_text, margin, HPDF_Page_GetHeight(page) - margin, HPDF_Page_GetWidth(page) - 2 * margin, font_size, line_spacing, header_text, footer_text, header_spacing, footer_spacing);
 
+    ostringstream formatoFecha; //es declarado para construir la cadena de caracteres
+
+    formatoFecha << setw(2) << setfill('0') << tiempoLocal->tm_mday << "_" << setw(2) << setfill('0') << (tiempoLocal->tm_mon + 1) << "_"<< (tiempoLocal->tm_year + 1900);
+    //se define dia y mes en 2 digitos, rellenando a la izquierda en caso que falte, por ejemplo el primero de enero de 2023 se guardaria como 01_01_2023
+    //se le suma 1900 para que de la fecha actual ya que estamos usando formato unix
+
+    string fechaActual = ("C:/Users/user/OneDrive/Escritorio/AutoDoc/" + cedula + "/SE/" + formatoFecha.str() + ".pdf").c_str();
+
     // Guardar el documento en un archivo
-    HPDF_SaveToFile(pdf, "output.pdf");
+    HPDF_SaveToFile(pdf, fechaActual.c_str());
 
+    cin.ignore();
+
+    cout << fechaActual;
+    // Guardar el documento en un archivo
+    system("pause");
+    system("cls");
     // Liberar recursos
-    HPDF_Free(pdf);
-
-    printf("Documento PDF generado con %cxito: output.pdf\n", 130);
+    menuPrincipal();
 };
 
-int main() {
+void SE() {
     seguimEmb seguimiento;
     realizarSeguimiento();
-
-    return 0;
 }

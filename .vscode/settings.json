@@ -5,7 +5,9 @@
         "filesystem": "cpp",
         "xstring": "cpp",
         "iostream": "cpp",
-        "fstream": "cpp"
+        "fstream": "cpp",
+        "iosfwd": "cpp",
+        "string": "cpp"
     }
 }
 

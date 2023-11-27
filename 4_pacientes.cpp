@@ -45,8 +45,11 @@ bool esFechaValida(int dia, int mes, int anio) {
 }
 
 //Función para guardar archivos en registro
+
 void guardarRegistro(const registroP& paciente) {
-    ofstream archivo(archivoPacientes, ios::app);
+    string ruta = "C:\\Users\\user\\OneDrive\\Escritorio\\AutoDoc\\pacientes.txt";  // Ruta completa del archivo
+
+    ofstream archivo(ruta, ios::app);
     if (archivo.is_open()) {
         archivo << paciente.cedula << ',' << paciente.nombrePaciente.primerNombre << ' ' << paciente.nombrePaciente.segundoNombre
                 << ' ' << paciente.nombrePaciente.primerApellido << ' ' << paciente.nombrePaciente.segundoApellido << ','
@@ -54,51 +57,9 @@ void guardarRegistro(const registroP& paciente) {
                 << paciente.peso << ',' << paciente.altura << ',' << paciente.num_celular << '\n';
         archivo.close();
     } else {
-        cout << "No se pudo abrir el archivo" << endl;
+        cout << "No se pudo abrir el archivo en la ruta: " << ruta << endl;
     }
 }
-
-// void cargarRegistroDesdeLinea(const string& linea, registroP& paciente) {
-//     stringstream ss(linea);
-//     string cedula, nombre, fechaNacimiento, peso, altura, numCelular;
-//     getline(ss, cedula, ',');
-//     getline(ss, nombre, ',');
-//     getline(ss, fechaNacimiento, ',');
-//     getline(ss, peso, ',');
-//     getline(ss, altura, ',');
-//     getline(ss, numCelular);
-
-//     paciente.cedula = cedula;
-
-//     string token;
-
-//     stringstream nombreStream(nombre);
-//     getline(nombreStream, token, ' ');
-//     paciente.nombrePaciente.primerNombre = token;
-//     getline(nombreStream, token, ' ');
-//     paciente.nombrePaciente.segundoNombre = token;
-//     getline(nombreStream, token, ' ');
-//     paciente.nombrePaciente.primerApellido = token;
-//     getline(nombreStream, token, ' ');
-//     paciente.nombrePaciente.segundoApellido = token;
-
-//     stringstream fechaNacStream(fechaNacimiento);
-//     getline(fechaNacStream, token, '/');
-//     paciente.fechas.nacimiento.dia = stoi(token);
-//     getline(fechaNacStream, token, '/');
-//     paciente.fechas.nacimiento.mes = stoi(token);
-//     getline(fechaNacStream, token, '/');
-//     paciente.fechas.nacimiento.anio = stoi(token);
-
-//     stringstream pesoStream(peso);
-//     pesoStream >> paciente.peso;
-
-//     stringstream alturaStream(altura);
-//     alturaStream >> paciente.altura;
-
-//     stringstream numCelularStream(numCelular);
-//     numCelularStream >> paciente.num_celular;
-// }
 
 
 void crearPaciente() {
@@ -109,7 +70,7 @@ void crearPaciente() {
 
     printf("C%cdula del paciente: ", 130);
     cin >> paciente.cedula;
-    std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
+    //std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
     paciente.cedula = convertirMayus(paciente.cedula);
 
     cout << "Primer nombre del paciente: ";
