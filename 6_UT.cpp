@@ -448,7 +448,7 @@ void UT(){
         cin >> UT.medidaOvarIzqZ; 
         cout << "\nIngrese su conclusion del Ovario Izquierdo: ";
         cin.ignore();
-        cin >> UT.otrasCaractOvarIzq;
+        getline(cin, UT.otrasCaractOvarIzq);
         
         cout << "\nTiene todos los datos correctos?" << endl;
         cout << "Ingrese S para si o cualquier otra letra para volver a ingresar los datos." << endl;
@@ -527,7 +527,7 @@ void UT(){
 
     while (ConclusionesGen == false){
         cout << "Ingrese sus conclusiones generales del procedimiento." << endl;
-        cin >> UT.conclusionesGen;
+        getline(cin, UT.conclusionesGen);
         cout << "\nHa ingresado todo correctamente?\nSi es asi presione S o ingrese cualquier otra letra para ingresarlo nuevamente." << endl;
         cin >> ConclusionesGenComp;
         if ((ConclusionesGenComp == "S") || (ConclusionesGenComp == "s")){
