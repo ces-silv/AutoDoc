@@ -527,7 +527,7 @@ void UP(){
 
     while (ConclusionesGen == false){
         cout << "Ingrese sus conclusiones generales del procedimiento." << endl;
-        cin >> UP.conclusionesGen;
+        getline(cin, UP.conclusionesGen);
         cout << "\nHa ingresado todo correctamente?\nSi es asi presione S o ingrese cualquier otra letra para ingresarlo nuevamente." << endl;
         cin >> ConclusionesGenComp;
         if ((ConclusionesGenComp == "S") || (ConclusionesGenComp == "s")){
