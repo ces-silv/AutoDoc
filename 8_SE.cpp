@@ -62,13 +62,18 @@ void realizarSeguimiento() {
     
     cout << "Introduzca la presión arterial sistólica: ";
     cin >> seguimiento.presArtSisto;
-    while(seguimiento.pesoMadre <= 0){
+    while(seguimiento.presArtSisto <= 0){
         cout << "Presion Sistolica NO Valida - Introduzcalo nuevamente" << endl;
         cout << "Presion Arterial Sistolica: "; cin >> seguimiento.presArtSisto;
     }
     
     cout << "Introduzca la presión arterial diastólica: ";
     cin >> seguimiento.presArtDias;
+    while(seguimiento.presArtDias <= 0){
+        cout << "Presion Diastolica NO Valida - Introduzcalo nuevamente" << endl;
+        cout << "Presion Arterial Sistolica: "; cin >> seguimiento.presArtDias;
+    }
+    
 
     if ((seguimiento.presArtSisto >= 120 && seguimiento.presArtSisto <= 129) && (seguimiento.presArtDias <= 80)) {
         cout << "Se detecta una presion arterial elevada, recuerde agregarlo en las valoraciones finales.\nRecuerde valorar segun su experiencia medica.\n" << endl;
@@ -85,16 +90,45 @@ void realizarSeguimiento() {
 
     cout << "Introduzca las medidas Leopold (cm): ";
     cin >> seguimiento.medidasLeopold;
+    while(seguimiento.medidasLeopold <= 0){
+        cout << "Medidas Leopold NO Valida - Introduzcalo nuevamente" << endl;
+        cout << "Medidas Leopold (cm): "; cin >> seguimiento.medidasLeopold;
+    }
+
     cout << "Introduzca las medidas de la circunferencia craneana del bebé (mm): ";
     cin >> seguimiento.circunfCraneana;
-    cout << "Introduzca el diámetro biparietal del bebé (mm): ";
+    while(seguimiento.circunfCraneana <= 0){
+        cout << "Circunferencia Craneana NO Valida - Introduzcalo nuevamente" << endl;
+        cout << "Circunferencia Craneana (mm): "; cin >> seguimiento.circunfCraneana;
+    }
+
+    cout << "Introduzca el diametro biparietal del bebé (mm): ";
     cin >> seguimiento.diametBiparietal;
+    while(seguimiento.diametBiparietal <= 0){
+        cout << "Diametro biparietal NO Valido - Introduzcalo nuevamente" << endl;
+        cout << "Diametro biparietal (mm): "; cin >> seguimiento.diametBiparietal;
+    }
+
     cout << "Introduzca la circunferencia abdominal del bebé (mm): ";
     cin >> seguimiento.circunfAbdominal;
+    while(seguimiento.circunfAbdominal <= 0){
+        cout << "Circunferencia Abdominal NO Valida - Introduzcalo nuevamente" << endl;
+        cout << "Circunferencia Abdominal (mm): "; cin >> seguimiento.circunfAbdominal;
+    }
+
     cout << "Introduzca el peso del bebé (lb): ";
     cin >> seguimiento.pesoBebe;
+    while(seguimiento.pesoBebe <= 0){
+        cout << "Peso del Bebe NO Valido - Introduzcalo nuevamente" << endl;
+        cout << "Peso del Bebe (lb): "; cin >> seguimiento.pesoBebe;
+    }
+
     cout << "Introduzca la edad del bebé (semanas): ";
     cin >> seguimiento.edadBebe;
+    while(seguimiento.edadBebe <= 0){
+        cout << "Edad del Bebe NO Valida - Introduzcalo nuevamente" << endl;
+        cout << "Edad del Bebe (lb): "; cin >> seguimiento.edadBebe;
+    }
  
     cin.ignore();
     switch (seguimiento.edadBebe) {
