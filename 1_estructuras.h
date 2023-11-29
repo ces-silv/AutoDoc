@@ -44,6 +44,8 @@ struct UltTrans{
     registroP Paciente;
     int paredesVejiga;
 
+    string anomaliasVejiga;
+    
     int posicionUtero;
     float medidaUteroX;
     float medidaUteroY;
@@ -107,6 +109,8 @@ struct UltMamas{
 struct UltPelv{
     registroP Paciente;
     int paredesVejiga;
+
+    string anomaliasVejiga;
     
     int posicionUtero;
     float medidaUteroX;
@@ -246,7 +250,6 @@ bool folderExists(const string& folderPath);
 void login();
 
 //Pacientes
-bool cedulaExiste(const string& cedula);
 string convertirMayus(const string& str);
 bool esFechaValida(int dia, int mes, int anio); 
 void guardarRegistro(const registroP& paciente);

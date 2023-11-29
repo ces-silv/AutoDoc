@@ -1,11 +1,13 @@
 #include <iostream>
 #include <limits>
+#include <windows.h>
 #include "1_estructuras.h"
 
 using namespace std;
 
 
 int main(){
+    SetConsoleOutputCP(CP_UTF8);
     login();
     menuPrincipal();
     return 0;
@@ -13,7 +15,7 @@ int main(){
 
 void regresarMenuPrincipal(){
     string opc;
-    printf("\n%cDeseas regresar al men%c principal? Escribe S para confirmar o presiona cualquier letra para salir del programa.\n", 168, 163);
+    printf("¿Deseas regresar al menú principal? Escribe S para confirmar o presiona cualquier letra para salir del programa.\n");
     getline(cin, opc);
     if (opc == "S" || opc == "s") {
         system("clear || cls"); 
@@ -28,10 +30,10 @@ void Procedimientos(){
     int opcion;
     cout << "PROCEDIMIENTOS" << endl;
     cout << "1. Ultrasonido transvaginal." << endl;
-    printf("2. Ultrasonido p%clvico.\n", 130);
+    printf("2. Ultrasonido pélvico.\n");
     cout << "3. Ultrasonido de mamas." << endl;
     cout << "4. Seguimiento de embarazo." << endl;
-    printf("5. Regresar al men%c principal.\n", 163);
+    printf("5. Regresar al menú principal.\n");
     cout << "  --->"; cin >> opcion;
 
     switch (opcion)
@@ -49,7 +51,7 @@ void Procedimientos(){
         menuPrincipal();
         break;
     default:
-        printf("\nOpci%cn no v%clida. Por favor, elija una opci%cn dentro del rango de n%cmeros permitidos.\n", 162, 160, 162, 163);
+        printf("Opción no válida. Por favor, elija una opción dentro del rango de números permitidos.\n");
         //ó, á y ú en ASCII
         system("pause || read -p 'Presiona Enter para continuar...' -n 1 -s");
         system("clear || cls");
@@ -61,13 +63,13 @@ void Procedimientos(){
 void menuPrincipal(){
     int opc;
 
-    printf("~MEN%c PRINCIPAL - CL%CNICA M%CDICA ESPERANZA~\n", 233, 161, 144);
+    printf("~MENÚ PRINCIPAL - CLÍNICA MÉDICA ESPERANZA~\n");
     cout << "     ~ Hola Dr. Carlos Silva ~\n" << endl;
-    printf("Ingrese la opci%cn que desee\n\n", 162);
-    printf(" 1. Ver Registro de Pacientes y su expendiente m%cdico\n", 130);
+    printf("Ingrese la opción que desee\n\n");
+    printf(" 1. Ver Registro de Pacientes y su expendiente médico\n");
     cout << " 2. Agenda con citas programadas" << endl;
     cout << " 3. Crear Archivos Procedimientos" << endl;
-    printf(" 4. Crear y ver diagn%csticos y prescripciones\n", 162);
+    printf(" 4. Crear y ver diagnósticos y prescripciones\n");
     cout << " 5. Salir" << endl << endl;
     cout << "---> "; cin >> opc;
 
@@ -90,7 +92,7 @@ void menuPrincipal(){
 
     default:
         system("cls || clear");
-        printf("Doctor, por favor ingrese una opci%cn entre el 1 al 4 - Recuerde que s%clo esas opciones son admitidas.\n\n", 162, 162);
+        printf("Doctor, por favor ingrese una opción entre el 1 al 4 - Recuerde que sólo esas opciones son admitidas.\n\n");
         menuPrincipal();
         break;
     }
@@ -106,9 +108,9 @@ void agenda() {
         cout << "AGENDA" << endl;
         cout << "1. Programar cita" << endl;
         cout << "2. Ver citas programadas" << endl;
-        cout << "3. Regresar al menu principal" << endl;
+        cout << "3. Regresar al menú principal" << endl;
         cout << "4. Salir" << endl;
-        printf("Seleccione una opci%cn: ", 162);
+        printf("Seleccione una opción: ");
         cin >> opcion;
 
         switch (opcion) {
@@ -121,10 +123,10 @@ void agenda() {
             case 3: system("clear || cls"); menuPrincipal();
                 break;
             case 4:
-                printf("Saliendo del programa. %cHasta luego!\n", 173);
+                printf("Saliendo del programa. ¡Hasta luego!\n");
                 break;
             default:
-                printf("Opci%cn no v%clida. Int%cntelo de nuevo.\n", 162, 160, 130);
+                printf("Opción no válida. Inténtelo de nuevo.\n");
                 break;
         }
 
@@ -142,18 +144,18 @@ void mainPacientes() {
 
         system(" read -p 'Presiona Enter para continuar...' -n 1 -s");
         system("clear || cls");
-        printf("--------MEN%C DE PACIENTES--------\n", 233);
-        printf("Men%c de la clínica:\n", 163);
+        printf("--------MENÚ DE PACIENTES--------\n");
+        printf("Menú de la clínica:\n");
         cout << "1. Crear paciente" << endl;
         cout << "2. Listar pacientes" << endl;
         cout << "3. Buscar paciente" << endl;
         cout << "4. Actualizar paciente" << endl;
         cout << "5. Eliminar paciente" << endl;
-        cout << "6. Volver a Menu Principal" << endl;
-        printf("Elija una opci%cn: ", 162);
+        cout << "6. Volver al Menú Principal" << endl;
+        printf("Elija una opción: ");
 
     while (!(cin >> opcion) || cin.peek() != '\n' || opcion < 1 || opcion > 6) {
-        printf("Entrada inv%clida. Por favor, ingrese un n%cmero entero del 1 al 6: ", 160, 163);
+        printf("Entrada inválida. Por favor, ingrese un número entero del 1 al 6: ");
         std::cin.clear();
         std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
     }
@@ -177,9 +179,9 @@ void mainPacientes() {
                 break;
             default:
                 system("clear || cls");
-                printf("--------MEN%C DE PACIENTES--------", 163);
+                printf("--------MENÚ DE PACIENTES--------");
                 cout << endl;
-                printf("Opci%cn no v%clida. Int%cntelo de nuevo.\n", 162, 160, 130);
+                printf("Opción no válida. Inténtelo de nuevo.\n");
                 std::cin.clear();
                 std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
         }

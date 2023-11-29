@@ -22,7 +22,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{0B443F79-3E32-3F06-8051-31C05257E4F6}</ProjectGuid>
+    <ProjectGuid>{C888DA32-8673-31C2-B750-018B68969B96}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <VcpkgEnabled>false</VcpkgEnabled>
     <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
@@ -60,25 +60,25 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\build\Debug\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\user\OneDrive\Escritorio\Proyecto Final\AutoDoc\build\Debug\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Prueba.dir\Debug\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Prueba</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\build\Release\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\user\OneDrive\Escritorio\Proyecto Final\AutoDoc\build\Release\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Prueba.dir\Release\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Prueba</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\build\MinSizeRel\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\user\OneDrive\Escritorio\Proyecto Final\AutoDoc\build\MinSizeRel\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Prueba.dir\MinSizeRel\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Prueba</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\build\RelWithDebInfo\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\user\OneDrive\Escritorio\Proyecto Final\AutoDoc\build\RelWithDebInfo\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Prueba.dir\RelWithDebInfo\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Prueba</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.exe</TargetExt>
@@ -118,7 +118,7 @@
     <PostBuildEvent>
       <Message></Message>
       <Command>setlocal
-C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noprofile -executionpolicy Bypass -file C:/des/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary C:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc/build/Debug/Prueba.exe -installedDir C:/des/vcpkg/installed/x64-windows/debug/bin -OutVariable out
+C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noprofile -executionpolicy Bypass -file C:/des/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary "C:/Users/user/OneDrive/Escritorio/Proyecto Final/AutoDoc/build/Debug/Prueba.exe" -installedDir C:/des/vcpkg/installed/x64-windows/debug/bin -OutVariable out
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -133,8 +133,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>C:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc/build/Debug/Prueba.lib</ImportLibrary>
-      <ProgramDataBaseFile>C:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc/build/Debug/Prueba.pdb</ProgramDataBaseFile>
+      <ImportLibrary>C:/Users/user/OneDrive/Escritorio/Proyecto Final/AutoDoc/build/Debug/Prueba.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/user/OneDrive/Escritorio/Proyecto Final/AutoDoc/build/Debug/Prueba.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -174,7 +174,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <PostBuildEvent>
       <Message></Message>
       <Command>setlocal
-C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noprofile -executionpolicy Bypass -file C:/des/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary C:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc/build/Release/Prueba.exe -installedDir C:/des/vcpkg/installed/x64-windows/bin -OutVariable out
+C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noprofile -executionpolicy Bypass -file C:/des/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary "C:/Users/user/OneDrive/Escritorio/Proyecto Final/AutoDoc/build/Release/Prueba.exe" -installedDir C:/des/vcpkg/installed/x64-windows/bin -OutVariable out
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -189,8 +189,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>C:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc/build/Release/Prueba.lib</ImportLibrary>
-      <ProgramDataBaseFile>C:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc/build/Release/Prueba.pdb</ProgramDataBaseFile>
+      <ImportLibrary>C:/Users/user/OneDrive/Escritorio/Proyecto Final/AutoDoc/build/Release/Prueba.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/user/OneDrive/Escritorio/Proyecto Final/AutoDoc/build/Release/Prueba.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -230,7 +230,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <PostBuildEvent>
       <Message></Message>
       <Command>setlocal
-C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noprofile -executionpolicy Bypass -file C:/des/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary C:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc/build/MinSizeRel/Prueba.exe -installedDir C:/des/vcpkg/installed/x64-windows/bin -OutVariable out
+C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noprofile -executionpolicy Bypass -file C:/des/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary "C:/Users/user/OneDrive/Escritorio/Proyecto Final/AutoDoc/build/MinSizeRel/Prueba.exe" -installedDir C:/des/vcpkg/installed/x64-windows/bin -OutVariable out
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -245,8 +245,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>C:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc/build/MinSizeRel/Prueba.lib</ImportLibrary>
-      <ProgramDataBaseFile>C:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc/build/MinSizeRel/Prueba.pdb</ProgramDataBaseFile>
+      <ImportLibrary>C:/Users/user/OneDrive/Escritorio/Proyecto Final/AutoDoc/build/MinSizeRel/Prueba.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/user/OneDrive/Escritorio/Proyecto Final/AutoDoc/build/MinSizeRel/Prueba.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -285,7 +285,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <PostBuildEvent>
       <Message></Message>
       <Command>setlocal
-C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noprofile -executionpolicy Bypass -file C:/des/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary C:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc/build/RelWithDebInfo/Prueba.exe -installedDir C:/des/vcpkg/installed/x64-windows/bin -OutVariable out
+C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noprofile -executionpolicy Bypass -file C:/des/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary "C:/Users/user/OneDrive/Escritorio/Proyecto Final/AutoDoc/build/RelWithDebInfo/Prueba.exe" -installedDir C:/des/vcpkg/installed/x64-windows/bin -OutVariable out
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -300,8 +300,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>C:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc/build/RelWithDebInfo/Prueba.lib</ImportLibrary>
-      <ProgramDataBaseFile>C:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc/build/RelWithDebInfo/Prueba.pdb</ProgramDataBaseFile>
+      <ImportLibrary>C:/Users/user/OneDrive/Escritorio/Proyecto Final/AutoDoc/build/RelWithDebInfo/Prueba.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/user/OneDrive/Escritorio/Proyecto Final/AutoDoc/build/RelWithDebInfo/Prueba.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -309,11 +309,11 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\CMakeLists.txt">
+    <CustomBuild Include="C:\Users\user\OneDrive\Escritorio\Proyecto Final\AutoDoc\CMakeLists.txt">
       <UseUtf8Encoding>Always</UseUtf8Encoding>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/user/OneDrive/Escritorio/Proyecto Final/AutoDoc/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc -BC:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc/build --check-stamp-file C:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc/build/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/user/OneDrive/Escritorio/Proyecto Final/AutoDoc" "-BC:/Users/user/OneDrive/Escritorio/Proyecto Final/AutoDoc/build" --check-stamp-file "C:/Users/user/OneDrive/Escritorio/Proyecto Final/AutoDoc/build/CMakeFiles/generate.stamp"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -321,12 +321,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CPack.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CPackComponent.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CTest.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CTestTargets.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CTestUseLaunchers.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\DartConfiguration.tcl.in;C:\Program Files\CMake\share\cmake-3.27\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.27\Templates\CPackConfig.cmake.in;C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\build\CMakeFiles\3.27.8\CMakeCCompiler.cmake;C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\build\CMakeFiles\3.27.8\CMakeCXXCompiler.cmake;C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\build\CMakeFiles\3.27.8\CMakeRCCompiler.cmake;C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\build\CMakeFiles\3.27.8\CMakeSystem.cmake;C:\des\vcpkg\installed\x64-windows\share\unofficial-libharu\unofficial-libharu-config-debug.cmake;C:\des\vcpkg\installed\x64-windows\share\unofficial-libharu\unofficial-libharu-config-release.cmake;C:\des\vcpkg\installed\x64-windows\share\unofficial-libharu\unofficial-libharu-config.cmake;C:\des\vcpkg\scripts\buildsystems\vcpkg.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CPack.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CPackComponent.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CTest.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CTestTargets.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CTestUseLaunchers.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\DartConfiguration.tcl.in;C:\Program Files\CMake\share\cmake-3.27\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.27\Templates\CPackConfig.cmake.in;C:\Users\user\OneDrive\Escritorio\Proyecto Final\AutoDoc\build\CMakeFiles\3.27.8\CMakeCCompiler.cmake;C:\Users\user\OneDrive\Escritorio\Proyecto Final\AutoDoc\build\CMakeFiles\3.27.8\CMakeCXXCompiler.cmake;C:\Users\user\OneDrive\Escritorio\Proyecto Final\AutoDoc\build\CMakeFiles\3.27.8\CMakeRCCompiler.cmake;C:\Users\user\OneDrive\Escritorio\Proyecto Final\AutoDoc\build\CMakeFiles\3.27.8\CMakeSystem.cmake;C:\des\vcpkg\installed\x64-windows\share\unofficial-libharu\unofficial-libharu-config-debug.cmake;C:\des\vcpkg\installed\x64-windows\share\unofficial-libharu\unofficial-libharu-config-release.cmake;C:\des\vcpkg\installed\x64-windows\share\unofficial-libharu\unofficial-libharu-config.cmake;C:\des\vcpkg\scripts\buildsystems\vcpkg.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\user\OneDrive\Escritorio\Proyecto Final\AutoDoc\build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/user/OneDrive/Escritorio/Proyecto Final/AutoDoc/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc -BC:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc/build --check-stamp-file C:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc/build/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/user/OneDrive/Escritorio/Proyecto Final/AutoDoc" "-BC:/Users/user/OneDrive/Escritorio/Proyecto Final/AutoDoc/build" --check-stamp-file "C:/Users/user/OneDrive/Escritorio/Proyecto Final/AutoDoc/build/CMakeFiles/generate.stamp"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -334,12 +334,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CPack.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CPackComponent.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CTest.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CTestTargets.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CTestUseLaunchers.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\DartConfiguration.tcl.in;C:\Program Files\CMake\share\cmake-3.27\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.27\Templates\CPackConfig.cmake.in;C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\build\CMakeFiles\3.27.8\CMakeCCompiler.cmake;C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\build\CMakeFiles\3.27.8\CMakeCXXCompiler.cmake;C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\build\CMakeFiles\3.27.8\CMakeRCCompiler.cmake;C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\build\CMakeFiles\3.27.8\CMakeSystem.cmake;C:\des\vcpkg\installed\x64-windows\share\unofficial-libharu\unofficial-libharu-config-debug.cmake;C:\des\vcpkg\installed\x64-windows\share\unofficial-libharu\unofficial-libharu-config-release.cmake;C:\des\vcpkg\installed\x64-windows\share\unofficial-libharu\unofficial-libharu-config.cmake;C:\des\vcpkg\scripts\buildsystems\vcpkg.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CPack.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CPackComponent.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CTest.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CTestTargets.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CTestUseLaunchers.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\DartConfiguration.tcl.in;C:\Program Files\CMake\share\cmake-3.27\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.27\Templates\CPackConfig.cmake.in;C:\Users\user\OneDrive\Escritorio\Proyecto Final\AutoDoc\build\CMakeFiles\3.27.8\CMakeCCompiler.cmake;C:\Users\user\OneDrive\Escritorio\Proyecto Final\AutoDoc\build\CMakeFiles\3.27.8\CMakeCXXCompiler.cmake;C:\Users\user\OneDrive\Escritorio\Proyecto Final\AutoDoc\build\CMakeFiles\3.27.8\CMakeRCCompiler.cmake;C:\Users\user\OneDrive\Escritorio\Proyecto Final\AutoDoc\build\CMakeFiles\3.27.8\CMakeSystem.cmake;C:\des\vcpkg\installed\x64-windows\share\unofficial-libharu\unofficial-libharu-config-debug.cmake;C:\des\vcpkg\installed\x64-windows\share\unofficial-libharu\unofficial-libharu-config-release.cmake;C:\des\vcpkg\installed\x64-windows\share\unofficial-libharu\unofficial-libharu-config.cmake;C:\des\vcpkg\scripts\buildsystems\vcpkg.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\user\OneDrive\Escritorio\Proyecto Final\AutoDoc\build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/user/OneDrive/Escritorio/Proyecto Final/AutoDoc/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc -BC:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc/build --check-stamp-file C:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc/build/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/user/OneDrive/Escritorio/Proyecto Final/AutoDoc" "-BC:/Users/user/OneDrive/Escritorio/Proyecto Final/AutoDoc/build" --check-stamp-file "C:/Users/user/OneDrive/Escritorio/Proyecto Final/AutoDoc/build/CMakeFiles/generate.stamp"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -347,12 +347,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CPack.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CPackComponent.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CTest.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CTestTargets.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CTestUseLaunchers.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\DartConfiguration.tcl.in;C:\Program Files\CMake\share\cmake-3.27\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.27\Templates\CPackConfig.cmake.in;C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\build\CMakeFiles\3.27.8\CMakeCCompiler.cmake;C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\build\CMakeFiles\3.27.8\CMakeCXXCompiler.cmake;C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\build\CMakeFiles\3.27.8\CMakeRCCompiler.cmake;C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\build\CMakeFiles\3.27.8\CMakeSystem.cmake;C:\des\vcpkg\installed\x64-windows\share\unofficial-libharu\unofficial-libharu-config-debug.cmake;C:\des\vcpkg\installed\x64-windows\share\unofficial-libharu\unofficial-libharu-config-release.cmake;C:\des\vcpkg\installed\x64-windows\share\unofficial-libharu\unofficial-libharu-config.cmake;C:\des\vcpkg\scripts\buildsystems\vcpkg.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CPack.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CPackComponent.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CTest.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CTestTargets.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CTestUseLaunchers.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\DartConfiguration.tcl.in;C:\Program Files\CMake\share\cmake-3.27\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.27\Templates\CPackConfig.cmake.in;C:\Users\user\OneDrive\Escritorio\Proyecto Final\AutoDoc\build\CMakeFiles\3.27.8\CMakeCCompiler.cmake;C:\Users\user\OneDrive\Escritorio\Proyecto Final\AutoDoc\build\CMakeFiles\3.27.8\CMakeCXXCompiler.cmake;C:\Users\user\OneDrive\Escritorio\Proyecto Final\AutoDoc\build\CMakeFiles\3.27.8\CMakeRCCompiler.cmake;C:\Users\user\OneDrive\Escritorio\Proyecto Final\AutoDoc\build\CMakeFiles\3.27.8\CMakeSystem.cmake;C:\des\vcpkg\installed\x64-windows\share\unofficial-libharu\unofficial-libharu-config-debug.cmake;C:\des\vcpkg\installed\x64-windows\share\unofficial-libharu\unofficial-libharu-config-release.cmake;C:\des\vcpkg\installed\x64-windows\share\unofficial-libharu\unofficial-libharu-config.cmake;C:\des\vcpkg\scripts\buildsystems\vcpkg.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\user\OneDrive\Escritorio\Proyecto Final\AutoDoc\build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/user/OneDrive/Escritorio/Proyecto Final/AutoDoc/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc -BC:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc/build --check-stamp-file C:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc/build/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/user/OneDrive/Escritorio/Proyecto Final/AutoDoc" "-BC:/Users/user/OneDrive/Escritorio/Proyecto Final/AutoDoc/build" --check-stamp-file "C:/Users/user/OneDrive/Escritorio/Proyecto Final/AutoDoc/build/CMakeFiles/generate.stamp"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -360,26 +360,26 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CPack.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CPackComponent.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CTest.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CTestTargets.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CTestUseLaunchers.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\DartConfiguration.tcl.in;C:\Program Files\CMake\share\cmake-3.27\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.27\Templates\CPackConfig.cmake.in;C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\build\CMakeFiles\3.27.8\CMakeCCompiler.cmake;C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\build\CMakeFiles\3.27.8\CMakeCXXCompiler.cmake;C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\build\CMakeFiles\3.27.8\CMakeRCCompiler.cmake;C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\build\CMakeFiles\3.27.8\CMakeSystem.cmake;C:\des\vcpkg\installed\x64-windows\share\unofficial-libharu\unofficial-libharu-config-debug.cmake;C:\des\vcpkg\installed\x64-windows\share\unofficial-libharu\unofficial-libharu-config-release.cmake;C:\des\vcpkg\installed\x64-windows\share\unofficial-libharu\unofficial-libharu-config.cmake;C:\des\vcpkg\scripts\buildsystems\vcpkg.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CPack.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CPackComponent.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CTest.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CTestTargets.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\CTestUseLaunchers.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\DartConfiguration.tcl.in;C:\Program Files\CMake\share\cmake-3.27\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.27\Templates\CPackConfig.cmake.in;C:\Users\user\OneDrive\Escritorio\Proyecto Final\AutoDoc\build\CMakeFiles\3.27.8\CMakeCCompiler.cmake;C:\Users\user\OneDrive\Escritorio\Proyecto Final\AutoDoc\build\CMakeFiles\3.27.8\CMakeCXXCompiler.cmake;C:\Users\user\OneDrive\Escritorio\Proyecto Final\AutoDoc\build\CMakeFiles\3.27.8\CMakeRCCompiler.cmake;C:\Users\user\OneDrive\Escritorio\Proyecto Final\AutoDoc\build\CMakeFiles\3.27.8\CMakeSystem.cmake;C:\des\vcpkg\installed\x64-windows\share\unofficial-libharu\unofficial-libharu-config-debug.cmake;C:\des\vcpkg\installed\x64-windows\share\unofficial-libharu\unofficial-libharu-config-release.cmake;C:\des\vcpkg\installed\x64-windows\share\unofficial-libharu\unofficial-libharu-config.cmake;C:\des\vcpkg\scripts\buildsystems\vcpkg.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\user\OneDrive\Escritorio\Proyecto Final\AutoDoc\build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\1_estructuras.h" />
-    <ClCompile Include="C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\2_menuPrincipal.cpp" />
-    <ClCompile Include="C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\3_login.cpp" />
-    <ClCompile Include="C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\4_pacientes.cpp" />
-    <ClCompile Include="C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\5_citasProgramadas.cpp" />
-    <ClCompile Include="C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\6_UT.cpp" />
-    <ClCompile Include="C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\7_UP.cpp" />
-    <ClCompile Include="C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\8_SE.cpp" />
-    <ClCompile Include="C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\9_UM.cpp" />
-    <ClCompile Include="C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\10_diagPresc.cpp" />
+    <ClInclude Include="C:\Users\user\OneDrive\Escritorio\Proyecto Final\AutoDoc\1_estructuras.h" />
+    <ClCompile Include="C:\Users\user\OneDrive\Escritorio\Proyecto Final\AutoDoc\2_menuPrincipal.cpp" />
+    <ClCompile Include="C:\Users\user\OneDrive\Escritorio\Proyecto Final\AutoDoc\3_login.cpp" />
+    <ClCompile Include="C:\Users\user\OneDrive\Escritorio\Proyecto Final\AutoDoc\4_pacientes.cpp" />
+    <ClCompile Include="C:\Users\user\OneDrive\Escritorio\Proyecto Final\AutoDoc\5_citasProgramadas.cpp" />
+    <ClCompile Include="C:\Users\user\OneDrive\Escritorio\Proyecto Final\AutoDoc\6_UT.cpp" />
+    <ClCompile Include="C:\Users\user\OneDrive\Escritorio\Proyecto Final\AutoDoc\7_UP.cpp" />
+    <ClCompile Include="C:\Users\user\OneDrive\Escritorio\Proyecto Final\AutoDoc\8_SE.cpp" />
+    <ClCompile Include="C:\Users\user\OneDrive\Escritorio\Proyecto Final\AutoDoc\9_UM.cpp" />
+    <ClCompile Include="C:\Users\user\OneDrive\Escritorio\Proyecto Final\AutoDoc\10_diagPresc.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\build\ZERO_CHECK.vcxproj">
-      <Project>{DE9C5866-01CB-3C0D-8000-241E8EE9DC74}</Project>
+    <ProjectReference Include="C:\Users\user\OneDrive\Escritorio\Proyecto Final\AutoDoc\build\ZERO_CHECK.vcxproj">
+      <Project>{0C7E34E4-07E1-3120-9863-363C2B6A21A5}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>

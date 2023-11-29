@@ -12,7 +12,7 @@
 
 using namespace std;
 
-const string archivoPacientes = "pacientes.txt";
+const string archivoPacientes = "C:\\Users\\user\\OneDrive\\Escritorio\\AutoDoc\\pacientes.txt";
 
 bool cedulaExiste(const string& cedula) {
     ifstream archivo(archivoPacientes);
@@ -80,9 +80,9 @@ void crearPaciente() {
     registroP paciente;
 
     system("clear || cls");
-    printf("--------MEN%C DE PACIENTES--------\n", 233);
+    printf("--------MENÚ DE PACIENTES--------\n");
 
-    printf("C%cdula del paciente: ", 130);
+    printf("Cédula del paciente: ");
     cin >> paciente.cedula;
     //std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
     paciente.cedula = convertirMayus(paciente.cedula);
@@ -110,12 +110,12 @@ void crearPaciente() {
     paciente.nombrePaciente.segundoApellido = convertirMayus(paciente.nombrePaciente.segundoApellido);
 
     do {
-        printf("Fecha de nacimiento (d%ca/mes/a%co): \n", 214, 164);
-        printf("D%ca: ", 214);
+        printf("Fecha de nacimiento (día/mes/año): \n");
+        printf("Día: ");
         cin >> paciente.fechas.nacimiento.dia;
         printf("Mes: ");
         cin >> paciente.fechas.nacimiento.mes;
-        printf("A%co: ", 164);
+        printf("Año: ");
         cin >> paciente.fechas.nacimiento.anio;
     } while (!esFechaValida(paciente.fechas.nacimiento.dia, paciente.fechas.nacimiento.mes, paciente.fechas.nacimiento.anio));
 
@@ -125,7 +125,7 @@ void crearPaciente() {
     cout << "Altura del paciente (cm): ";
     cin >> paciente.altura;
 
-    printf("N%cmero de tel%cfono del paciente: ", 163, 130);
+    printf("Número de teléfono del paciente: ");
     cin >> paciente.num_celular;
 
    // Crea una carpeta con el número de la cédula del paciente
@@ -156,13 +156,13 @@ void crearPaciente() {
 
 void buscarPacientes(){
     system("clear || cls");
-    printf("--------MEN%C DE PACIENTES--------\n", 233);
+    printf("--------MENÚ DE PACIENTES--------\n");
 
     string cedulaONombreInput;  // Variable local para almacenar la entrada del usuario
 
     do {
         cin.ignore();  // Limpiar el búfer del teclado
-        printf("Ingrese la c%cdula o nombre del paciente a buscar (o 'v' para volver al men%c principal): ", 130, 163);
+        printf("Ingrese la cédula o nombre del paciente a buscar (o 'v' para volver al menú principal): ");
         getline(cin, cedulaONombreInput);  // Leer toda la línea, permitiendo espacios en blanco
 
         if (cedulaONombreInput == "v" || cedulaONombreInput == "V") {
@@ -195,15 +195,15 @@ void buscarPacientes(){
                     // Muestra la información del paciente encontrado
                     if (!encontrado) {
                         system("clear || cls");
-                        printf("--------MEN%C DE PACIENTES--------\n", 233);
+                        printf("--------MENÚ DE PACIENTES--------\n");
                         cout << "Pacientes encontrados:" << endl;
                     }
-                    printf("C%cdula: ", 130); cout << paciente.cedula << endl;
+                    printf("Cédula: "); cout << paciente.cedula << endl;
                     cout << "Nombre: " << paciente.nombrePaciente.primerNombre << ' ' << paciente.nombrePaciente.segundoNombre << ' ' << paciente.nombrePaciente.primerApellido << ' ' << paciente.nombrePaciente.segundoApellido << endl;
                     cout << "Fecha de nacimiento: " << paciente.fechas.nacimiento.dia << "/" << paciente.fechas.nacimiento.mes << "/" << paciente.fechas.nacimiento.anio << endl;
                     cout << "Peso: " << paciente.peso << " lb" << endl;
                     cout << "Altura: " << paciente.altura << " cm" << endl;
-                    printf("N%cmero de tel%cfono: ", 163, 130); cout << paciente.num_celular << endl;
+                    printf("Número de teléfono: "); cout << paciente.num_celular << endl;
 
                     cout << "----------------------------------------" << endl;
                     encontrado = true;
@@ -215,7 +215,7 @@ void buscarPacientes(){
             if (!encontrado) {
                 cout << "Pacientes no encontrados." << endl;
                 system("clear || cls");
-                printf("--------MEN%C DE PACIENTES--------\n", 163);
+                printf("--------MENÚ DE PACIENTES--------\n");
             }
         } else {
             cout << "No se pudo abrir el archivo para lectura." << endl;
@@ -227,7 +227,7 @@ void listarPacientes() {
     ifstream archivo(archivoPacientes);
     if (archivo.is_open()) {
         system("clear || cls");
-        printf("--------MEN%C DE PACIENTES--------\n", 233);
+        printf("--------MENÚ DE PACIENTES--------\n");
         cout << "Lista de pacientes:" << endl;
         cout << "----------------------------------------" << endl;
 
@@ -239,12 +239,12 @@ void listarPacientes() {
             cargarRegistroDesdeLinea(linea, paciente);
 
             cout << "Paciente " << contador << ":" << endl;
-            printf("C%cdula: ", 130); cout << paciente.cedula << endl;
+            printf("Cédula: "); cout << paciente.cedula << endl;
             cout << "Nombre: " << paciente.nombrePaciente.primerNombre << ' ' << paciente.nombrePaciente.segundoNombre << ' ' << paciente.nombrePaciente.primerApellido << ' ' << paciente.nombrePaciente.segundoApellido << endl;
             cout << "Fecha de nacimiento: " << paciente.fechas.nacimiento.dia << "/" << paciente.fechas.nacimiento.mes << "/" << paciente.fechas.nacimiento.anio << endl;
             cout << "Peso: " << paciente.peso << " lb" << endl;
             cout << "Altura: " << paciente.altura << " cm" << endl;
-            printf("N%cmero de tel%cfono: ", 163, 130); cout << paciente.num_celular << endl;
+            printf("Número de teléfono: "); cout << paciente.num_celular << endl;
 
             cout << "----------------------------------------" << endl;
             contador++;
@@ -259,11 +259,11 @@ void listarPacientes() {
 
 void actualizarPaciente() {
     system("clear || cls");
-    printf("--------MEN%C DE PACIENTES--------\n", 233);
+    printf("--------MENÚ DE PACIENTES--------\n");
 
     string cedulaONombre;
     cin.ignore();  // Limpiar el búfer del teclado
-    printf("Ingrese la c%cdula o nombre del paciente a actualizar: ", 130);
+    printf("Ingrese la cédula o nombre del paciente a actualizar: ");
     getline(cin, cedulaONombre);  // Leer toda la línea, permitiendo espacios en blanco
     cedulaONombre = convertirMayus(cedulaONombre);
 
@@ -294,24 +294,24 @@ void actualizarPaciente() {
                 encontrado = true;
                 system("cls || clear");
                 cout << "Paciente encontrado:" << endl << endl;
-                printf("C%cdula: ", 130); cout << paciente.cedula << endl;
+                printf("Cédula: "); cout << paciente.cedula << endl;
                 cout << "Nombre: " << paciente.nombrePaciente.primerNombre << ' ' << paciente.nombrePaciente.segundoNombre << ' ' << paciente.nombrePaciente.primerApellido << ' ' << paciente.nombrePaciente.segundoApellido << endl;
                 cout << "Fecha de nacimiento: " << paciente.fechas.nacimiento.dia << "/" << paciente.fechas.nacimiento.mes << "/" << paciente.fechas.nacimiento.anio << endl;
                 cout << "Peso: " << paciente.peso << " lb" << endl;
                 cout << "Altura: " << paciente.altura << " cm" << endl;
-                printf("N%cmero de tel%cfono: ", 163, 130); cout << paciente.num_celular << endl;
+                printf("Número de teléfono: "); cout << paciente.num_celular << endl;
 
                 // Realiza la actualización del dato seleccionado
                 int opcion;
                 do {
-                    printf("%cQu%c dato desea actualizar?\n", 168, 130);
+                    printf("¿Qué dato desea actualizar?\n");
                     cout << "1. Nombre" << endl;
                     cout << "2. Fecha de nacimiento" << endl;
                     cout << "3. Peso" << endl;
                     cout << "4. Altura" << endl;
-                    printf("5. N%cmero de tel%cfono\n", 163, 130);
-                    printf("6. Finalizar actualizaci%cn", 162);
-                    printf("Elija una opci%cn: ", 162);
+                    printf("5. Número de teléfono\n");
+                    printf("6. Finalizar actualización");
+                    printf("Elija una opción: ");
                     cin >> opcion;
 
                     switch (opcion) {
@@ -328,7 +328,7 @@ void actualizarPaciente() {
                             break;
                         case 2:
                             do {
-                                printf("Nueva fecha de nacimiento (d%ca mes a%co): ", 161, 164);
+                                printf("Nueva fecha de nacimiento (día mes año): ");
                                 cin >> paciente.fechas.nacimiento.dia >> paciente.fechas.nacimiento.mes >> paciente.fechas.nacimiento.anio;
                             } while (!esFechaValida(paciente.fechas.nacimiento.dia, paciente.fechas.nacimiento.mes, paciente.fechas.nacimiento.anio));
                             break;
@@ -341,13 +341,13 @@ void actualizarPaciente() {
                             cin >> paciente.altura;
                             break;
                         case 5:
-                            printf("Nuevo n%cmero de tel%cfono del paciente", 163, 130);
+                            printf("Nuevo número de teléfono del paciente");
                             cin >> paciente.num_celular;
                             break;
                         case 6:
                             break;  // Finaliza la actualización
                         default:
-                            printf("Opci%cn no v%clida. Por favor, elija una opci%cn v%clida.\n", 162, 160, 162, 160);
+                            printf("Opción no válida. Por favor, elija una opción válida.\n");
                             break;
                     }
                 } while (opcion != 7);
@@ -396,94 +396,21 @@ void eliminarDirectorio(const string& path) {
     RemoveDirectory(path.c_str());
 }
 
-// void eliminarPaciente() {
-//     system("clear || cls");
-//     printf("--------MEN%C DE PACIENTES--------\n", 233);
-
-//     string cedulaONombre;
-//     cin.ignore();  // Limpiar el búfer del teclado
-//     cout << "Ingrese la cédula o nombre del paciente a eliminar: ";
-//     getline(cin, cedulaONombre);  // Leer toda la línea, permitiendo espacios en blanco
-//     cedulaONombre = convertirMayus(cedulaONombre);
-
-//     ifstream archivo(archivoPacientes);
-//     ofstream archivoTemp("temp.txt");
-
-//     if (archivo.is_open() && archivoTemp.is_open()) {
-//         string linea;
-//         bool encontrado = false;
-//         bool eliminado = false; // Variable para rastrear si el paciente se ha eliminado
-
-//         while (getline(archivo, linea)) {
-//             registroP paciente;
-//             cargarRegistroDesdeLinea(linea, paciente);
-//             string cedulaEncontrada = paciente.cedula;
-
-//             // Convierte los nombres y apellidos del paciente a mayúsculas para la comparación
-//             string primerNombreMayus = convertirMayus(paciente.nombrePaciente.primerNombre);
-//             string segundoNombreMayus = convertirMayus(paciente.nombrePaciente.segundoNombre);
-//             string primerApellidoMayus = convertirMayus(paciente.nombrePaciente.primerApellido);
-//             string segundoApellidoMayus = convertirMayus(paciente.nombrePaciente.segundoApellido);
-
-//             if (cedulaEncontrada == cedulaONombre ||
-//                 primerNombreMayus.find(cedulaONombre) != string::npos ||
-//                 segundoNombreMayus.find(cedulaONombre) != string::npos ||
-//                 primerApellidoMayus.find(cedulaONombre) != string::npos ||
-//                 segundoApellidoMayus.find(cedulaONombre) != string::npos) {
-//                 encontrado = true;
-
-//                 cout << "Paciente encontrado:" << endl;
-//                 cout << "Cédula: " << paciente.cedula << endl;
-//                 cout << "Nombre: " << paciente.nombrePaciente.primerNombre << ' ' << paciente.nombrePaciente.segundoNombre << ' ' << paciente.nombrePaciente.primerApellido << ' ' << paciente.nombrePaciente.segundoApellido << endl;
-//                 cout << "Fecha de nacimiento: " << paciente.fechas.nacimiento.dia << "/" << paciente.fechas.nacimiento.mes << "/" << paciente.fechas.nacimiento.anio << endl;
-//                 cout << "Peso: " << paciente.peso << " lb" << endl;
-//                 cout << "Altura: " << paciente.altura << " cm" << endl;
-//                 cout << "Número de teléfono: " << paciente.num_celular << endl;
-
-//                 // Pregunta si está seguro de eliminar al paciente
-//                 char confirmacion;
-//                 cout << "¿Está seguro de eliminar a este paciente? (S/N): ";
-//                 cin >> confirmacion;
-//                 if (toupper(confirmacion) == 'S') {
-//                     // No copiamos la línea en el archivo temporal, lo que efectivamente elimina el paciente
-//                     eliminado = true;
-//                 // Elimina las subcarpetas y la carpeta principal del paciente
-//                 string path = "C:/Users/user/OneDrive/Escritorio/AutoDoc/" + paciente.cedula;
-//                 eliminarDirectorio(path);
-//                 } else {
-//                     cout << "Operación cancelada. El paciente no ha sido eliminado." << endl;
-//                     archivoTemp << linea << endl;
-//                 }
-//         }
-//         }
-
-//         archivo.close();
-//         archivoTemp.close();
-
-//         if (encontrado && eliminado) {
-//             remove(archivoPacientes.c_str());
-//             rename("temp.txt", archivoPacientes.c_str());
-//             cout << "Paciente eliminado exitosamente." << endl;
-//         } else if (!encontrado) {
-//             cout << "Paciente no encontrado." << endl;
-//         }
-//     } else {
-//         cout << "No se pudo abrir el archivo para lectura o escritura." << endl;
-//     }
-// }
 
 void eliminarPaciente() {
+    system("clear || cls");
+    printf("--------MENÚ DE PACIENTES--------\n");
     // Obtén la cédula o nombre del paciente a eliminar
     string cedulaPaciente;
-    printf("Ingrese la c%cdula del paciente a eliminar: ", 130);
+    printf("Ingrese la cédula del paciente a eliminar: ");
     cin >> cedulaPaciente;
 
     // Confirmación de la eliminación
     char confirmacion;
-    printf("%cEst%c seguro de eliminar a este paciente (S/N): ", 168, 160); 
+    printf("¿Está seguro de eliminar a este paciente (S/N)? "); 
     cin >> confirmacion;
     if (toupper(confirmacion) != 'S') {
-        printf("Operaci%cn cancelada.\n", 162);
+        printf("Operación cancelada.\n");
         return;
     }
 
@@ -494,7 +421,7 @@ void eliminarPaciente() {
     eliminarDirectorio(carpetaPaciente);
 
     // Elimina la información del paciente del archivo pacientes.txt
-    ifstream archivoIn("pacientes.txt");
+    ifstream archivoIn(archivoPacientes);
     ofstream archivoOut("temp.txt");
     string linea;
     bool pacienteEncontrado = false;
@@ -510,8 +437,8 @@ void eliminarPaciente() {
 
     // Reemplaza el archivo original con el temporal si se encontró el paciente
     if (pacienteEncontrado) {
-        remove("pacientes.txt");
-        rename("temp.txt", "pacientes.txt");
+        remove(archivoPacientes.c_str());
+        rename("temp.txt", archivoPacientes.c_str());
         cout << "Paciente eliminado exitosamente." << endl;
     } else {
         remove("temp.txt");

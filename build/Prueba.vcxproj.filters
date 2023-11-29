@@ -1,48 +1,48 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\2_menuPrincipal.cpp">
+    <ClCompile Include="C:\Users\user\OneDrive\Escritorio\Proyecto Final\AutoDoc\2_menuPrincipal.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\3_login.cpp">
+    <ClCompile Include="C:\Users\user\OneDrive\Escritorio\Proyecto Final\AutoDoc\3_login.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\4_pacientes.cpp">
+    <ClCompile Include="C:\Users\user\OneDrive\Escritorio\Proyecto Final\AutoDoc\4_pacientes.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\5_citasProgramadas.cpp">
+    <ClCompile Include="C:\Users\user\OneDrive\Escritorio\Proyecto Final\AutoDoc\5_citasProgramadas.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\6_UT.cpp">
+    <ClCompile Include="C:\Users\user\OneDrive\Escritorio\Proyecto Final\AutoDoc\6_UT.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\7_UP.cpp">
+    <ClCompile Include="C:\Users\user\OneDrive\Escritorio\Proyecto Final\AutoDoc\7_UP.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\8_SE.cpp">
+    <ClCompile Include="C:\Users\user\OneDrive\Escritorio\Proyecto Final\AutoDoc\8_SE.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\9_UM.cpp">
+    <ClCompile Include="C:\Users\user\OneDrive\Escritorio\Proyecto Final\AutoDoc\9_UM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\10_diagPresc.cpp">
+    <ClCompile Include="C:\Users\user\OneDrive\Escritorio\Proyecto Final\AutoDoc\10_diagPresc.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\1_estructuras.h">
+    <ClInclude Include="C:\Users\user\OneDrive\Escritorio\Proyecto Final\AutoDoc\1_estructuras.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\CMakeLists.txt" />
+    <CustomBuild Include="C:\Users\user\OneDrive\Escritorio\Proyecto Final\AutoDoc\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{831AD172-0415-39AD-BD9D-23FA2F7F0063}</UniqueIdentifier>
+      <UniqueIdentifier>{2B7204B7-11A3-398D-8AD6-5E1AD9224C2B}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{1773F470-AB1E-3DC4-AAB3-8DB67CAC7310}</UniqueIdentifier>
+      <UniqueIdentifier>{EF9E6D0D-53D0-39F0-9A0D-F0FA023D8445}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

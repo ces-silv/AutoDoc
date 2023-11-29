@@ -56,42 +56,42 @@ void realizarSeguimiento() {
     cout << "Introduza el peso de la madre (lb): ";
     cin >> seguimiento.pesoMadre;
     while(seguimiento.pesoMadre <= 0){
-        cout << "Peso Ingresado NO Valido - Introduzca nuevamente el peso de la madre" << endl;
+        cout << "Peso Ingresado NO Válido - Introduzca nuevamente el peso de la madre" << endl;
         cout << "Peso de la Madre (lb): "; cin >> seguimiento.pesoMadre;
     }
-    
+
     cout << "Introduzca la presión arterial sistólica: ";
     cin >> seguimiento.presArtSisto;
     while(seguimiento.presArtSisto <= 0){
-        cout << "Presion Sistolica NO Valida - Introduzcalo nuevamente" << endl;
-        cout << "Presion Arterial Sistolica: "; cin >> seguimiento.presArtSisto;
+        cout << "Presion Sistolica NO Válida - Introduzcalo nuevamente" << endl;
+        cout << "Presión Arterial Sistólica: "; cin >> seguimiento.presArtSisto;
     }
-    
+
     cout << "Introduzca la presión arterial diastólica: ";
     cin >> seguimiento.presArtDias;
     while(seguimiento.presArtDias <= 0){
-        cout << "Presion Diastolica NO Valida - Introduzcalo nuevamente" << endl;
-        cout << "Presion Arterial Sistolica: "; cin >> seguimiento.presArtDias;
+        cout << "Presion Diastolica NO Válida - Introduzcalo nuevamente" << endl;
+        cout << "Presion Arterial Diastólica: "; cin >> seguimiento.presArtDias;
     }
-    
+
 
     if ((seguimiento.presArtSisto >= 120 && seguimiento.presArtSisto <= 129) && (seguimiento.presArtDias <= 80)) {
-        cout << "Se detecta una presion arterial elevada, recuerde agregarlo en las valoraciones finales.\nRecuerde valorar segun su experiencia medica.\n" << endl;
+        cout << "Se detecta una presión arterial elevada, recuerde agregarlo en las valoraciones finales.\nRecuerde valorar segun su experiencia médica.\n" << endl;
     }
     else if ((seguimiento.presArtSisto >= 130 && seguimiento.presArtSisto <= 180) && (seguimiento.presArtDias >= 80 && seguimiento.presArtDias <= 120)) {
-        cout << "Cuidado - Hay una Hipertension Arterial, agreguelo a su valoracion final.\nRecuerde valorar segun su experiencia medica.\n" << endl;
+        cout << "Cuidado - Hay una Hipertensión Arterial, agréguelo a su valoración final.\nRecuerde valorar segun su experiencia médica.\n" << endl;
     }
     else if ((seguimiento.presArtSisto > 180) && (seguimiento.presArtDias > 120)) {
-        cout << "Tiene una Crisis Hipertensiva - Necesita ayuda inmediata.\nRecuerde valorar segun su experiencia medica.\n" << endl;
+        cout << "Tiene una Crisis Hipertensiva - Necesita ayuda inmediata.\nRecuerde valorar segun su experiencia médica.\n" << endl;
     }
     else {
-        cout << "Tiene una presion arterial saludable - Recuerde valorar segun su experiencia medica.\n" << endl;
+        cout << "Tiene una presión arterial saludable - Recuerde valorar según su experiencia médica.\n" << endl;
     }
 
     cout << "Introduzca las medidas Leopold (cm): ";
     cin >> seguimiento.medidasLeopold;
     while(seguimiento.medidasLeopold <= 0){
-        cout << "Medidas Leopold NO Valida - Introduzcalo nuevamente" << endl;
+        cout << "Medidas Leopold NO Válida - Introduzcalo nuevamente" << endl;
         cout << "Medidas Leopold (cm): "; cin >> seguimiento.medidasLeopold;
     }
 
@@ -119,14 +119,14 @@ void realizarSeguimiento() {
     cout << "Introduzca el peso del bebé (lb): ";
     cin >> seguimiento.pesoBebe;
     while(seguimiento.pesoBebe <= 0){
-        cout << "Peso del Bebe NO Valido - Introduzcalo nuevamente" << endl;
+        cout << "Peso del Bebe NO Válido - Introdúzcalo nuevamente" << endl;
         cout << "Peso del Bebe (lb): "; cin >> seguimiento.pesoBebe;
     }
 
     cout << "Introduzca la edad del bebé (semanas): ";
     cin >> seguimiento.edadBebe;
     while(seguimiento.edadBebe <= 0){
-        cout << "Edad del Bebe NO Valida - Introduzcalo nuevamente" << endl;
+        cout << "Edad del Bebe NO Válida - Introdúzcalo nuevamente" << endl;
         cout << "Edad del Bebe (lb): "; cin >> seguimiento.edadBebe;
     }
  

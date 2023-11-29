@@ -41,10 +41,9 @@ void login(){
 
     while (intentoRestante > 0)
     { /* El while permite que haya un maximo de 3 intentos fallidos */
-        cout << "Bienvenid@s a AutoDoc - Su Generador de Archivos de Confianza" << endl;
         cout << "Ingrese su nombre de usuario: ";
         cin >> usuario;
-        cout << "Ingrese su contrasena: ";
+        cout << "Ingrese su contraseña: ";
         contrasenia = "";
 #ifdef _WIN32
         while (true)
@@ -121,15 +120,14 @@ void login(){
         {
             system("clear || cls");
             intentoRestante--;
-            cout << "Parece que tenemos problemas - No podemos iniciar AutoDoc\n" << endl;
-            cout << "Usuario o contrasena incorrectos - Tiene " << intentoRestante << " intentos disponibles." << endl;
+            cout << "Usuario o contraseña incorrectos - Tiene " << intentoRestante << " intentos disponibles." << endl;
         }
     }
 
     if (intentoRestante == 0)
     { /* Restriccion si se llega al limite de intentos */
         system("clear || cls");
-        cout << "Ha excedido el maximos de intentos permitidos." << endl;
+        cout << "Ha excedido el máximos de intentos permitidos." << endl;
     }
 
 }

@@ -1,6 +1,6 @@
-^C:\USERS\USER\ONEDRIVE\ESCRITORIO\AUTODOCPRUEBA\AUTODOC\CMAKELISTS.TXT
+^C:\USERS\USER\ONEDRIVE\ESCRITORIO\PROYECTO FINAL\AUTODOC\CMAKELISTS.TXT
 setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc -BC:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc/build --check-stamp-file C:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc/build/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/user/OneDrive/Escritorio/Proyecto Final/AutoDoc" "-BC:/Users/user/OneDrive/Escritorio/Proyecto Final/AutoDoc/build" --check-stamp-file "C:/Users/user/OneDrive/Escritorio/Proyecto Final/AutoDoc/build/CMakeFiles/generate.stamp"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone

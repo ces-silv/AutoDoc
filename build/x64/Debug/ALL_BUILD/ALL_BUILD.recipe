@@ -2,13 +2,13 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\build\x64\Debug\ZERO_CHECK</FullPath>
+      <FullPath>C:\Users\user\OneDrive\Escritorio\Proyecto Final\AutoDoc\build\x64\Debug\ZERO_CHECK</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\build\Debug\Prueba.exe</FullPath>
+      <FullPath>C:\Users\user\OneDrive\Escritorio\Proyecto Final\AutoDoc\build\Debug\Prueba.exe</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\build\x64\Debug\ALL_BUILD</FullPath>
+      <FullPath>C:\Users\user\OneDrive\Escritorio\Proyecto Final\AutoDoc\build\x64\Debug\ALL_BUILD</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

@@ -56,8 +56,8 @@
 	{
 		"name" : "CTestDashboardTargets"
 	},
-	"id" : "Nightly::@6890427a1f51a3e7e1df",
-	"name" : "Nightly",
+	"id" : "Experimental::@6890427a1f51a3e7e1df",
+	"name" : "Experimental",
 	"paths" : 
 	{
 		"build" : ".",
@@ -85,13 +85,13 @@
 		{
 			"backtrace" : 5,
 			"isGenerated" : true,
-			"path" : "build/CMakeFiles/Nightly",
+			"path" : "build/CMakeFiles/Experimental",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : "build/CMakeFiles/f64384b1063b17ed62a4453f0382d08c/Nightly.rule",
+			"path" : "build/CMakeFiles/0f70babbd4780951a3aa28fd7b3a601e/Experimental.rule",
 			"sourceGroupIndex" : 1
 		}
 	],

@@ -4,8 +4,8 @@
 
 
 # Configuration directories and files
-SourceDirectory: C:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc
-BuildDirectory: C:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc/build
+SourceDirectory: C:/Users/user/OneDrive/Escritorio/Proyecto Final/AutoDoc
+BuildDirectory: C:/Users/user/OneDrive/Escritorio/Proyecto Final/AutoDoc/build
 
 # Where to place the cost data store
 CostDataFile: 
@@ -27,7 +27,7 @@ SubmitInactivityTimeout:
 NightlyStartTime: 00:00:00 EDT
 
 # Commands for the build/test/submit cycle
-ConfigureCommand: "C:/Program Files/CMake/bin/cmake.exe" "C:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc"
+ConfigureCommand: "C:/Program Files/CMake/bin/cmake.exe" "C:/Users/user/OneDrive/Escritorio/Proyecto Final/AutoDoc"
 MakeCommand: "C:\Program Files\CMake\bin\cmake.exe" --build . --config "${CTEST_CONFIGURATION_TYPE}"
 DefaultCTestConfigurationType: Release
 

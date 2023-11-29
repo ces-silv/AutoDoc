@@ -24,9 +24,9 @@ events:
       The output was:
       0
       Versión de MSBuild 17.7.2+d6990bcfa para .NET Framework
-      Compilación iniciada a las 26/11/2023 18:23:16.
+      Compilación iniciada a las 29/11/2023 15:22:48.
       
-      Proyecto "C:\\Users\\user\\OneDrive\\Escritorio\\AutoDocprueba\\AutoDoc\\build\\CMakeFiles\\3.27.8\\CompilerIdC\\CompilerIdC.vcxproj" en nodo 1 (destinos predeterminados).
+      Proyecto "C:\\Users\\user\\OneDrive\\Escritorio\\Proyecto Final\\AutoDoc\\build\\CMakeFiles\\3.27.8\\CompilerIdC\\CompilerIdC.vcxproj" en nodo 1 (destinos predeterminados).
       PrepareForBuild:
         Creando directorio "Debug\\".
         Creando directorio "Debug\\CompilerIdC.tlog\\".
@@ -41,13 +41,13 @@ events:
         CMakeCCompilerId.c
       Link:
         C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdC.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"C:\\des\\vcpkg\\installed\\x64-windows\\lib" /LIBPATH:"C:\\des\\vcpkg\\installed\\x64-windows\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib "C:\\des\\vcpkg\\installed\\x64-windows\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdC.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdC.lib" /MACHINE:X64 Debug\\CMakeCCompilerId.obj
-        CompilerIdC.vcxproj -> C:\\Users\\user\\OneDrive\\Escritorio\\AutoDocprueba\\AutoDoc\\build\\CMakeFiles\\3.27.8\\CompilerIdC\\CompilerIdC.exe
+        CompilerIdC.vcxproj -> C:\\Users\\user\\OneDrive\\Escritorio\\Proyecto Final\\AutoDoc\\build\\CMakeFiles\\3.27.8\\CompilerIdC\\CompilerIdC.exe
       AppLocalFromInstalled:
-        pwsh.exe -ExecutionPolicy Bypass -noprofile -File "C:\\des\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\user\\OneDrive\\Escritorio\\AutoDocprueba\\AutoDoc\\build\\CMakeFiles\\3.27.8\\CompilerIdC\\CompilerIdC.exe" "C:\\des\\vcpkg\\installed\\x64-windows\\bin" "Debug\\CompilerIdC.tlog\\CompilerIdC.write.1u.tlog" "Debug\\vcpkg.applocal.log"
+        pwsh.exe -ExecutionPolicy Bypass -noprofile -File "C:\\des\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\user\\OneDrive\\Escritorio\\Proyecto Final\\AutoDoc\\build\\CMakeFiles\\3.27.8\\CompilerIdC\\CompilerIdC.exe" "C:\\des\\vcpkg\\installed\\x64-windows\\bin" "Debug\\CompilerIdC.tlog\\CompilerIdC.write.1u.tlog" "Debug\\vcpkg.applocal.log"
         "pwsh.exe" no se reconoce como un comando interno o externo,
         programa o archivo por lotes ejecutable.
-        El comando "pwsh.exe -ExecutionPolicy Bypass -noprofile -File "C:\\des\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\user\\OneDrive\\Escritorio\\AutoDocprueba\\AutoDoc\\build\\CMakeFiles\\3.27.8\\CompilerIdC\\CompilerIdC.exe" "C:\\des\\vcpkg\\installed\\x64-windows\\bin" "Debug\\CompilerIdC.tlog\\CompilerIdC.write.1u.tlog" "Debug\\vcpkg.applocal.log"" salió con el código 9009.
-        "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -ExecutionPolicy Bypass -noprofile -File "C:\\des\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\user\\OneDrive\\Escritorio\\AutoDocprueba\\AutoDoc\\build\\CMakeFiles\\3.27.8\\CompilerIdC\\CompilerIdC.exe" "C:\\des\\vcpkg\\installed\\x64-windows\\bin" "Debug\\CompilerIdC.tlog\\CompilerIdC.write.1u.tlog" "Debug\\vcpkg.applocal.log"
+        El comando "pwsh.exe -ExecutionPolicy Bypass -noprofile -File "C:\\des\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\user\\OneDrive\\Escritorio\\Proyecto Final\\AutoDoc\\build\\CMakeFiles\\3.27.8\\CompilerIdC\\CompilerIdC.exe" "C:\\des\\vcpkg\\installed\\x64-windows\\bin" "Debug\\CompilerIdC.tlog\\CompilerIdC.write.1u.tlog" "Debug\\vcpkg.applocal.log"" salió con el código 9009.
+        "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -ExecutionPolicy Bypass -noprofile -File "C:\\des\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\user\\OneDrive\\Escritorio\\Proyecto Final\\AutoDoc\\build\\CMakeFiles\\3.27.8\\CompilerIdC\\CompilerIdC.exe" "C:\\des\\vcpkg\\installed\\x64-windows\\bin" "Debug\\CompilerIdC.tlog\\CompilerIdC.write.1u.tlog" "Debug\\vcpkg.applocal.log"
       PostBuildEvent:
         for %%i in (cl.exe) do @echo CMAKE_C_COMPILER=%%~$PATH:i
         :VCEnd
@@ -55,13 +55,13 @@ events:
       FinalizeBuildStatus:
         Se eliminará el archivo "Debug\\CompilerIdC.tlog\\unsuccessfulbuild".
         Aplicando tarea Touch a "Debug\\CompilerIdC.tlog\\CompilerIdC.lastbuildstate".
-      Compilación del proyecto terminada "C:\\Users\\user\\OneDrive\\Escritorio\\AutoDocprueba\\AutoDoc\\build\\CMakeFiles\\3.27.8\\CompilerIdC\\CompilerIdC.vcxproj" (destinos predeterminados).
+      Compilación del proyecto terminada "C:\\Users\\user\\OneDrive\\Escritorio\\Proyecto Final\\AutoDoc\\build\\CMakeFiles\\3.27.8\\CompilerIdC\\CompilerIdC.vcxproj" (destinos predeterminados).
       
       Compilación correcta.
           0 Advertencia(s)
           0 Errores
       
-      Tiempo transcurrido 00:00:01.60
+      Tiempo transcurrido 00:00:04.46
       
       
       Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
@@ -69,7 +69,7 @@ events:
       Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.vcxproj"
       
       The C compiler identification is MSVC, found in:
-        C:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc/build/CMakeFiles/3.27.8/CompilerIdC/CompilerIdC.exe
+        C:/Users/user/OneDrive/Escritorio/Proyecto Final/AutoDoc/build/CMakeFiles/3.27.8/CompilerIdC/CompilerIdC.exe
       
   -
     kind: "message-v1"
@@ -87,9 +87,9 @@ events:
       The output was:
       0
       Versión de MSBuild 17.7.2+d6990bcfa para .NET Framework
-      Compilación iniciada a las 26/11/2023 18:23:18.
+      Compilación iniciada a las 29/11/2023 15:22:54.
       
-      Proyecto "C:\\Users\\user\\OneDrive\\Escritorio\\AutoDocprueba\\AutoDoc\\build\\CMakeFiles\\3.27.8\\CompilerIdCXX\\CompilerIdCXX.vcxproj" en nodo 1 (destinos predeterminados).
+      Proyecto "C:\\Users\\user\\OneDrive\\Escritorio\\Proyecto Final\\AutoDoc\\build\\CMakeFiles\\3.27.8\\CompilerIdCXX\\CompilerIdCXX.vcxproj" en nodo 1 (destinos predeterminados).
       PrepareForBuild:
         Creando directorio "Debug\\".
         Creando directorio "Debug\\CompilerIdCXX.tlog\\".
@@ -104,13 +104,13 @@ events:
         CMakeCXXCompilerId.cpp
       Link:
         C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdCXX.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"C:\\des\\vcpkg\\installed\\x64-windows\\lib" /LIBPATH:"C:\\des\\vcpkg\\installed\\x64-windows\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib "C:\\des\\vcpkg\\installed\\x64-windows\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdCXX.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdCXX.lib" /MACHINE:X64 Debug\\CMakeCXXCompilerId.obj
-        CompilerIdCXX.vcxproj -> C:\\Users\\user\\OneDrive\\Escritorio\\AutoDocprueba\\AutoDoc\\build\\CMakeFiles\\3.27.8\\CompilerIdCXX\\CompilerIdCXX.exe
+        CompilerIdCXX.vcxproj -> C:\\Users\\user\\OneDrive\\Escritorio\\Proyecto Final\\AutoDoc\\build\\CMakeFiles\\3.27.8\\CompilerIdCXX\\CompilerIdCXX.exe
       AppLocalFromInstalled:
-        pwsh.exe -ExecutionPolicy Bypass -noprofile -File "C:\\des\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\user\\OneDrive\\Escritorio\\AutoDocprueba\\AutoDoc\\build\\CMakeFiles\\3.27.8\\CompilerIdCXX\\CompilerIdCXX.exe" "C:\\des\\vcpkg\\installed\\x64-windows\\bin" "Debug\\CompilerIdCXX.tlog\\CompilerIdCXX.write.1u.tlog" "Debug\\vcpkg.applocal.log"
+        pwsh.exe -ExecutionPolicy Bypass -noprofile -File "C:\\des\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\user\\OneDrive\\Escritorio\\Proyecto Final\\AutoDoc\\build\\CMakeFiles\\3.27.8\\CompilerIdCXX\\CompilerIdCXX.exe" "C:\\des\\vcpkg\\installed\\x64-windows\\bin" "Debug\\CompilerIdCXX.tlog\\CompilerIdCXX.write.1u.tlog" "Debug\\vcpkg.applocal.log"
         "pwsh.exe" no se reconoce como un comando interno o externo,
         programa o archivo por lotes ejecutable.
-        El comando "pwsh.exe -ExecutionPolicy Bypass -noprofile -File "C:\\des\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\user\\OneDrive\\Escritorio\\AutoDocprueba\\AutoDoc\\build\\CMakeFiles\\3.27.8\\CompilerIdCXX\\CompilerIdCXX.exe" "C:\\des\\vcpkg\\installed\\x64-windows\\bin" "Debug\\CompilerIdCXX.tlog\\CompilerIdCXX.write.1u.tlog" "Debug\\vcpkg.applocal.log"" salió con el código 9009.
-        "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -ExecutionPolicy Bypass -noprofile -File "C:\\des\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\user\\OneDrive\\Escritorio\\AutoDocprueba\\AutoDoc\\build\\CMakeFiles\\3.27.8\\CompilerIdCXX\\CompilerIdCXX.exe" "C:\\des\\vcpkg\\installed\\x64-windows\\bin" "Debug\\CompilerIdCXX.tlog\\CompilerIdCXX.write.1u.tlog" "Debug\\vcpkg.applocal.log"
+        El comando "pwsh.exe -ExecutionPolicy Bypass -noprofile -File "C:\\des\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\user\\OneDrive\\Escritorio\\Proyecto Final\\AutoDoc\\build\\CMakeFiles\\3.27.8\\CompilerIdCXX\\CompilerIdCXX.exe" "C:\\des\\vcpkg\\installed\\x64-windows\\bin" "Debug\\CompilerIdCXX.tlog\\CompilerIdCXX.write.1u.tlog" "Debug\\vcpkg.applocal.log"" salió con el código 9009.
+        "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -ExecutionPolicy Bypass -noprofile -File "C:\\des\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\user\\OneDrive\\Escritorio\\Proyecto Final\\AutoDoc\\build\\CMakeFiles\\3.27.8\\CompilerIdCXX\\CompilerIdCXX.exe" "C:\\des\\vcpkg\\installed\\x64-windows\\bin" "Debug\\CompilerIdCXX.tlog\\CompilerIdCXX.write.1u.tlog" "Debug\\vcpkg.applocal.log"
       PostBuildEvent:
         for %%i in (cl.exe) do @echo CMAKE_CXX_COMPILER=%%~$PATH:i
         :VCEnd
@@ -118,13 +118,13 @@ events:
       FinalizeBuildStatus:
         Se eliminará el archivo "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild".
         Aplicando tarea Touch a "Debug\\CompilerIdCXX.tlog\\CompilerIdCXX.lastbuildstate".
-      Compilación del proyecto terminada "C:\\Users\\user\\OneDrive\\Escritorio\\AutoDocprueba\\AutoDoc\\build\\CMakeFiles\\3.27.8\\CompilerIdCXX\\CompilerIdCXX.vcxproj" (destinos predeterminados).
+      Compilación del proyecto terminada "C:\\Users\\user\\OneDrive\\Escritorio\\Proyecto Final\\AutoDoc\\build\\CMakeFiles\\3.27.8\\CompilerIdCXX\\CompilerIdCXX.vcxproj" (destinos predeterminados).
       
       Compilación correcta.
           0 Advertencia(s)
           0 Errores
       
-      Tiempo transcurrido 00:00:01.30
+      Tiempo transcurrido 00:00:03.26
       
       
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
@@ -132,7 +132,7 @@ events:
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.vcxproj"
       
       The CXX compiler identification is MSVC, found in:
-        C:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc/build/CMakeFiles/3.27.8/CompilerIdCXX/CompilerIdCXX.exe
+        C:/Users/user/OneDrive/Escritorio/Proyecto Final/AutoDoc/build/CMakeFiles/3.27.8/CompilerIdCXX/CompilerIdCXX.exe
       
   -
     kind: "try_compile-v1"
@@ -143,8 +143,8 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "C:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc/build/CMakeFiles/CMakeScratch/TryCompile-p90qoa"
-      binary: "C:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc/build/CMakeFiles/CMakeScratch/TryCompile-p90qoa"
+      source: "C:/Users/user/OneDrive/Escritorio/Proyecto Final/AutoDoc/build/CMakeFiles/CMakeScratch/TryCompile-f8xob5"
+      binary: "C:/Users/user/OneDrive/Escritorio/Proyecto Final/AutoDoc/build/CMakeFiles/CMakeScratch/TryCompile-f8xob5"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
       VCPKG_APPLOCAL_DEPS: "ON"
@@ -154,32 +154,32 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc/build/CMakeFiles/CMakeScratch/TryCompile-p90qoa'
+        Change Dir: 'C:/Users/user/OneDrive/Escritorio/Proyecto Final/AutoDoc/build/CMakeFiles/CMakeScratch/TryCompile-f8xob5'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_245bc.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_57ee1.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         Versión de MSBuild 17.7.2+d6990bcfa para .NET Framework
-        Compilación iniciada a las 26/11/2023 18:23:19.
+        Compilación iniciada a las 29/11/2023 15:22:58.
         
-        Proyecto "C:\\Users\\user\\OneDrive\\Escritorio\\AutoDocprueba\\AutoDoc\\build\\CMakeFiles\\CMakeScratch\\TryCompile-p90qoa\\cmTC_245bc.vcxproj" en nodo 1 (destinos predeterminados).
+        Proyecto "C:\\Users\\user\\OneDrive\\Escritorio\\Proyecto Final\\AutoDoc\\build\\CMakeFiles\\CMakeScratch\\TryCompile-f8xob5\\cmTC_57ee1.vcxproj" en nodo 1 (destinos predeterminados).
         PrepareForBuild:
-          Creando directorio "cmTC_245bc.dir\\Debug\\".
-          Creando directorio "C:\\Users\\user\\OneDrive\\Escritorio\\AutoDocprueba\\AutoDoc\\build\\CMakeFiles\\CMakeScratch\\TryCompile-p90qoa\\Debug\\".
-          Creando directorio "cmTC_245bc.dir\\Debug\\cmTC_245bc.tlog\\".
+          Creando directorio "cmTC_57ee1.dir\\Debug\\".
+          Creando directorio "C:\\Users\\user\\OneDrive\\Escritorio\\Proyecto Final\\AutoDoc\\build\\CMakeFiles\\CMakeScratch\\TryCompile-f8xob5\\Debug\\".
+          Creando directorio "cmTC_57ee1.dir\\Debug\\cmTC_57ee1.tlog\\".
         InitializeBuildStatus:
-          Se creará "cmTC_245bc.dir\\Debug\\cmTC_245bc.tlog\\unsuccessfulbuild" porque se especificó "AlwaysCreate".
-          Aplicando tarea Touch a "cmTC_245bc.dir\\Debug\\cmTC_245bc.tlog\\unsuccessfulbuild".
+          Se creará "cmTC_57ee1.dir\\Debug\\cmTC_57ee1.tlog\\unsuccessfulbuild" porque se especificó "AlwaysCreate".
+          Aplicando tarea Touch a "cmTC_57ee1.dir\\Debug\\cmTC_57ee1.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_245bc.dir\\Debug\\\\" /Fd"cmTC_245bc.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.27\\Modules\\CMakeCCompilerABI.c"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_57ee1.dir\\Debug\\\\" /Fd"cmTC_57ee1.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.27\\Modules\\CMakeCCompilerABI.c"
           Compilador de optimización de C/C++ de Microsoft (R) versión 19.37.32824 para x64
           CMakeCCompilerABI.c
           (C) Microsoft Corporation. Todos los derechos reservados.
-          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_245bc.dir\\Debug\\\\" /Fd"cmTC_245bc.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.27\\Modules\\CMakeCCompilerABI.c"
+          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_57ee1.dir\\Debug\\\\" /Fd"cmTC_57ee1.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.27\\Modules\\CMakeCCompilerABI.c"
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\user\\OneDrive\\Escritorio\\AutoDocprueba\\AutoDoc\\build\\CMakeFiles\\CMakeScratch\\TryCompile-p90qoa\\Debug\\cmTC_245bc.exe" /INCREMENTAL /ILK:"cmTC_245bc.dir\\Debug\\cmTC_245bc.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc/build/CMakeFiles/CMakeScratch/TryCompile-p90qoa/Debug/cmTC_245bc.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc/build/CMakeFiles/CMakeScratch/TryCompile-p90qoa/Debug/cmTC_245bc.lib" /MACHINE:X64  /machine:x64 cmTC_245bc.dir\\Debug\\CMakeCCompilerABI.obj
-          cmTC_245bc.vcxproj -> C:\\Users\\user\\OneDrive\\Escritorio\\AutoDocprueba\\AutoDoc\\build\\CMakeFiles\\CMakeScratch\\TryCompile-p90qoa\\Debug\\cmTC_245bc.exe
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\user\\OneDrive\\Escritorio\\Proyecto Final\\AutoDoc\\build\\CMakeFiles\\CMakeScratch\\TryCompile-f8xob5\\Debug\\cmTC_57ee1.exe" /INCREMENTAL /ILK:"cmTC_57ee1.dir\\Debug\\cmTC_57ee1.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/user/OneDrive/Escritorio/Proyecto Final/AutoDoc/build/CMakeFiles/CMakeScratch/TryCompile-f8xob5/Debug/cmTC_57ee1.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/user/OneDrive/Escritorio/Proyecto Final/AutoDoc/build/CMakeFiles/CMakeScratch/TryCompile-f8xob5/Debug/cmTC_57ee1.lib" /MACHINE:X64  /machine:x64 cmTC_57ee1.dir\\Debug\\CMakeCCompilerABI.obj
+          cmTC_57ee1.vcxproj -> C:\\Users\\user\\OneDrive\\Escritorio\\Proyecto Final\\AutoDoc\\build\\CMakeFiles\\CMakeScratch\\TryCompile-f8xob5\\Debug\\cmTC_57ee1.exe
         PostBuildEvent:
           setlocal
-          C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -noprofile -executionpolicy Bypass -file C:/des/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary C:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc/build/CMakeFiles/CMakeScratch/TryCompile-p90qoa/Debug/cmTC_245bc.exe -installedDir C:/des/vcpkg/installed/x64-windows/debug/bin -OutVariable out
+          C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -noprofile -executionpolicy Bypass -file C:/des/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary "C:/Users/user/OneDrive/Escritorio/Proyecto Final/AutoDoc/build/CMakeFiles/CMakeScratch/TryCompile-f8xob5/Debug/cmTC_57ee1.exe" -installedDir C:/des/vcpkg/installed/x64-windows/debug/bin -OutVariable out
           if %errorlevel% neq 0 goto :cmEnd
           :cmEnd
           endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
@@ -189,15 +189,15 @@ events:
           if %errorlevel% neq 0 goto :VCEnd
           :VCEnd
         FinalizeBuildStatus:
-          Se eliminará el archivo "cmTC_245bc.dir\\Debug\\cmTC_245bc.tlog\\unsuccessfulbuild".
-          Aplicando tarea Touch a "cmTC_245bc.dir\\Debug\\cmTC_245bc.tlog\\cmTC_245bc.lastbuildstate".
-        Compilación del proyecto terminada "C:\\Users\\user\\OneDrive\\Escritorio\\AutoDocprueba\\AutoDoc\\build\\CMakeFiles\\CMakeScratch\\TryCompile-p90qoa\\cmTC_245bc.vcxproj" (destinos predeterminados).
+          Se eliminará el archivo "cmTC_57ee1.dir\\Debug\\cmTC_57ee1.tlog\\unsuccessfulbuild".
+          Aplicando tarea Touch a "cmTC_57ee1.dir\\Debug\\cmTC_57ee1.tlog\\cmTC_57ee1.lastbuildstate".
+        Compilación del proyecto terminada "C:\\Users\\user\\OneDrive\\Escritorio\\Proyecto Final\\AutoDoc\\build\\CMakeFiles\\CMakeScratch\\TryCompile-f8xob5\\cmTC_57ee1.vcxproj" (destinos predeterminados).
         
         Compilación correcta.
             0 Advertencia(s)
             0 Errores
         
-        Tiempo transcurrido 00:00:01.39
+        Tiempo transcurrido 00:00:03.23
         
       exitCode: 0
   -
@@ -209,8 +209,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "C:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc/build/CMakeFiles/CMakeScratch/TryCompile-li7q9x"
-      binary: "C:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc/build/CMakeFiles/CMakeScratch/TryCompile-li7q9x"
+      source: "C:/Users/user/OneDrive/Escritorio/Proyecto Final/AutoDoc/build/CMakeFiles/CMakeScratch/TryCompile-5n3i1q"
+      binary: "C:/Users/user/OneDrive/Escritorio/Proyecto Final/AutoDoc/build/CMakeFiles/CMakeScratch/TryCompile-5n3i1q"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /W3 /GR /EHsc"
       VCPKG_APPLOCAL_DEPS: "ON"
@@ -220,32 +220,32 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc/build/CMakeFiles/CMakeScratch/TryCompile-li7q9x'
+        Change Dir: 'C:/Users/user/OneDrive/Escritorio/Proyecto Final/AutoDoc/build/CMakeFiles/CMakeScratch/TryCompile-5n3i1q'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_b957e.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_8f2f5.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         Versión de MSBuild 17.7.2+d6990bcfa para .NET Framework
-        Compilación iniciada a las 26/11/2023 18:23:21.
+        Compilación iniciada a las 29/11/2023 15:23:03.
         
-        Proyecto "C:\\Users\\user\\OneDrive\\Escritorio\\AutoDocprueba\\AutoDoc\\build\\CMakeFiles\\CMakeScratch\\TryCompile-li7q9x\\cmTC_b957e.vcxproj" en nodo 1 (destinos predeterminados).
+        Proyecto "C:\\Users\\user\\OneDrive\\Escritorio\\Proyecto Final\\AutoDoc\\build\\CMakeFiles\\CMakeScratch\\TryCompile-5n3i1q\\cmTC_8f2f5.vcxproj" en nodo 1 (destinos predeterminados).
         PrepareForBuild:
-          Creando directorio "cmTC_b957e.dir\\Debug\\".
-          Creando directorio "C:\\Users\\user\\OneDrive\\Escritorio\\AutoDocprueba\\AutoDoc\\build\\CMakeFiles\\CMakeScratch\\TryCompile-li7q9x\\Debug\\".
-          Creando directorio "cmTC_b957e.dir\\Debug\\cmTC_b957e.tlog\\".
+          Creando directorio "cmTC_8f2f5.dir\\Debug\\".
+          Creando directorio "C:\\Users\\user\\OneDrive\\Escritorio\\Proyecto Final\\AutoDoc\\build\\CMakeFiles\\CMakeScratch\\TryCompile-5n3i1q\\Debug\\".
+          Creando directorio "cmTC_8f2f5.dir\\Debug\\cmTC_8f2f5.tlog\\".
         InitializeBuildStatus:
-          Se creará "cmTC_b957e.dir\\Debug\\cmTC_b957e.tlog\\unsuccessfulbuild" porque se especificó "AlwaysCreate".
-          Aplicando tarea Touch a "cmTC_b957e.dir\\Debug\\cmTC_b957e.tlog\\unsuccessfulbuild".
+          Se creará "cmTC_8f2f5.dir\\Debug\\cmTC_8f2f5.tlog\\unsuccessfulbuild" porque se especificó "AlwaysCreate".
+          Aplicando tarea Touch a "cmTC_8f2f5.dir\\Debug\\cmTC_8f2f5.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_b957e.dir\\Debug\\\\" /Fd"cmTC_b957e.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.27\\Modules\\CMakeCXXCompilerABI.cpp"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_8f2f5.dir\\Debug\\\\" /Fd"cmTC_8f2f5.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.27\\Modules\\CMakeCXXCompilerABI.cpp"
           Compilador de optimización de C/C++ de Microsoft (R) versión 19.37.32824 para x64
           CMakeCXXCompilerABI.cpp
           (C) Microsoft Corporation. Todos los derechos reservados.
-          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_b957e.dir\\Debug\\\\" /Fd"cmTC_b957e.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.27\\Modules\\CMakeCXXCompilerABI.cpp"
+          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_8f2f5.dir\\Debug\\\\" /Fd"cmTC_8f2f5.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.27\\Modules\\CMakeCXXCompilerABI.cpp"
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\user\\OneDrive\\Escritorio\\AutoDocprueba\\AutoDoc\\build\\CMakeFiles\\CMakeScratch\\TryCompile-li7q9x\\Debug\\cmTC_b957e.exe" /INCREMENTAL /ILK:"cmTC_b957e.dir\\Debug\\cmTC_b957e.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc/build/CMakeFiles/CMakeScratch/TryCompile-li7q9x/Debug/cmTC_b957e.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc/build/CMakeFiles/CMakeScratch/TryCompile-li7q9x/Debug/cmTC_b957e.lib" /MACHINE:X64  /machine:x64 cmTC_b957e.dir\\Debug\\CMakeCXXCompilerABI.obj
-          cmTC_b957e.vcxproj -> C:\\Users\\user\\OneDrive\\Escritorio\\AutoDocprueba\\AutoDoc\\build\\CMakeFiles\\CMakeScratch\\TryCompile-li7q9x\\Debug\\cmTC_b957e.exe
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\user\\OneDrive\\Escritorio\\Proyecto Final\\AutoDoc\\build\\CMakeFiles\\CMakeScratch\\TryCompile-5n3i1q\\Debug\\cmTC_8f2f5.exe" /INCREMENTAL /ILK:"cmTC_8f2f5.dir\\Debug\\cmTC_8f2f5.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/user/OneDrive/Escritorio/Proyecto Final/AutoDoc/build/CMakeFiles/CMakeScratch/TryCompile-5n3i1q/Debug/cmTC_8f2f5.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/user/OneDrive/Escritorio/Proyecto Final/AutoDoc/build/CMakeFiles/CMakeScratch/TryCompile-5n3i1q/Debug/cmTC_8f2f5.lib" /MACHINE:X64  /machine:x64 cmTC_8f2f5.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_8f2f5.vcxproj -> C:\\Users\\user\\OneDrive\\Escritorio\\Proyecto Final\\AutoDoc\\build\\CMakeFiles\\CMakeScratch\\TryCompile-5n3i1q\\Debug\\cmTC_8f2f5.exe
         PostBuildEvent:
           setlocal
-          C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -noprofile -executionpolicy Bypass -file C:/des/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary C:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc/build/CMakeFiles/CMakeScratch/TryCompile-li7q9x/Debug/cmTC_b957e.exe -installedDir C:/des/vcpkg/installed/x64-windows/debug/bin -OutVariable out
+          C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -noprofile -executionpolicy Bypass -file C:/des/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary "C:/Users/user/OneDrive/Escritorio/Proyecto Final/AutoDoc/build/CMakeFiles/CMakeScratch/TryCompile-5n3i1q/Debug/cmTC_8f2f5.exe" -installedDir C:/des/vcpkg/installed/x64-windows/debug/bin -OutVariable out
           if %errorlevel% neq 0 goto :cmEnd
           :cmEnd
           endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
@@ -255,15 +255,15 @@ events:
           if %errorlevel% neq 0 goto :VCEnd
           :VCEnd
         FinalizeBuildStatus:
-          Se eliminará el archivo "cmTC_b957e.dir\\Debug\\cmTC_b957e.tlog\\unsuccessfulbuild".
-          Aplicando tarea Touch a "cmTC_b957e.dir\\Debug\\cmTC_b957e.tlog\\cmTC_b957e.lastbuildstate".
-        Compilación del proyecto terminada "C:\\Users\\user\\OneDrive\\Escritorio\\AutoDocprueba\\AutoDoc\\build\\CMakeFiles\\CMakeScratch\\TryCompile-li7q9x\\cmTC_b957e.vcxproj" (destinos predeterminados).
+          Se eliminará el archivo "cmTC_8f2f5.dir\\Debug\\cmTC_8f2f5.tlog\\unsuccessfulbuild".
+          Aplicando tarea Touch a "cmTC_8f2f5.dir\\Debug\\cmTC_8f2f5.tlog\\cmTC_8f2f5.lastbuildstate".
+        Compilación del proyecto terminada "C:\\Users\\user\\OneDrive\\Escritorio\\Proyecto Final\\AutoDoc\\build\\CMakeFiles\\CMakeScratch\\TryCompile-5n3i1q\\cmTC_8f2f5.vcxproj" (destinos predeterminados).
         
         Compilación correcta.
             0 Advertencia(s)
             0 Errores
         
-        Tiempo transcurrido 00:00:01.40
+        Tiempo transcurrido 00:00:03.04
         
       exitCode: 0
 ...

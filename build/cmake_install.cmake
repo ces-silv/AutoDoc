@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc
+# Install script for directory: C:/Users/user/OneDrive/Escritorio/Proyecto Final/AutoDoc
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/user/OneDrive/Escritorio/Proyecto Final/AutoDoc/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc/build"
+			"value" : "c:/Users/user/OneDrive/Escritorio/Proyecto Final/AutoDoc/build"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -463,7 +463,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc/build/CMakeFiles/pkgRedirects"
+			"value" : "C:/Users/user/OneDrive/Escritorio/Proyecto Final/AutoDoc/build/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -523,7 +523,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc"
+			"value" : "C:/Users/user/OneDrive/Escritorio/Proyecto Final/AutoDoc"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1487,7 +1487,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc/build"
+			"value" : "C:/Users/user/OneDrive/Escritorio/Proyecto Final/AutoDoc/build"
 		},
 		{
 			"name" : "Prueba_IS_TOP_LEVEL",
@@ -1511,7 +1511,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/user/OneDrive/Escritorio/AutoDocprueba/AutoDoc"
+			"value" : "C:/Users/user/OneDrive/Escritorio/Proyecto Final/AutoDoc"
 		},
 		{
 			"name" : "SITE",

@@ -15,7 +15,7 @@ diagnostico ingresarDatosDiagnostico() {
     system("clear || cls");
     // Obtener la cédula del paciente y validarla
     do {
-        cout << "Ingrese la cedula del paciente: ";
+        cout << "Ingrese la cédula del paciente: ";
         cin >> diag.Paciente.cedula;
 
         if (!obtenerInfoPaciente(diag.Paciente.cedula, diag.Paciente)) {
@@ -60,7 +60,7 @@ prescripcion ingresarDatosPrescripcion() {
 
     // Obtener la cédula del paciente y validarla
     do {
-        cout << "Ingrese la cedula del paciente: ";
+        cout << "Ingrese la cédula del paciente: ";
         cin >> presc.Paciente.cedula;
 
         if (!obtenerInfoPaciente(presc.Paciente.cedula, presc.Paciente)) {
@@ -196,14 +196,14 @@ void diagPres() {
     int opcion;
 
     do {
-        printf("Seleccione una opci%cn:\n", 162);
-        printf("1. Ingresar diagn%cstico\n", 162);
-        printf("2. Ingresar prescripci%cn\n", 162);
-        printf("3. Mostrar diagn%csticos y prescripciones anteriores\n", 162);  // Nueva opción
-        printf("Elija una opci%cn: ", 162);
+        printf("Seleccione una opción:\n");
+        printf("1. Ingresar diagnóstico\n");
+        printf("2. Ingresar prescripción\n");
+        printf("3. Mostrar diagnósticos y prescripciones anteriores\n");  // Nueva opción
+        printf("Elija una opción: ", 162);
         
         while (!(cin >> opcion) || cin.peek() != '\n' || opcion < 1 || opcion > 3) {
-            printf("Entrada inv%clida. Por favor, ingrese 1, 2 o 3: ", 160);
+            printf("Entrada inválida. Por favor, ingrese 1, 2 o 3: ");
             std::cin.clear();
             std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
         }
@@ -212,13 +212,13 @@ void diagPres() {
             case 1: {
                 diagnostico nuevoDiagnostico = ingresarDatosDiagnostico();
                 guardarDiagnostico(nuevoDiagnostico);
-                printf("Diagn%cstico guardado exitosamente.\n", 162);
+                printf("Diagnóstico guardado exitosamente.\n");
                 break;
             }
             case 2: {
                 prescripcion nuevaPrescripcion = ingresarDatosPrescripcion();
                 guardarPrescripcion(nuevaPrescripcion);
-                printf("Prescripci%cn guardada exitosamente.\n", 162);
+                printf("Prescripción guardada exitosamente.\n");
                 break;
             }
             case 3: {
@@ -228,13 +228,13 @@ void diagPres() {
 
                 // Solicitar la cédula hasta que sea válida
                 while (!cedulaValida) {
-                    printf("Ingrese la c%cdula del paciente para mostrar diagn%csticos y prescripciones anteriores: ", 130, 162);
+                    printf("Ingrese la cédula del paciente para mostrar diagnósticos y prescripciones anteriores: ");
                     cin >> cedula;
 
                     if (obtenerInfoPaciente(cedula, paciente)) {
                         cedulaValida = true;
                     } else {
-                        printf("La c%cdula no existe en el registro. Ingrese una c%cdula v%clida.\n", 130, 130, 160);
+                        printf("La cédula no existe en el registro. Ingrese una cédula válida.\n");
                     }
                 }
 
@@ -242,12 +242,12 @@ void diagPres() {
                 break;
             }
             default:
-                printf("Opci%cn no v%clida.\n", 162, 160);
+                printf("Opción no válida.\n");
         }
 
         // Preguntar si el usuario desea volver al menú principal
         char respuesta;
-        printf("%cDesea volver al men%c principal (S/N): ", 168, 163);
+        printf("¿Desea volver al menú principal (S/N)? ");
         cin >> respuesta;
         
         if (toupper(respuesta) != 'S') {

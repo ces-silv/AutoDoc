@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CustomBuild Include="C:\Users\user\OneDrive\Escritorio\AutoDocprueba\AutoDoc\build\CMakeFiles\f64384b1063b17ed62a4453f0382d08c\generate.stamp.rule">
+    <CustomBuild Include="C:\Users\user\OneDrive\Escritorio\Proyecto Final\AutoDoc\build\CMakeFiles\0f70babbd4780951a3aa28fd7b3a601e\generate.stamp.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CMake Rules">
-      <UniqueIdentifier>{2B2CC443-4F24-3752-9A43-160D8F10E24E}</UniqueIdentifier>
+      <UniqueIdentifier>{36DC4439-9210-361D-A82C-03746992DD64}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
