@@ -8,6 +8,8 @@
 #include <direct.h>  // Para _mkdir
 #include <io.h>      // Para access
 #include <windows.h>
+#include <shellapi.h>
+#include <vector>
 #include "1_estructuras.h"
 
 using namespace std;
@@ -154,11 +156,25 @@ void crearPaciente() {
     cout << "Paciente creado y guardado exitosamente." << endl;
 }
 
-void buscarPacientes(){
+void abrirCarpetaPaciente(const string& cedula) {
+    // Define la ruta a la carpeta del paciente
+    string carpetaPaciente = "C:/Users/user/OneDrive/Escritorio/AutoDoc/" + cedula;
+
+    // Utiliza ShellExecute para abrir la carpeta en el explorador de archivos
+    HINSTANCE result = ShellExecute(nullptr, "explore", carpetaPaciente.c_str(), nullptr, nullptr, SW_SHOWNORMAL);
+
+    // Verifica el resultado de la operación
+    if ((intptr_t)result <= 32) {
+        cout << "Error al abrir la carpeta del paciente." << endl;
+    }
+}
+
+void buscarPacientes() {
     system("clear || cls");
     printf("--------MENÚ DE PACIENTES--------\n");
 
     string cedulaONombreInput;  // Variable local para almacenar la entrada del usuario
+    vector<registroP> pacientesEncontrados;  // Vector para almacenar pacientes
 
     do {
         cin.ignore();  // Limpiar el búfer del teclado
@@ -192,6 +208,9 @@ void buscarPacientes(){
                 // Verifica si la entrada coincide con cualquier parte del nombre o la cédula del paciente
                 if (nombreCompletoMayus.find(cedulaONombreMayus) != string::npos ||
                     convertirMayus(paciente.cedula).find(cedulaONombreMayus) != string::npos) {
+                    // Almacena el paciente encontrado en el vector
+                    pacientesEncontrados.push_back(paciente);
+
                     // Muestra la información del paciente encontrado
                     if (!encontrado) {
                         system("clear || cls");
@@ -216,12 +235,36 @@ void buscarPacientes(){
                 cout << "Pacientes no encontrados." << endl;
                 system("clear || cls");
                 printf("--------MENÚ DE PACIENTES--------\n");
+            } else {
+                // Pregunta si el usuario quiere abrir la carpeta de algún paciente encontrado
+                char opcionAbrirCarpeta;
+                cout << "¿Desea abrir la carpeta de algún paciente encontrado? (S/N)? ";
+                cin >> opcionAbrirCarpeta;
+
+                if (toupper(opcionAbrirCarpeta) == 'S') {
+                    // Muestra la lista de pacientes encontrados
+                    cout << "Lista de pacientes encontrados:" << endl;
+                    for (size_t i = 0; i < pacientesEncontrados.size(); ++i) {
+                        cout << i + 1 << ". Cédula: " << pacientesEncontrados[i].cedula << endl;
+                    }
+
+                    // Pide al usuario seleccionar un paciente por número
+                    size_t seleccion;
+                    cout << "Seleccione el número del paciente para abrir la carpeta: ";
+                    cin >> seleccion;
+
+                    // Verifica si la selección es válida
+                    if (seleccion > 0 && seleccion <= pacientesEncontrados.size()) {
+                        abrirCarpetaPaciente(pacientesEncontrados[seleccion - 1].cedula);
+                    } else {
+                        cout << "Selección no válida." << endl;
+                    }
+                }
             }
-        } else {
-            cout << "No se pudo abrir el archivo para lectura." << endl;
-        }
+        } 
     } while (true);
 }
+
 
 void listarPacientes() {
     ifstream archivo(archivoPacientes);
