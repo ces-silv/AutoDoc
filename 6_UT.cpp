@@ -3,9 +3,10 @@
 #include <sstream>
 #include <fstream>
 #include <limits>
-#include <ctime>
-#include <iomanip>
-#include <hpdf.h>
+#include <ctime> //Contiene funciones y tipos para trabajar con el tiempo y la fecha.
+#include <iomanip> //Se usa para establecer ciertos formatos, como la precisión decimal.
+#include <hpdf.h> //Esta es la biblioteca Haru Free PDF. Se utiliza para la manipulación 
+//de archivos PDF. Permite la creación y modificación de documentos PDF.
 #include <vector>
 #include "1_estructuras.h"
 
