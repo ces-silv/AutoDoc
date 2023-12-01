@@ -241,27 +241,27 @@ void error_handler(HPDF_STATUS error_no, HPDF_STATUS detail_no, void* user_data)
 }
 
 void draw_text_with_header_and_footer(HPDF_Page page, HPDF_Font font, const string& text, float x, float y, float max_width, float font_size, float line_spacing, const string& header, const string& footer, float header_spacing, float footer_spacing) {
-    HPDF_Page_SetFontAndSize(page, font, font_size);
-    const float margin = 50.0f;
+    HPDF_Page_SetFontAndSize(page, font, font_size); //Establece la fuente y el tamaño de la fuente para la página.
+    const float margin = 50.0f; //Define el margen de la página.
 
     // Dividir el texto del encabezado en líneas
-    vector<string> header_lines;
-    stringstream header_stream(header);
-    string header_line;
-    while (getline(header_stream, header_line, '\n')) {
+    vector<string> header_lines; //Declara un vector para almacenar las líneas del encabezado.
+    stringstream header_stream(header); //Crea un flujo de cadena a partir del texto del encabezado.
+    string header_line; //Declara una cadena para almacenar cada línea del encabezado.
+    while (getline(header_stream, header_line, '\n')) { //Divide el texto del encabezado en líneas y las guarda en el vector.
         header_lines.push_back(header_line);
     }
 
     // Dibujar encabezado
-    for (const auto& line : header_lines) {
-        HPDF_Page_BeginText(page);
-        HPDF_Page_TextOut(page, x, y, line.c_str());
-        HPDF_Page_EndText(page);
+    for (const auto& line : header_lines) { //Itera sobre las líneas del encabezado.
+        HPDF_Page_BeginText(page); //Inicia el bloque de texto.
+        HPDF_Page_TextOut(page, x, y, line.c_str()); //Dibuja la línea del encabezado en la posición especificada.
+        HPDF_Page_EndText(page); //Finaliza el bloque de texto.
         y -= header_spacing;
     }
 
     // Actualizar la posición y para el contenido principal
-    y -= header_spacing;
+    y -= header_spacing; //Actualiza la posición Y para la siguiente línea.
 
     // Calcular la altura de una línea de texto
     float line_height = static_cast<float>(HPDF_Font_GetCapHeight(font)) * font_size / 1000.0f;
@@ -365,11 +365,12 @@ void draw_text_with_header_and_footer(HPDF_Page page, HPDF_Font font, const stri
     }
 
     // Agregar el pie de página
-    for (const auto& footer_line : footer_lines) {
-        HPDF_Page_BeginText(page);
-        HPDF_Page_TextOut(page, x, y - line_height - footer_spacing, footer_line.c_str());
-        HPDF_Page_EndText(page);
-        y -= footer_spacing;
+    for (const auto& footer_line : footer_lines) { //Itera sobre las líneas del pie de página.
+        HPDF_Page_BeginText(page); //Inicia el bloque de texto.
+        HPDF_Page_TextOut(page, x, y - line_height - footer_spacing, footer_line.c_str()); 
+        //Dibuja la línea del pie de página en la posición especificada.
+        HPDF_Page_EndText(page); //Finaliza el bloque de texto.
+        y -= footer_spacing; //Actualiza la posición Y para la siguiente línea del pie de página.
     }
 }
 

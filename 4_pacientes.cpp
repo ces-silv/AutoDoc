@@ -1,41 +1,63 @@
 //Librerias
 #include <iostream>
-#include <fstream>
+#include <fstream> //Proporciona clases y funciones para trabajar con archivos.
 #include <string>
-#include <cctype>
-#include <limits>
-#include <sstream>
+#include <cctype> //Proporciona funciones para trabajar con caracteres, como verificar si un carácter es 
+//una letra mayúscula o minúscula.
+#include <limits> //Proporciona información sobre las características del sistema y los tipos de datos, 
+//como el valor máximo de un tipo numérico.
+#include <sstream> //Proporciona clases y funciones para trabajar con flujos de caracteres, como convertir 
+//tipos de datos a cadenas.
 #include <direct.h>  // Para _mkdir
 #include <io.h>      // Para access
-#include <windows.h>
-#include <shellapi.h>
-#include <vector>
+#include <windows.h> //Proporciona funciones relacionadas con la programación para el sistema operativo Windows, 
+//como funciones de manipulación de ventanas y procesos.
+#include <shellapi.h> //Para ShellExecute
+#include <vector> 
 #include "1_estructuras.h"
 
 using namespace std;
 
+// Ruta del archivo de pacientes
 const string archivoPacientes = "C:\\Users\\user\\OneDrive\\Escritorio\\AutoDoc\\pacientes.txt";
 
+// Verifica si una cédula ya existe en el archivo de pacientes
 bool cedulaExiste(const string& cedula) {
+    // Abre el archivo de pacientes
     ifstream archivo(archivoPacientes);
+    
+    // Verifica si el archivo se abrió correctamente
     if (archivo.is_open()) {
         string linea;
+        
+        // Lee cada línea del archivo
         while (getline(archivo, linea)) {
+            // Comprueba si la cédula está presente en la línea actual
             if (linea.find(cedula + ",") != string::npos) {
                 return true; // La cédula ya existe.
             }
         }
+        
+        // Cierra el archivo después de leer
         archivo.close();
     }
+    
     return false; // La cédula no existe.
 }
 
-//Función para convertir cadenas a mayúsculas
-string convertirMayus(const string& str){
+// Función para convertir cadenas a mayúsculas
+// Parámetro: const string& str - la cadena que se convertirá a mayúsculas
+string convertirMayus(const string& str) {
+    // Crea una copia de la cadena original para no modificar el contenido original
     string resultado = str;
-    for(char& c : resultado){
+
+    // Itera sobre cada carácter de la cadena
+    for(char& c : resultado) {
+        // Utiliza la función toupper para convertir el carácter a mayúsculas
         c = toupper(c);
     }
+
+    // Devuelve la cadena convertida a mayúsculas
     return resultado;
 }
 
@@ -61,7 +83,6 @@ bool esFechaValida(int dia, int mes, int anio) {
 }
 
 //Función para guardar archivos en registro
-
 void guardarRegistro(const registroP& paciente) {
     string ruta = "C:\\Users\\user\\OneDrive\\Escritorio\\AutoDoc\\pacientes.txt";  // Ruta completa del archivo
 
@@ -90,9 +111,9 @@ void crearPaciente() {
     paciente.cedula = convertirMayus(paciente.cedula);
     
     if (cedulaExiste(paciente.cedula)) {
-    cout << "Error: Ya existe un paciente con esa cédula." << endl;
-    return; // Salir de la función si la cédula ya está registrada.
-}
+        cout << "Error: Ya existe un paciente con esa cédula." << endl;
+        return; // Salir de la función si la cédula ya está registrada.
+    }
 
 
     cout << "Primer nombre del paciente: ";
@@ -301,26 +322,29 @@ void listarPacientes() {
 
 
 void actualizarPaciente() {
-    system("clear || cls");
+    system("clear || cls");  // Limpia la pantalla de la consola
     printf("--------MENÚ DE PACIENTES--------\n");
 
     string cedulaONombre;
-    cin.ignore();  // Limpiar el búfer del teclado
+    cin.ignore();  // Limpia el búfer del teclado
     printf("Ingrese la cédula o nombre del paciente a actualizar: ");
-    getline(cin, cedulaONombre);  // Leer toda la línea, permitiendo espacios en blanco
-    cedulaONombre = convertirMayus(cedulaONombre);
+    getline(cin, cedulaONombre);  // Lee toda la línea, permitiendo espacios en blanco
+    cedulaONombre = convertirMayus(cedulaONombre);  // Convierte la entrada a mayúsculas
 
-    ifstream archivo(archivoPacientes);
-    ofstream archivoTemp("temp.txt");
+    ifstream archivo(archivoPacientes);  // Abre el archivo de pacientes para lectura
+    ofstream archivoTemp("temp.txt");  // Abre un archivo temporal para escribir
 
+    // Verifica si los archivos se abrieron correctamente
     if (archivo.is_open() && archivoTemp.is_open()) {
         string linea;
 
         bool encontrado = false;
 
+        // Recorre cada línea del archivo de pacientes
         while (getline(archivo, linea)) {
             registroP paciente;
-            cargarRegistroDesdeLinea(linea, paciente);
+            cargarRegistroDesdeLinea(linea, paciente);  // Carga los datos del paciente desde la línea
+
             string cedulaEncontrada = paciente.cedula;
 
             // Convierte los nombres y apellidos del paciente a mayúsculas para la comparación
@@ -329,13 +353,16 @@ void actualizarPaciente() {
             string primerApellidoMayus = convertirMayus(paciente.nombrePaciente.primerApellido);
             string segundoApellidoMayus = convertirMayus(paciente.nombrePaciente.segundoApellido);
 
+            // Verifica si la entrada coincide con cualquier parte del nombre o la cédula del paciente
             if (cedulaEncontrada == cedulaONombre ||
                 primerNombreMayus.find(cedulaONombre) != string::npos ||
                 segundoNombreMayus.find(cedulaONombre) != string::npos ||
                 primerApellidoMayus.find(cedulaONombre) != string::npos ||
                 segundoApellidoMayus.find(cedulaONombre) != string::npos) {
                 encontrado = true;
-                system("cls || clear");
+                system("cls || clear");  // Limpia la pantalla de la consola
+
+                // Muestra la información del paciente encontrado
                 cout << "Paciente encontrado:" << endl << endl;
                 printf("Cédula: "); cout << paciente.cedula << endl;
                 cout << "Nombre: " << paciente.nombrePaciente.primerNombre << ' ' << paciente.nombrePaciente.segundoNombre << ' ' << paciente.nombrePaciente.primerApellido << ' ' << paciente.nombrePaciente.segundoApellido << endl;
@@ -359,6 +386,7 @@ void actualizarPaciente() {
 
                     switch (opcion) {
                         case 1:
+                            // Actualiza los nombres y apellidos del paciente
                             cout << "Nuevo nombre del paciente: ";
                             cin.ignore();
                             getline(cin, paciente.nombrePaciente.primerNombre);
@@ -370,20 +398,24 @@ void actualizarPaciente() {
                             getline(cin, paciente.nombrePaciente.segundoApellido);
                             break;
                         case 2:
+                            // Actualiza la fecha de nacimiento del paciente
                             do {
                                 printf("Nueva fecha de nacimiento (día mes año): ");
                                 cin >> paciente.fechas.nacimiento.dia >> paciente.fechas.nacimiento.mes >> paciente.fechas.nacimiento.anio;
                             } while (!esFechaValida(paciente.fechas.nacimiento.dia, paciente.fechas.nacimiento.mes, paciente.fechas.nacimiento.anio));
                             break;
                         case 3:
+                            // Actualiza el peso del paciente
                             cout << "Nuevo peso del paciente: ";
                             cin >> paciente.peso;
                             break;
                         case 4:
+                            // Actualiza la altura del paciente
                             cout << "Nueva altura del paciente: ";
                             cin >> paciente.altura;
                             break;
                         case 5:
+                            // Actualiza el número de teléfono del paciente
                             printf("Nuevo número de teléfono del paciente");
                             cin >> paciente.num_celular;
                             break;
@@ -395,10 +427,12 @@ void actualizarPaciente() {
                     }
                 } while (opcion != 7);
 
+                // Escribe la información actualizada en el archivo temporal
                 archivoTemp << paciente.cedula << ',' << paciente.nombrePaciente.primerNombre << ' ' << paciente.nombrePaciente.segundoNombre << ' ' << paciente.nombrePaciente.primerApellido << ' ' << paciente.nombrePaciente.segundoApellido << ',' << paciente.fechas.nacimiento.dia << '/'
                         << paciente.fechas.nacimiento.mes << '/' << paciente.fechas.nacimiento.anio << ','
                         << paciente.peso << ',' << paciente.altura << ',' << paciente.num_celular << '\n';
             } else {
+                // Escribe la línea original en el archivo temporal si no es el paciente a actualizar
                 archivoTemp << linea << endl;
             }
         }
@@ -406,6 +440,7 @@ void actualizarPaciente() {
         archivo.close();
         archivoTemp.close();
 
+        // Reemplaza el archivo original con el temporal si se encontró el paciente
         if (encontrado) {
             remove(archivoPacientes.c_str());
             rename("temp.txt", archivoPacientes.c_str());
@@ -416,28 +451,31 @@ void actualizarPaciente() {
     } else {
         cout << "No se pudo abrir el archivo para lectura o escritura." << endl;
     }
-} 
+}
+
 
 void eliminarDirectorio(const string& path) {
-    WIN32_FIND_DATA findFileData;
-    HANDLE hFind = FindFirstFile((path + "\\*").c_str(), &findFileData);
+    WIN32_FIND_DATA findFileData;  // Estructura para almacenar información sobre el archivo o directorio encontrado
+    HANDLE hFind = FindFirstFile((path + "\\*").c_str(), &findFileData);  // Busca el primer archivo o directorio en el path
 
     if (hFind != INVALID_HANDLE_VALUE) {
         do {
-            string filePath = path + "\\" + findFileData.cFileName;
+            string filePath = path + "\\" + findFileData.cFileName;  // Ruta completa del archivo o directorio
             if (findFileData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) {
+                // Verifica si es un directorio y no es "." ni ".."
                 if (strcmp(findFileData.cFileName, ".") != 0 && strcmp(findFileData.cFileName, "..") != 0) {
-                    eliminarDirectorio(filePath);
+                    eliminarDirectorio(filePath);  // Llamada recursiva para eliminar directorios internos
                 }
             } else {
-                DeleteFile(filePath.c_str());
+                DeleteFile(filePath.c_str());  // Elimina el archivo
             }
-        } while (FindNextFile(hFind, &findFileData) != 0);
-        FindClose(hFind);
+        } while (FindNextFile(hFind, &findFileData) != 0);  // Continúa buscando archivos o directorios siguientes
+        FindClose(hFind);  // Cierra el identificador de búsqueda
     }
 
-    RemoveDirectory(path.c_str());
+    RemoveDirectory(path.c_str());  // Elimina el directorio principal
 }
+
 
 
 void eliminarPaciente() {
