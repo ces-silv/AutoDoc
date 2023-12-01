@@ -277,6 +277,8 @@ void buscarPacientes() {
                     // Verifica si la selección es válida
                     if (seleccion > 0 && seleccion <= pacientesEncontrados.size()) {
                         abrirCarpetaPaciente(pacientesEncontrados[seleccion - 1].cedula);
+                        // Borra la información del vector después de abrir la carpeta
+                        pacientesEncontrados.clear();
                     } else {
                         cout << "Selección no válida." << endl;
                     }
