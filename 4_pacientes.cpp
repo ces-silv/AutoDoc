@@ -191,13 +191,12 @@ void abrirCarpetaPaciente(const string& cedula) {
 }
 
 void buscarPacientes() {
-    system("clear || cls");
-    printf("--------MENÚ DE PACIENTES--------\n");
-
     string cedulaONombreInput;  // Variable local para almacenar la entrada del usuario
     vector<registroP> pacientesEncontrados;  // Vector para almacenar pacientes
 
     do {
+        system("clear || cls");
+        printf("--------MENÚ DE PACIENTES--------\n");
         cin.ignore();  // Limpiar el búfer del teclado
         printf("Ingrese la cédula o nombre del paciente a buscar (o 'v' para volver al menú principal): ");
         getline(cin, cedulaONombreInput);  // Leer toda la línea, permitiendo espacios en blanco
@@ -478,24 +477,14 @@ void eliminarDirectorio(const string& path) {
     RemoveDirectory(path.c_str());  // Elimina el directorio principal
 }
 
-
-
 void eliminarPaciente() {
     system("clear || cls");
     printf("--------MENÚ DE PACIENTES--------\n");
+
     // Obtén la cédula o nombre del paciente a eliminar
     string cedulaPaciente;
     printf("Ingrese la cédula del paciente a eliminar: ");
     cin >> cedulaPaciente;
-
-    // Confirmación de la eliminación
-    char confirmacion;
-    printf("¿Está seguro de eliminar a este paciente (S/N)? "); 
-    cin >> confirmacion;
-    if (toupper(confirmacion) != 'S') {
-        printf("Operación cancelada.\n");
-        return;
-    }
 
     // Define la ruta a la carpeta del paciente
     string carpetaPaciente = "C:/Users/user/OneDrive/Escritorio/AutoDoc/" + cedulaPaciente;
@@ -509,12 +498,33 @@ void eliminarPaciente() {
     string linea;
     bool pacienteEncontrado = false;
     while (getline(archivoIn, linea)) {
-        if (linea.find(cedulaPaciente) == string::npos) {
+        registroP paciente;
+        cargarRegistroDesdeLinea(linea, paciente);
+
+        // Verifica si la línea corresponde al paciente a eliminar
+        if (paciente.cedula != cedulaPaciente) {
             archivoOut << linea << endl;
         } else {
             pacienteEncontrado = true;
+            cout << "\nPaciente encontrado:" << endl;
+            cout << "Cédula: " << paciente.cedula << endl;
+            cout << "Nombre: " << paciente.nombrePaciente.primerNombre << ' ' << paciente.nombrePaciente.segundoNombre << ' ' << paciente.nombrePaciente.primerApellido << ' ' << paciente.nombrePaciente.segundoApellido << endl;
+            cout << "Fecha de nacimiento: " << paciente.fechas.nacimiento.dia << "/" << paciente.fechas.nacimiento.mes << "/" << paciente.fechas.nacimiento.anio << endl;
+            cout << "Peso: " << paciente.peso << " lb" << endl;
+            cout << "Altura: " << paciente.altura << " cm" << endl;
+            cout << "Número de teléfono: " << paciente.num_celular << endl;
         }
     }
+
+     // Confirmación de la eliminación
+    char confirmacion;
+    printf("\n¿Está seguro de eliminar a este paciente (S/N)? ");
+    cin >> confirmacion;
+    if (toupper(confirmacion) != 'S') {
+        printf("Operación cancelada.\n");
+        return;
+    }
+
     archivoIn.close();
     archivoOut.close();
 
